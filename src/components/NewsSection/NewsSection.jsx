@@ -7,11 +7,15 @@ import { getNotices } from '@/firebase/noticeService';
 
 const NewsSection = () => {
   const [notices, setNotices] = useState();
-  useEffect(async () => {
+  
+ useEffect(() => {
+  const fetchData = async () => {
     const data = await getNotices();
     setNotices(data);
-    console.log(notices);
-  }, []);
+  };
+  fetchData();
+}, []);
+
   return (
     <section css={s.SectionContainer}>
       <div css={s.SectionInner}>

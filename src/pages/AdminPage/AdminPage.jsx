@@ -9,7 +9,6 @@ const AdminPage = () => {
       <div css={s.menuGrid}>
         <Link css={s.menuButton} href="/course" >교육과정 관리</Link>
         <Link css={s.menuButton} href="/notice" >공지사항 관리</Link>
-        <Link css={s.menuButton} href="/contact" >문의사항 관리</Link>
       </div>
     </div>
   );

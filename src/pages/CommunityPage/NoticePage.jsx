@@ -94,7 +94,7 @@ const NoticePage = () => {
             <S.SearchButton type="submit">검색</S.SearchButton>
  
             {isLoggedIn ?
-            <S.SearchButton><Link href="/admin/notice">등록</Link></S.SearchButton>
+            <S.SearchButton style={{marginLeft: "30px", borderRadius: "0.375rem"}}><Link href="/admin/notice">등록</Link></S.SearchButton>
           : null}
           </S.SearchContainer>
           

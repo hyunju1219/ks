@@ -14,13 +14,35 @@ export const mainTitle = css`
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 30px;
+  text-align: center;
+`;
+export const InfoSection = css`
+  margin-bottom: 2.5rem;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
 `;
 
 export const categoryTitle = css`
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin-top: 40px;
-  margin-bottom: 12px;
+  margin-bottom: 1.25rem;
+  color: #1f2937;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e5e7eb;
+  position: relative;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background-color: #0056b3;
+  }
 `;
 
 export const table = css`
@@ -34,7 +56,7 @@ export const table = css`
 export const th = css`
   border: 1px solid #ccc;
   padding: 12px;
- background-color: #e0f0ff; // 연한 파란색 (AliceBlue)
+ background-color: #f3f4f6; // 연한 파란색 (AliceBlue)
   font-weight: bold;
 `;
 

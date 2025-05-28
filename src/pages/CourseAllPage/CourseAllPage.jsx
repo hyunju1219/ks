@@ -26,7 +26,8 @@ const CourseAllPage = () => {
         <h2 css={s.mainTitle}>2025년도 실기 작업형 과정 한눈에 보기</h2>
 
         {/* ○ 기능장 */}
-        <h3 css={s.categoryTitle}>○기능장</h3>
+        <div css={s.InfoSection}>
+        <h3 css={s.categoryTitle}>기능장</h3>
         <table css={s.table}>
           <thead>
             <tr>
@@ -66,9 +67,11 @@ const CourseAllPage = () => {
             </tr>
           </tbody>
         </table>
+      </div>
 
         {/* ○ 산업기사 */}
-        <h3 css={s.categoryTitle}>○산업기사</h3>
+        <div css={s.InfoSection}>
+        <h3 css={s.categoryTitle}>산업기사</h3>
         <table css={s.table}>
           <thead>
             <tr>
@@ -140,9 +143,10 @@ const CourseAllPage = () => {
             </tr>
           </tbody>
         </table>
-
+        </div>
         {/* ○ 기능사 */}
-        <h3 css={s.categoryTitle}>○기능사</h3>
+            <div css={s.InfoSection}>
+        <h3 css={s.categoryTitle}>기능사</h3>
         <table css={s.table}>
           <thead>
             <tr>
@@ -232,6 +236,7 @@ const CourseAllPage = () => {
             </tr>
           </tbody>
         </table>
+         </div>
       </div>
 
       <CTASection />

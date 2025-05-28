@@ -6,6 +6,7 @@ import CTASection from '../../components/CTASection/CTASection';
 import * as S from './style';
 import useAuthstate from '@/hooks/useAuthstate';
 import { deleteCourse, getCourseById } from '@/firebase/courseService';
+import { color } from 'framer-motion';
 
 const CourseDetailPage = () => {
   const { id } = useParams();
@@ -80,17 +81,17 @@ console.log(course);
               { name: course.courseName, link: null }
             ]}
           />
-        {
-          isLoggedIn ?
-          <div>
-            <Link href={`/admin/course/${id}`}>
-              <S.ContactButton>수정</S.ContactButton>
-            </Link>
-            <S.ContactButton onClick={handleDelete}>삭제</S.ContactButton>
-          </div>
-          : null
-        }
           <S.CourseDetailSection>
+            {
+              isLoggedIn ?
+              <S.SectionInner>
+                <Link href={`/admin/course/${id}`}>
+                  <S.ContactButton>수정</S.ContactButton>
+                </Link>
+                <S.ContactButton style={{ marginLeft: "10px", backgroundColor: "red" }}  onClick={handleDelete}>삭제</S.ContactButton>
+              </S.SectionInner>
+              : null
+            }
             <S.SectionInner>
               <S.CourseDetailHeader>
                 <S.CourseDetailImage src={course.imageUrl} alt={course.title} />
@@ -170,9 +171,7 @@ console.log(course);
               <S.CourseDetailContent>
                 <S.CourseDetailSubSection>
                   <S.SectionTitle>교육과정 특징</S.SectionTitle>
-                  <S.FeatureList>
-                    {course.description}
-                  </S.FeatureList>
+                  <S.FeatureList dangerouslySetInnerHTML={{ __html: course.description }} />
                 </S.CourseDetailSubSection>
                 
                 {/* <S.CourseDetailSubSection>

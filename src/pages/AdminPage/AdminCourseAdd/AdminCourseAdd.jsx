@@ -4,6 +4,7 @@ import * as s from './style';
 import { uploadImage } from '@/firebase/uploadImage';
 import { saveCourse } from '@/firebase/courseService';
 import { useLocation } from 'wouter';
+import ReactQuill from 'react-quill';
 
 const AdminCourseAdd = () => {
   const [imageFile, setImageFile] = useState(null);
@@ -33,6 +34,10 @@ const AdminCourseAdd = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleDescriptionChange = (value) => {
+    setForm((prev) => ({ ...prev, description: value }));
+  };
+
   const handleSave = async () => {
   try {
     const courseId = form.id || crypto.randomUUID();
@@ -51,7 +56,7 @@ const AdminCourseAdd = () => {
 
     await saveCourse(newCourse); // Firestore 저장 로직
     alert('저장 완료');
-    setLocation('/notice');
+    setLocation('/course');
   } catch (err) {
     console.error('저장 오류', err);
     alert('저장 실패');
@@ -131,7 +136,10 @@ const AdminCourseAdd = () => {
 
       <div css={s.formGroup}>
         <label>교육과정 설명</label>
-        <textarea name="description" value={form.description} onChange={handleChange} css={s.textarea} />
+        <ReactQuill 
+          value={form.description} onChange={handleDescriptionChange} 
+          style={{ width: "800px", height: "200px", marginBottom: "20px" }}
+        />
       </div>
 
       

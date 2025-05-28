@@ -75,7 +75,9 @@ const CoursePage = () => {
           </S.CategoryFilter>
 
           {isLoggedIn && (
-            <Link href='/admin/course'><button>과정추가</button></Link>
+            <S.CategoryFilter>
+              <Link href='/admin/course'><S.ContactButton>과정추가</S.ContactButton></Link>
+            </S.CategoryFilter>
           )}
 
           {loading ? (

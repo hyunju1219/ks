@@ -6,6 +6,7 @@ import { uploadImage } from '@/firebase/uploadImage';
 import { deleteCourse, getCourseById, saveCourse } from '@/firebase/courseService';
 
 import { useLocation, useParams } from 'wouter';
+import ReactQuill from 'react-quill';
 
 const AdminCourseEdit = () => {
   const { id } = useParams();
@@ -59,6 +60,9 @@ const AdminCourseEdit = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
+   const handleDescriptionChange = (value) => {
+    setForm((prev) => ({ ...prev, description: value }));
+  };
 const handleSave = async () => {
     try {
       const courseId = form.id || crypto.randomUUID();
@@ -201,7 +205,10 @@ const handleDelete = async () => {
 
       <div css={s.formGroup}>
         <label>교육과정 설명</label>
-        <textarea name="description" value={form.description} onChange={handleChange} css={s.textarea} />
+        <ReactQuill 
+          value={form.description} onChange={handleDescriptionChange} 
+          style={{ width: "800px", height: "200px", marginBottom: "20px" }}
+        />
       </div>
 
       

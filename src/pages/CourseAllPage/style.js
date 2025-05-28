@@ -25,6 +25,20 @@ export const InfoSection = css`
   border: 1px solid #f0f0f0;
 `;
 
+export const tableWrapper = css`
+  width: 100%;
+  overflow-x: auto;
+  
+  /* 스크롤바 약간 숨기기 (선택) */
+  -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+  
+  /* 모바일에서만 적용하려면 미디어 쿼리 사용 */
+  @media (max-width: 768px) {
+    /* 스크롤바가 잘 보이도록 아래 여백 추가 가능 */
+    margin-bottom: 1rem;
+  }
+`;
+
 export const categoryTitle = css`
   font-size: 1.25rem;
   font-weight: 600;

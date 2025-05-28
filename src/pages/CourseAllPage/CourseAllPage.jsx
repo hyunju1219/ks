@@ -28,6 +28,7 @@ const CourseAllPage = () => {
         {/* ○ 기능장 */}
         <div css={s.InfoSection}>
         <h3 css={s.categoryTitle}>기능장</h3>
+          <div css={s.tableWrapper}>
         <table css={s.table}>
           <thead>
             <tr>
@@ -67,11 +68,13 @@ const CourseAllPage = () => {
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
 
         {/* ○ 산업기사 */}
         <div css={s.InfoSection}>
         <h3 css={s.categoryTitle}>산업기사</h3>
+        <div css={s.tableWrapper}>
         <table css={s.table}>
           <thead>
             <tr>
@@ -144,9 +147,11 @@ const CourseAllPage = () => {
           </tbody>
         </table>
         </div>
+        </div>
         {/* ○ 기능사 */}
             <div css={s.InfoSection}>
         <h3 css={s.categoryTitle}>기능사</h3>
+        <div css={s.tableWrapper}>
         <table css={s.table}>
           <thead>
             <tr>
@@ -236,6 +241,7 @@ const CourseAllPage = () => {
             </tr>
           </tbody>
         </table>
+         </div>
          </div>
       </div>
 

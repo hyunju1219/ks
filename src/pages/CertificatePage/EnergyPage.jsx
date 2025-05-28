@@ -28,31 +28,25 @@ const EnergyPage = () => {
         <S.SectionInner>
           {/* 상단 네비게이션 */}
           <S.CertificateNav>
-            <div>
               <Link href="/certificate/energy">
                 <S.CertificateNavItem isActive={true}>개요</S.CertificateNavItem>
               </Link>
-            </div>
-            <div>
+
               <Link href="/certificate/energy/master">
                 <S.CertificateNavItem>기능사</S.CertificateNavItem>
               </Link>
-            </div>
-            <div>
+   
               <Link href="/certificate/energy/industrial">
                 <S.CertificateNavItem>산업기사</S.CertificateNavItem>
               </Link>
-            </div>
-            <div>
+ 
               <Link href="/certificate/energy/engineer">
                 <S.CertificateNavItem>기사</S.CertificateNavItem>
               </Link>
-            </div>
-            <div>
+     
               <Link href="/certificate/energy/craftsman">
                 <S.CertificateNavItem>기능장</S.CertificateNavItem>
               </Link>
-            </div>
           </S.CertificateNav>
           
           {/* 상단 배너 이미지 */}

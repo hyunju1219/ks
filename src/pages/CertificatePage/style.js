@@ -18,6 +18,7 @@ export const SectionInner = styled.div`
 export const CertificateNav = styled.div`
   display: flex;
   flex-wrap: wrap;
+  height: auto;
   gap: 0.5rem;
   margin-bottom: 2rem;
   
@@ -27,6 +28,7 @@ export const CertificateNav = styled.div`
 `;
 
 export const CertificateNavItem = styled.a`
+  display: inline-block; /* 또는 flex */
   padding: 0.75rem 1.25rem;
   background-color: ${props => props.isActive ? '#0056b3' : '#f3f4f6'};
   color: ${props => props.isActive ? 'white' : '#4b5563'};

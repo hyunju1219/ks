@@ -35,7 +35,9 @@ const Footer = () => {
           <div css={s.FooterColumn}>
             <h4 css={s.FooterHeading}>연락처</h4>
             <p css={s.FooterText}>부산광역시 부산진구 연수로 15-1</p>
-            <p css={s.FooterText}>전화: 051-806-2200</p>
+            <p css={s.FooterText}>전화</p>
+            <p css={s.FooterText}>051-806-2200</p>
+            <p css={s.FooterText}>051-864-0535</p>
             <p css={s.FooterText}>이메일: </p>
           </div>
         </div>

@@ -23,6 +23,10 @@ export const LogoContainer = css`
   align-items: center;
 `;
 
+export const logo = css`
+  width: 18rem;
+`;
+
 export const Logo = css`
   color: #0056b3;
   font-size: 1.5rem;

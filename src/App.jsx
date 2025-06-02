@@ -50,6 +50,7 @@ import AdminRoutes from "./routes/AdminRoutes";
 import useAuthstate from "./hooks/useAuthstate";
 import NoticeDetailPage from "./pages/CommunityPage/NoticeDetailpage/NoticeDetailPage";
 import CourseAllPage from "./pages/CourseAllPage/CourseAllPage";
+import CoureseJoinPage from "./pages/CourseJoinPage/CourseJoinPage";
 function Router() {
   const ScrollToTop = () => {
     const [location] = useLocation();
@@ -92,9 +93,10 @@ function Router() {
         <Route path="/certificate/heating" component={HotWaterPage} />
         <Route path="/certificate/heating/master" component={HotWaterMasterPage} />
         
-        <Route path="/courseJoin" component={CourseAllPage} />
+        <Route path="/courseJoin" component={CoureseJoinPage} />
         <Route path="/courseAll" component={CourseAllPage} />
         <Route path="/course" component={CoursePage} />
+        <Route path="/course/:categorySlug" component={CoursePage} />
         <Route path="/course/:id" component={CourseDetailPage} />
         <Route path="/job-center" component={JobCenterPage} />
         <Route path="/notice" component={NoticePage} />

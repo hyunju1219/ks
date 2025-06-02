@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
-
+import logo from '../../assets/images/kstg_logo.png';
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
@@ -81,10 +81,13 @@ const Header = () => {
       name: '모집교육',
       path: '/courseAll',
       submenu: [
-        { name: '현재모집중인교육', path: '/courseJoin' },
-        { name: '국가기간전략훈련', path: '/courseAll' },
-        { name: '내일배움카드', path: '/course' },
-        { name: '부산광역시 훈련', path: '/course/process' }
+        { name: '현재모집교육', path: '/courseJoin' },
+        { name: '전체교육보기', path: '/courseAll' },
+        { name: '국가기간전략훈련', path: '/course/national-strategy' },
+        { name: '내일배움카드', path: '/course/naeil-card' },
+        { name: '과정평가형', path: '/course/assessment-type' },
+        { name: '부산시과정', path: '/course/busan' },
+        // { name: '부산광역시 훈련', path: '/course/process' }
       ]
     },
     {
@@ -92,7 +95,7 @@ const Header = () => {
       path: '/job-center',
       submenu: [
         { name: '지원시스템', path: '/job-center' },
-        { name: '취업정보', path: '/job-center/info' }
+        // { name: '취업정보', path: '/job-center/info' }
       ]
     },
     {
@@ -110,7 +113,7 @@ const Header = () => {
       <div css={s.HeaderInner}>
         <div css={s.LogoContainer}>
           <Link href="/">
-            <span css={s.Logo}>금성기술직업전문학교</span>
+          <img css={s.logo} src={logo} />
           </Link>
         </div>
         

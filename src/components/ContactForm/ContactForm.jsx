@@ -47,7 +47,7 @@ const ContactForm = () => {
       phone: formData.phone,
       subject: formData.subject,
       message: formData.message,
-      to_email: "guswn11223@gmail.com",
+      to_email: "kstg35@naver.com",
     };
 
     console.log("전송할 파라미터:", templateParams);

@@ -84,4 +84,7 @@ export const button = css`
   background-color: rgba(0, 86, 179, 0.1);
   border-radius: 0.5rem;
   color: wh;
+  &:disabled {
+    background-color: #dbdbdb;
+  }
 `;

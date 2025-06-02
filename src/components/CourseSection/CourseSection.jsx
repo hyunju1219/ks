@@ -1,7 +1,10 @@
 
 /** @jsxImportSource @emotion/react */
 import * as s from './style';
-
+import maintenance from '../../assets/images/공조냉동.jpg';
+import energy from '../../assets/images/에너지.jpg';
+import certigicate from '../../assets/images/설비보전2.jpg';
+import hotwater from '../../assets/images/온수온돌.jpg';
 import { Link } from 'wouter';
 
 
@@ -11,28 +14,28 @@ const CourseSection = () => {
       id: 1,
       title: '공조냉동기계 과정',
       description: '냉동기, 공조기, 보일러 등의 설치 및 운용 기술을 습득하는 과정',
-      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300',
+      image: maintenance,
       link: '/certificate/refrigeration'
     },
     {
       id: 2,
       title: '에너지관리 과정',
       description: '에너지 설비의 효율적 운용 및 관리 기술을 습득하는 과정',
-      image: 'https://images.unsplash.com/photo-1591696205602-2f950c417cb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300',
+      image: "https://media.canva.com/v2/image-resize/format:JPG/height:452/quality:92/uri:ifs%3A%2F%2FM%2Fc2c87855-baa9-47fa-a77f-9945674aec25/watermark:F/width:800?csig=AAAAAAAAAAAAAAAAAAAAAFt8ZWnn1q_-H2pDHMr8CztPzjYu7gxMgLSXXKIg6sN_&exp=1748857488&osig=AAAAAAAAAAAAAAAAAAAAAMGHQYS7bobtreXHXY0pEu0U9KfN_Lc29jjQih1FOiqa&signer=media-rpc&x-canva-quality=screen",
       link: '/certificate/energy'
     },
     {
       id: 3,
       title: '설비보전 과정',
       description: '산업 설비의 유지보수 및 관리 기술을 습득하는 과정',
-      image: 'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300',
+      image: certigicate,
       link: '/certificate/maintenance'
     },
     {
       id: 4,
       title: '온수온돌 과정',
       description: '온수온돌 설비의 설치 및 관리 기술을 습득하는 과정',
-      image: 'https://images.unsplash.com/photo-1581092334247-47406fb9ec46?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300',
+      image: hotwater,
       link: '/certificate/heating'
     }
   ];

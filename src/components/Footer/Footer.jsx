@@ -38,7 +38,7 @@ const Footer = () => {
             <p css={s.FooterText}>전화</p>
             <p css={s.FooterText}>051-806-2200</p>
             <p css={s.FooterText}>051-864-0535</p>
-            <p css={s.FooterText}>이메일: </p>
+            <p css={s.FooterText}>이메일: kstg35@naver.com</p>
           </div>
         </div>
         

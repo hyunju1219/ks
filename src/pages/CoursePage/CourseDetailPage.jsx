@@ -107,7 +107,7 @@ console.log(course);
                       <i className="fas fa-calendar-alt"></i>
                     </S.CourseInfoIcon>
                     <S.CourseInfoTitle>교육 유형</S.CourseInfoTitle>
-                    <S.CourseInfoValue>{course.type}</S.CourseInfoValue>
+                    <S.CourseInfoValue>{course.category}</S.CourseInfoValue>
                   </S.CourseInfoCard>
 
                   <S.CourseInfoCard>
@@ -122,16 +122,16 @@ console.log(course);
                     <S.CourseInfoIcon>
                       <i className="fas fa-calendar-alt"></i>
                     </S.CourseInfoIcon>
-                    <S.CourseInfoTitle>훈련 기간 및 일정</S.CourseInfoTitle>
-                    <S.CourseInfoValue>{course.schedule}</S.CourseInfoValue>
+                    <S.CourseInfoTitle>훈련 기간</S.CourseInfoTitle>
+                    <S.CourseInfoValue>{course.trainingPeriod}</S.CourseInfoValue>
                   </S.CourseInfoCard>
                   
                    <S.CourseInfoCard>
                     <S.CourseInfoIcon>
                       <i className="fas fa-calendar-alt"></i>
                     </S.CourseInfoIcon>
-                    <S.CourseInfoTitle>교육 장소</S.CourseInfoTitle>
-                    <S.CourseInfoValue>{course.location}</S.CourseInfoValue>
+                    <S.CourseInfoTitle>일정</S.CourseInfoTitle>
+                    <S.CourseInfoValue>{course.schedule}</S.CourseInfoValue>
                   </S.CourseInfoCard>
 
                   <S.CourseInfoCard>

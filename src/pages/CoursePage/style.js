@@ -56,6 +56,7 @@ export const CourseGrid = styled.div`
 `;
 
 export const CourseCard = styled.div`
+  box-sizing: border-box;
   background-color: white;
   border-radius: 0.5rem;
   overflow: hidden;
@@ -83,13 +84,17 @@ export const CourseTitle = styled.h3`
   font-weight: 700;
   margin-bottom: 1rem;
   color: #1f2937;
+    display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 `;
 
 export const CourseInfo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.2rem;
   
   @media (min-width: 640px) {
     flex-direction: row;
@@ -98,6 +103,8 @@ export const CourseInfo = styled.div`
 `;
 
 export const CourseDetail = styled.div`
+  display: flex;
+  flex-direction: column;
   font-size: 0.875rem;
   color: #4b5563;
 `;

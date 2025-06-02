@@ -26,24 +26,12 @@ const JobCenterPage = () => {
     },
     {
       id: 3,
-      title: '모의 면접 훈련',
-      description: '실제 면접과 유사한 환경에서 모의 면접을 진행하여 면접 기술을 향상시키고 자신감을 키웁니다.',
-      icon: 'https://cdn-icons-png.flaticon.com/512/3309/3309722.png'
-    },
-    {
-      id: 4,
       title: '취업 추천 및 알선',
       description: '산학협력 기업 및 협약 기업과의 네트워크를 통해 졸업생 취업을 적극 지원합니다.',
       icon: 'https://cdn-icons-png.flaticon.com/512/1006/1006056.png'
     },
     {
-      id: 5,
-      title: '취업 특강 및 세미나',
-      description: '산업 동향 및 취업 전략에 관한 특강과 세미나를 정기적으로 개최하여 취업 역량을 강화합니다.',
-      icon: 'https://cdn-icons-png.flaticon.com/512/3976/3976625.png'
-    },
-    {
-      id: 6,
+      id: 4,
       title: '졸업생 사후 관리',
       description: '취업 후에도 지속적인 관리와 지원을 통해 직장 적응과 경력 개발을 돕습니다.',
       icon: 'https://cdn-icons-png.flaticon.com/512/8696/8696302.png'

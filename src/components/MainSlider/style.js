@@ -10,7 +10,7 @@ const slideAnimation = keyframes`
 
 export const SliderContainer = css`
   position: relative;
-  background-color: #003d81;
+  /* background-color: #003d81; */
   overflow: hidden;
   height: 500px;
   

@@ -1,143 +1,140 @@
+/** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'wouter';
+import { Link, useParams } from 'wouter'; // useLocation은 현재 직접 사용하지 않으므로 제거 가능
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import CTASection from '../../components/CTASection/CTASection';
 import * as S from './style';
-import { db } from '@/firebase/config'; // db is imported but not directly used, getCourse handles it
 import useAuthstate from '@/hooks/useAuthstate';
-// collection and getDocs are not directly used here, getCourse likely uses them
-// import { collection, getDocs } from 'firebase/firestore';
 import { getCourse } from '@/firebase/courseService';
 
+// URL 슬러그를 Firestore category 값(화면 표시 이름과 동일하다고 가정) 및 breadcrumb 이름과 매핑
+const categoryMappingsBySlug = {
+  'all': { firestoreValue: 'all', displayName: '전체 과정' }, // 'all'은 특수 케이스
+  'national-strategy': { firestoreValue: '국가기간전략훈련', displayName: '국가기간전략훈련' },
+  'naeil-card': { firestoreValue: '내일배움카드', displayName: '내일배움카드' },
+  'assessment-type': { firestoreValue: '과정평가형', displayName: '과정평가형' },
+  'busan': { firestoreValue: '부산시과정', displayName: '부산시과정' }, // Firestore에는 '부산시과정'이 아닌 '부산시 과정'으로 저장되었다고 가정
+};
+
 const CoursePage = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const params = useParams();
+
+  // URL 파라미터(slug)를 기반으로 현재 필터링할 Firestore category 값을 결정
+  const getActiveCategoryFromSlug = () => {
+    const slug = params.categorySlug;
+    if (slug && categoryMappingsBySlug[slug]) {
+      return categoryMappingsBySlug[slug].firestoreValue; // 예: 'national-strategy' -> '국가기간전략훈련'
+    }
+    return 'all'; // 기본값 또는 /course 경로일 때
+  };
+
+  const [activeCategoryToFilter, setActiveCategoryToFilter] = useState(getActiveCategoryFromSlug);
   const [loading, setLoading] = useState(true);
-  const [courses, setCourses] = useState([]);
+  const [allCourses, setAllCourses] = useState([]);
   const { isLoggedIn } = useAuthstate();
 
+  // 1. 모든 과정 데이터를 한 번만 불러옴
   useEffect(() => {
-    const fetchCourses = async () => {
-      setLoading(true); // Good practice to set loading true at the start of fetch
+    const fetchAllCoursesData = async () => {
+      setLoading(true);
       try {
         const data = await getCourse();
-        setCourses(data);
+        setAllCourses(data);
       } catch (error) {
-        console.error('코스 불러오기 오류:', error);
+        console.error('코스 전체 불러오기 오류:', error);
+        setAllCourses([]);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchCourses();
+    fetchAllCoursesData();
   }, []);
 
-  const breadcrumbs = [
-    { name: '교육 과정', link: '/course' },
-    { name: '전체과정', link: null } // This will likely be updated by activeCategory later if needed
-  ];
+  // 2. URL 파라미터 (categorySlug)가 변경되면 activeCategoryToFilter 업데이트
+  useEffect(() => {
+    setActiveCategoryToFilter(getActiveCategoryFromSlug());
+  }, [params.categorySlug]);
 
-  // Corrected categories: id now matches Firebase values
-  const categories = [
-    { id: 'all', name: '전체' },
-    { id: '국기반', name: '국기반' }, // Changed id from 'refrigeration'
-    { id: '계좌제', name: '계좌제' }, // Changed id from 'energy'
-    { id: '부산시', name: '부산시' }  // Changed id from 'maintenance'
-  ];
 
-  const filteredCourses = activeCategory === 'all'
-    ? courses
-    : courses.filter(course => course.category === activeCategory);
+  // 현재 activeCategoryToFilter에 따라 과정 필터링
+  const filteredCourses = activeCategoryToFilter === 'all'
+    ? allCourses
+    : allCourses.filter(course => course.category === activeCategoryToFilter); // Firestore의 category 필드와 직접 비교
 
-  // Update breadcrumb for current category (optional but good UX)
-  const currentCategoryName = categories.find(cat => cat.id === activeCategory)?.name || '전체과정';
+  // Breadcrumbs 및 페이지 타이틀, 서브타이틀에 사용될 현재 카테고리 정보
+  const currentDisplayDetails = params.categorySlug && categoryMappingsBySlug[params.categorySlug]
+    ? categoryMappingsBySlug[params.categorySlug]
+    : categoryMappingsBySlug['all'];
+
   const dynamicBreadcrumbs = [
     { name: '교육 과정', link: '/course' },
-    { name: currentCategoryName, link: null }
+    { name: currentDisplayDetails.displayName, link: null }
   ];
-
 
   return (
      <S.PageContainer>
       <Helmet>
-        <title>교육 과정 - 금성기술직업전문학교</title>
-        <meta name="description" content="금성기술직업전문학교의 다양한 교육 과정을 소개합니다." />
+        <title>{currentDisplayDetails.displayName} - 금성기술직업전문학교</title>
+        <meta name="description" content={`금성기술직업전문학교의 ${currentDisplayDetails.displayName} 교육 과정을 소개합니다.`} />
       </Helmet>
 
       <SubpageHeader
-        title="교육 과정"
-        subtitle="금성기술직업전문학교에서 제공하는 다양한 교육 과정을 확인하세요"
-        breadcrumbs={dynamicBreadcrumbs} // Use dynamic breadcrumbs
+        title={currentDisplayDetails.displayName}
+        subtitle={`금성기술직업전문학교에서 제공하는 ${currentDisplayDetails.displayName}을 확인하세요`}
+        breadcrumbs={dynamicBreadcrumbs}
       />
 
       <S.ContentSection>
         <S.SectionInner>
-          <S.CategoryFilter>
-            {categories.map(category => (
-              <S.CategoryButton
-                key={category.id}
-                isActive={activeCategory === category.id}
-                onClick={() => setActiveCategory(category.id)}
-              >
-                {category.name}
-              </S.CategoryButton>
-            ))}
-          </S.CategoryFilter>
-
           {isLoggedIn && (
-            <S.CategoryFilter> {/* This might need different styling or placement */}
-              <Link href='/admin/course'><S.ContactButton>과정추가</S.ContactButton></Link>
-            </S.CategoryFilter>
+            <div style={{ marginBottom: '2rem', textAlign: 'right' }}>
+              <Link href='/admin/course'>
+                <S.ContactButton>과정추가</S.ContactButton>
+              </Link>
+            </div>
           )}
 
-          {loading ? (
-            <p>불러오는 중...</p>
+          {loading && allCourses.length === 0 ? (
+            <S.LoadingContainer>
+              <S.LoadingSpinner />
+              <S.LoadingText>과정을 불러오는 중...</S.LoadingText>
+            </S.LoadingContainer>
           ) : (
             <S.CourseGrid>
               {filteredCourses.length > 0 ? (
                 filteredCourses.map(course => (
-                  <Link href={`/course/${course.id}`} key={course.id}>
+                  <Link href={`/course-detail/${course.id}`} key={course.id} style={{ textDecoration: 'none' }}>
                     <S.CourseCard>
-                      <S.CourseImage src={course.imageUrl} alt={course.courseName} /> {/* Use courseName for alt */}
+                      <S.CourseImage src={course.imageUrl || 'https://via.placeholder.com/400x200?text=No+Image'} alt={course.courseName} />
                       <S.CourseContent>
                         <S.CourseTitle>{course.courseName}</S.CourseTitle>
                         <S.CourseInfo>
                           <S.CourseDetail>
-                            {/* Assuming 'registrationPeriod' is for 접수기간 and 'schedule' is for 훈련일정 */}
-                            {/* Please verify these mappings with your Firebase data structure */}
                             <S.DetailLabel>접수기간:</S.DetailLabel> {course.registrationPeriod}
                           </S.CourseDetail>
                           <S.CourseDetail>
                             <S.DetailLabel>훈련일정:</S.DetailLabel> {course.schedule}
                           </S.CourseDetail>
                         </S.CourseInfo>
-                        <S.MoreButton>자세히 보기</S.MoreButton>
+                        <S.MoreButton as="span">자세히 보기</S.MoreButton>
                       </S.CourseContent>
                     </S.CourseCard>
                   </Link>
                 ))
               ) : (
-                // This empty message will now show if filteredCourses is empty after loading
-                // No separate !loading check needed here as it's inside the !loading block
                 <S.EmptyMessage>해당 카테고리의 과정이 없습니다.</S.EmptyMessage>
               )}
             </S.CourseGrid>
           )}
-          
-          {/* This specific check is now redundant because it's handled within the loading block */}
-          {/* {filteredCourses.length === 0 && !loading && (
-            <S.EmptyMessage>해당 카테고리의 과정이 없습니다.</S.EmptyMessage>
-          )} */}
         </S.SectionInner>
       </S.ContentSection>
 
-      {/* 교육 프로세스 섹션, CTA 등 기존 내용 동일 */}
       <S.ProcessSection>
         <S.SectionInner>
           <S.ProcessTitle>교육 프로세스</S.ProcessTitle>
           <S.ProcessSubtitle>체계적인 교육 과정을 통해 취업까지 지원합니다</S.ProcessSubtitle>
-
-          <S.ProcessSteps>
+           <S.ProcessSteps>
             <S.ProcessStep>
               <S.StepIcon>1</S.StepIcon>
               <S.StepInfo>
@@ -146,7 +143,6 @@ const CoursePage = () => {
               </S.StepInfo>
             </S.ProcessStep>
             <S.StepConnector />
-
             <S.ProcessStep>
               <S.StepIcon>2</S.StepIcon>
               <S.StepInfo>
@@ -155,7 +151,6 @@ const CoursePage = () => {
               </S.StepInfo>
             </S.ProcessStep>
             <S.StepConnector />
-
             <S.ProcessStep>
               <S.StepIcon>3</S.StepIcon>
               <S.StepInfo>
@@ -164,7 +159,6 @@ const CoursePage = () => {
               </S.StepInfo>
             </S.ProcessStep>
             <S.StepConnector />
-
             <S.ProcessStep>
               <S.StepIcon>4</S.StepIcon>
               <S.StepInfo>
@@ -173,7 +167,6 @@ const CoursePage = () => {
               </S.StepInfo>
             </S.ProcessStep>
             <S.StepConnector />
-
             <S.ProcessStep>
               <S.StepIcon>5</S.StepIcon>
               <S.StepInfo>

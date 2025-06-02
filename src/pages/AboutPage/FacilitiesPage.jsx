@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import CTASection from '../../components/CTASection/CTASection';
@@ -18,7 +18,19 @@ import refrigerantTanksImage from '../../assets/facilities/gas-tanks.png';
 import indoorImage from '../../assets/facilities/indoor-hallway.png';
 import buildingImage from '../../assets/facilities/building.png';
 
+//실습 사진
+import practice1 from '../../assets/practice/실습1.jpg';
+import practice2 from '../../assets/practice/실습2.jpg';
+import practice3 from '../../assets/practice/실습3.jpg';
+import practice4 from '../../assets/practice/실습4.jpg';
+import practice5 from '../../assets/practice/실습5.jpg';
+import practice6 from '../../assets/practice/실습6.jpg';
+import practice7 from '../../assets/practice/실습7.jpg';
+import practice8 from '../../assets/practice/실습8.jpg';
+
 const FacilitiesPage = () => {
+  const [activeTab, setActiveTab] = useState('facilitie');
+  
   const breadcrumbs = [
     { name: '학교 소개', link: '/about' },
     { name: '교육시설', link: null }
@@ -27,31 +39,31 @@ const FacilitiesPage = () => {
   const facilities = [
     {
       id: 1,
-      title: '공조냉동 실습실',
+      title: '공조냉동 용접실',
       description: '공조냉동기계 실습을 위한 최신 설비를 갖춘 실습실입니다. 냉동기, 공조기의 운전 및 관리에 필요한 실무 능력을 배양할 수 있습니다.',
       image: refrigerantLabImage
     },
     {
       id: 2,
-      title: '공조냉동 실습실 (2)',
+      title: '공조냉동 작업실',
       description: '추가 공조냉동 실습 공간으로, 블랙보드를 통한 이론 교육과 함께 실습 작업대가 구비되어 있습니다. 실습과 이론을 동시에 학습할 수 있는 공간입니다.',
       image: refrigerantLab2Image
     },
     {
       id: 3,
-      title: '에너지관리 실습실',
+      title: '설비보전 공유압 실습실',
       description: '에너지 효율 관리 실습을 위한 최신 설비를 갖추고 있습니다. 보일러, 열교환기 등 에너지 설비의 운용 및 관리를 실습할 수 있는 공간입니다.',
       image: energyLabImage
     },
     {
       id: 4,
-      title: '설비보전 실습실',
+      title: '설비보전 및 에너지관리 용접실',
       description: '산업 설비의 유지보수 및 관리에 필요한 실습 설비를 갖추고 있습니다. 실제 현장과 유사한 환경에서 실무 경험을 쌓을 수 있습니다.',
       image: facilityLabImage
     },
     {
       id: 5,
-      title: '용접 실습실',
+      title: '에너지관리 작업실',
       description: '다양한 용접 도구와 장비를 갖추고 있으며, 실제 산업 현장에서 필요한 용접 기술을 습득할 수 있는 실습실입니다.',
       image: weldingLabImage
     },
@@ -69,7 +81,7 @@ const FacilitiesPage = () => {
     },
     {
       id: 8,
-      title: '강의실',
+      title: '공조냉동 강의실',
       description: '쾌적한 환경에서 이론 수업을 진행할 수 있는 강의실입니다. 모든 강의실에는 냉난방 설비가 완비되어 있습니다.',
       image: practiceLabImage
     },
@@ -81,7 +93,7 @@ const FacilitiesPage = () => {
     },
     {
       id: 10,
-      title: '휴게 공간',
+      title: '하늘공간',
       description: '학생들이 휴식을 취하고 교류할 수 있는 야외 휴게 공간입니다. 식사 및 휴식을 위한 편의시설이 마련되어 있습니다.',
       image: outdoorSpaceImage
     },
@@ -99,99 +111,249 @@ const FacilitiesPage = () => {
     }
   ];
 
+  const practicePrograms = [
+    {
+      id: 1,
+      title: '공조기 실습',
+      description: '냉동기, 공조기의 설치, 운전, 정비에 관한 실무 기술을 습득합니다.',
+      subjects: ['냉동기 구조 및 원리', '공조시스템 설계', '냉매 충전 및 회수', '고장진단 및 수리'],
+      duration: '6개월',
+      certification: '공조냉동기계기능사',
+      image: practice1
+    },
+    {
+      id: 2,
+      title: '히트펌프 실습',
+      description: '산업설비의 유지보수 및 관리에 필요한 실무 기술을 배웁니다.',
+      subjects: ['설비진단 기술', '예방보전 계획', '설비개선 기법', '안전관리'],
+      duration: '4개월',
+      certification: '설비보전기능사',
+      image: practice2
+    },
+    {
+      id: 3,
+      title: '표준냉동기 실습',
+      description: '에너지 효율 향상 및 관리에 관한 전문 기술을 습득합니다.',
+      subjects: ['에너지 진단', '효율개선 방안', '신재생에너지', '에너지정책'],
+      duration: '5개월',
+      certification: '에너지관리기능사',
+      image: practice3
+    },
+    {
+      id: 4,
+      title: '표준냉동기 실습',
+      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
+      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
+      duration: '3개월',
+      certification: '전기용접기능사',
+      image: practice4
+    }
+  ];
+  
+  const detailCategory = [
+    { id:"facilitie", title: "교육시설"},
+    { id:"practice", title: "실습"},
+  ];
+
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+  };
+
+  const renderFacilitiesContent = () => (
+    <>
+      <S.SectionTitle>교육 시설</S.SectionTitle>
+      <S.FacilitiesIntro>
+        금성기술직업전문학교는 학생들이 실무에 바로 적용할 수 있는 기술을 습득할 수 있도록
+        최신 장비와 시설을 갖추고 있습니다. 각 분야별 전문 실습실과 쾌적한 교육 환경을 통해
+        효과적인 학습이 이루어질 수 있도록 지원하고 있습니다.
+      </S.FacilitiesIntro>
+      
+      <S.FacilitiesGrid>
+        {facilities.map(facility => (
+          <S.FacilityCard key={facility.id}>
+            <S.FacilityImageContainer>
+              <S.FacilityImage 
+                src={facility.image} 
+                alt={facility.title} 
+              />
+            </S.FacilityImageContainer>
+            <S.FacilityContent>
+              <S.FacilityTitle>{facility.title}</S.FacilityTitle>
+              <S.FacilityDescription>{facility.description}</S.FacilityDescription>
+            </S.FacilityContent>
+          </S.FacilityCard>
+        ))}
+      </S.FacilitiesGrid>
+      
+      <S.SectionTitle>시설 특징</S.SectionTitle>
+      
+      <S.FacilityFeaturesList>
+        <S.FacilityFeatureItem>
+          <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
+          <S.FacilityFeatureContent>
+            <S.FacilityFeatureTitle>최신 실습 장비</S.FacilityFeatureTitle>
+            <S.FacilityFeatureDescription>
+              산업 현장에서 실제 사용되는 최신 장비와 설비를 갖추어 실무 적응력을 높입니다.
+            </S.FacilityFeatureDescription>
+          </S.FacilityFeatureContent>
+        </S.FacilityFeatureItem>
+        
+        <S.FacilityFeatureItem>
+          <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
+          <S.FacilityFeatureContent>
+            <S.FacilityFeatureTitle>실무 중심 교육 환경</S.FacilityFeatureTitle>
+            <S.FacilityFeatureDescription>
+              실제 현장과 유사한 환경에서 실습할 수 있도록 실습실을 구성하였습니다.
+            </S.FacilityFeatureDescription>
+          </S.FacilityFeatureContent>
+        </S.FacilityFeatureItem>
+        
+        <S.FacilityFeatureItem>
+          <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
+          <S.FacilityFeatureContent>
+            <S.FacilityFeatureTitle>쾌적한 교육 환경</S.FacilityFeatureTitle>
+            <S.FacilityFeatureDescription>
+              모든 강의실과 실습실에 냉난방 시설을 완비하여 쾌적한 환경에서 학습할 수 있습니다.
+            </S.FacilityFeatureDescription>
+          </S.FacilityFeatureContent>
+        </S.FacilityFeatureItem>
+        
+        <S.FacilityFeatureItem>
+          <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
+          <S.FacilityFeatureContent>
+            <S.FacilityFeatureTitle>소규모 정예 교육</S.FacilityFeatureTitle>
+            <S.FacilityFeatureDescription>
+              소규모 그룹으로 진행되어 개인별 맞춤 지도가 가능한 교육 환경을 제공합니다.
+            </S.FacilityFeatureDescription>
+          </S.FacilityFeatureContent>
+        </S.FacilityFeatureItem>
+        
+        <S.FacilityFeatureItem>
+          <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
+          <S.FacilityFeatureContent>
+            <S.FacilityFeatureTitle>편리한 접근성</S.FacilityFeatureTitle>
+            <S.FacilityFeatureDescription>
+              부산 시내 중심가에 위치하여 대중교통으로 쉽게 접근할 수 있습니다.
+            </S.FacilityFeatureDescription>
+          </S.FacilityFeatureContent>
+        </S.FacilityFeatureItem>
+      </S.FacilityFeaturesList>
+    </>
+  );
+
+  const renderPracticeContent = () => (
+    <>
+      <S.SectionTitle>실습 과정</S.SectionTitle>
+      <S.FacilitiesIntro>
+        실무 중심의 체계적인 실습 프로그램을 통해 현장에서 바로 활용할 수 있는 
+        전문 기술을 습득할 수 있습니다. 각 분야별 전문 강사진과 함께 
+        단계별 맞춤형 교육을 진행합니다.
+      </S.FacilitiesIntro>
+      
+       <S.FacilitiesGrid>
+        {practicePrograms.map(facility => (
+          <S.FacilityCard key={facility.id}>
+            <S.FacilityImageContainer>
+              <S.FacilityImage 
+                src={facility.image} 
+                alt={facility.title} 
+              />
+            </S.FacilityImageContainer>
+            <S.FacilityContent>
+              <S.FacilityTitle>{facility.title}</S.FacilityTitle>
+              <S.PracticeMeta>
+                <S.PracticeDuration>{facility.duration}</S.PracticeDuration>
+                <S.PracticeCertification>{facility.certification}</S.PracticeCertification>
+              </S.PracticeMeta>
+              <S.FacilityDescription>{facility.description}</S.FacilityDescription>
+            </S.FacilityContent>
+          </S.FacilityCard>
+        ))}
+      </S.FacilitiesGrid>
+
+      <S.SectionTitle>실습 특징</S.SectionTitle>
+      
+      <S.FacilityFeaturesList>
+        <S.FacilityFeatureItem>
+          <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
+          <S.FacilityFeatureContent>
+            <S.FacilityFeatureTitle>현장 중심 실습</S.FacilityFeatureTitle>
+            <S.FacilityFeatureDescription>
+              실제 산업 현장과 동일한 장비와 환경에서 실습하여 현장 적응력을 극대화합니다.
+            </S.FacilityFeatureDescription>
+          </S.FacilityFeatureContent>
+        </S.FacilityFeatureItem>
+        
+        <S.FacilityFeatureItem>
+          <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
+          <S.FacilityFeatureContent>
+            <S.FacilityFeatureTitle>개별 맞춤 지도</S.FacilityFeatureTitle>
+            <S.FacilityFeatureDescription>
+              소규모 그룹 실습으로 개인별 수준에 맞는 맞춤형 지도를 받을 수 있습니다.
+            </S.FacilityFeatureDescription>
+          </S.FacilityFeatureContent>
+        </S.FacilityFeatureItem>
+        
+        <S.FacilityFeatureItem>
+          <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
+          <S.FacilityFeatureContent>
+            <S.FacilityFeatureTitle>자격증 연계 교육</S.FacilityFeatureTitle>
+            <S.FacilityFeatureDescription>
+              국가기술자격증 취득을 위한 체계적인 실습 과정을 제공합니다.
+            </S.FacilityFeatureDescription>
+          </S.FacilityFeatureContent>
+        </S.FacilityFeatureItem>
+        
+        <S.FacilityFeatureItem>
+          <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
+          <S.FacilityFeatureContent>
+            <S.FacilityFeatureTitle>전문 강사진</S.FacilityFeatureTitle>
+            <S.FacilityFeatureDescription>
+              현장 경험이 풍부한 전문 강사진이 직접 실습 지도를 담당합니다.
+            </S.FacilityFeatureDescription>
+          </S.FacilityFeatureContent>
+        </S.FacilityFeatureItem>
+      </S.FacilityFeaturesList>
+    </>
+  );
+
   return (
     <S.PageContainer>
       <Helmet>
-        <title>교육시설 - 금성기술직업전문학교</title>
-        <meta name="description" content="금성기술직업전문학교의 교육시설을 소개합니다. 최신 장비를 갖춘 실습실과 쾌적한 교육 환경을 제공합니다." />
+        <title>{activeTab === 'facilitie' ? '교육시설' : '실습'} - 금성기술직업전문학교</title>
+        <meta name="description" content={activeTab === 'facilitie' 
+          ? "금성기술직업전문학교의 교육시설을 소개합니다. 최신 장비를 갖춘 실습실과 쾌적한 교육 환경을 제공합니다."
+          : "금성기술직업전문학교의 실습 프로그램을 소개합니다. 현장 중심의 실무 교육을 제공합니다."
+        } />
       </Helmet>
       
       <SubpageHeader 
-        title="교육시설" 
-        subtitle="최신 장비와 쾌적한 환경에서 실무 중심의 교육을 제공합니다"
+        title={activeTab === 'facilitie' ? '교육시설' : '실습'}
+        subtitle={activeTab === 'facilitie' 
+          ? "최신 장비와 쾌적한 환경에서 실무 중심의 교육을 제공합니다"
+          : "현장 중심의 체계적인 실습 프로그램으로 전문 기술을 습득하세요"
+        }
         breadcrumbs={breadcrumbs}
       />
       
       <S.ContentSection>
         <S.SectionInner>
-          <S.SectionTitle>실습 및 교육 시설</S.SectionTitle>
-          
-          <S.FacilitiesIntro>
-            금성기술직업전문학교는 학생들이 실무에 바로 적용할 수 있는 기술을 습득할 수 있도록
-            최신 장비와 시설을 갖추고 있습니다. 각 분야별 전문 실습실과 쾌적한 교육 환경을 통해
-            효과적인 학습이 이루어질 수 있도록 지원하고 있습니다.
-          </S.FacilitiesIntro>
-          
-          <S.FacilitiesGrid>
-            {facilities.map(facility => (
-              <S.FacilityCard key={facility.id}>
-                <S.FacilityImageContainer>
-                  <S.FacilityImage 
-                    src={facility.image} 
-                    alt={facility.title} 
-                  />
-                </S.FacilityImageContainer>
-                <S.FacilityContent>
-                  <S.FacilityTitle>{facility.title}</S.FacilityTitle>
-                  <S.FacilityDescription>{facility.description}</S.FacilityDescription>
-                </S.FacilityContent>
-              </S.FacilityCard>
+          {/* 탭 네비게이션 */}
+          <S.TabNavigation>
+            {detailCategory.map(category => (
+              <S.CertificateNavItem 
+                key={category.id}
+                isActive={category.id === activeTab}
+                onClick={() => handleTabClick(category.id)}
+                style={{ cursor: 'pointer' }}
+              >
+                {category.title}
+              </S.CertificateNavItem>
             ))}
-          </S.FacilitiesGrid>
+          </S.TabNavigation>
           
-          <S.SectionTitle>시설 특징</S.SectionTitle>
-          
-          <S.FacilityFeaturesList>
-            <S.FacilityFeatureItem>
-              <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
-              <S.FacilityFeatureContent>
-                <S.FacilityFeatureTitle>최신 실습 장비</S.FacilityFeatureTitle>
-                <S.FacilityFeatureDescription>
-                  산업 현장에서 실제 사용되는 최신 장비와 설비를 갖추어 실무 적응력을 높입니다.
-                </S.FacilityFeatureDescription>
-              </S.FacilityFeatureContent>
-            </S.FacilityFeatureItem>
-            
-            <S.FacilityFeatureItem>
-              <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
-              <S.FacilityFeatureContent>
-                <S.FacilityFeatureTitle>실무 중심 교육 환경</S.FacilityFeatureTitle>
-                <S.FacilityFeatureDescription>
-                  실제 현장과 유사한 환경에서 실습할 수 있도록 실습실을 구성하였습니다.
-                </S.FacilityFeatureDescription>
-              </S.FacilityFeatureContent>
-            </S.FacilityFeatureItem>
-            
-            <S.FacilityFeatureItem>
-              <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
-              <S.FacilityFeatureContent>
-                <S.FacilityFeatureTitle>쾌적한 교육 환경</S.FacilityFeatureTitle>
-                <S.FacilityFeatureDescription>
-                  모든 강의실과 실습실에 냉난방 시설을 완비하여 쾌적한 환경에서 학습할 수 있습니다.
-                </S.FacilityFeatureDescription>
-              </S.FacilityFeatureContent>
-            </S.FacilityFeatureItem>
-            
-            <S.FacilityFeatureItem>
-              <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
-              <S.FacilityFeatureContent>
-                <S.FacilityFeatureTitle>소규모 정예 교육</S.FacilityFeatureTitle>
-                <S.FacilityFeatureDescription>
-                  소규모 그룹으로 진행되어 개인별 맞춤 지도가 가능한 교육 환경을 제공합니다.
-                </S.FacilityFeatureDescription>
-              </S.FacilityFeatureContent>
-            </S.FacilityFeatureItem>
-            
-            <S.FacilityFeatureItem>
-              <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>
-              <S.FacilityFeatureContent>
-                <S.FacilityFeatureTitle>편리한 접근성</S.FacilityFeatureTitle>
-                <S.FacilityFeatureDescription>
-                  부산 시내 중심가에 위치하여 대중교통으로 쉽게 접근할 수 있습니다.
-                </S.FacilityFeatureDescription>
-              </S.FacilityFeatureContent>
-            </S.FacilityFeatureItem>
-          </S.FacilityFeaturesList>
+          {/* 탭 컨텐츠 */}
+          {activeTab === 'facilitie' ? renderFacilitiesContent() : renderPracticeContent()}
         </S.SectionInner>
       </S.ContentSection>
       

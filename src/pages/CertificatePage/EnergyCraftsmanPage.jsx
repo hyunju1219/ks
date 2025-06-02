@@ -65,17 +65,7 @@ const EnergyCraftsmanPage = () => {
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
             border: '1px solid #e5e7eb'
           }}>
-            <img 
-              src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&h=350&auto=format&fit=crop" 
-              alt="에너지관리 기능장"
-              style={{
-                width: '100%',
-                height: 'auto',
-                maxHeight: '350px',
-                objectFit: 'cover',
-                display: 'block'
-              }} 
-            />
+            
           </div>
           
           {/* 타이틀 및 설명 */}
@@ -162,7 +152,7 @@ const EnergyCraftsmanPage = () => {
           
           {/* 시험일정 */}
           <S.InfoSection>
-            <S.InfoTitle>2023년 시험일정</S.InfoTitle>
+            <S.InfoTitle>2025년 시험일정</S.InfoTitle>
             <S.ExamScheduleTable>
               <thead>
                 <tr>
@@ -178,21 +168,21 @@ const EnergyCraftsmanPage = () => {
               <tbody>
                 <tr>
                   <td>1회</td>
-                  <td>02.13 ~ 02.16</td>
-                  <td>03.04 ~ 03.19</td>
-                  <td>04.05</td>
-                  <td>04.17 ~ 04.20</td>
-                  <td>05.20 ~ 06.04</td>
-                  <td>06.16</td>
+                  <td>01.06 ~ 01.09</td>
+                  <td>01.21 ~ 01.25</td>
+                  <td>02.06</td>
+                  <td>02.10 ~ 02.13</td>
+                  <td>03.15 ~ 04.02</td>
+                  <td>04.18</td>
                 </tr>
                 <tr>
                   <td>2회</td>
-                  <td>07.17 ~ 07.20</td>
-                  <td>08.12 ~ 08.27</td>
-                  <td>09.06</td>
-                  <td>09.11 ~ 09.14</td>
-                  <td>10.14 ~ 10.29</td>
-                  <td>11.10</td>
+                  <td>06.09 ~ 06.12</td>
+                  <td>06.28 ~ 07.03</td>
+                  <td>07.16</td>
+                  <td>07.28 ~ 07.31</td>
+                  <td>08.30 ~ 09.17</td>
+                  <td>09.30</td>
                 </tr>
               </tbody>
             </S.ExamScheduleTable>

@@ -4,7 +4,7 @@ import { Link } from 'wouter';
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import CTASection from '../../components/CTASection/CTASection';
 import * as S from './style';
-
+import hotWater from '../../assets/images/온수온돌.jpg';
 const HotWaterPage = () => {
   const breadcrumbs = [
     { name: '자격증 소개', link: '/certificate' },
@@ -50,7 +50,7 @@ const HotWaterPage = () => {
             border: '1px solid #e5e7eb'
           }}>
             <img 
-              src="https://images.unsplash.com/photo-1556156653-e5a7c69cc263?q=80&w=1200&h=350&auto=format&fit=crop" 
+              src={hotWater}
               alt="온수온돌 자격증"
               style={{
                 width: '100%',

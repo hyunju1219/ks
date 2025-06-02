@@ -4,7 +4,7 @@ import { Link } from 'wouter';
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import CTASection from '../../components/CTASection/CTASection';
 import * as S from './style';
-
+import refrigeration from '../../assets/images/공조냉동.jpg';
 const RefrigerationPage = () => {
   const breadcrumbs = [
     { name: '자격증 소개', link: '/certificate' },
@@ -60,7 +60,7 @@ const RefrigerationPage = () => {
             border: '1px solid #e5e7eb'
           }}>
             <img 
-              src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=350" 
+              src={refrigeration}
               alt="공조냉동기계 자격증"
               style={{
                 width: '100%',

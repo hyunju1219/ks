@@ -4,7 +4,7 @@ import { Link } from 'wouter';
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import CTASection from '../../components/CTASection/CTASection';
 import * as S from './style';
-
+import maintenance from '../../assets/images/설비보전.jpg';
 const MaintenancePage = () => {
   const breadcrumbs = [
     { name: '자격증 소개', link: '/certificate' },
@@ -55,7 +55,7 @@ const MaintenancePage = () => {
             border: '1px solid #e5e7eb'
           }}>
             <img 
-              src="https://images.unsplash.com/photo-1565514158740-064f34bd6cfd?q=80&w=1200&h=350&auto=format&fit=crop" 
+              src={maintenance}
               alt="설비보전 자격증"
               style={{
                 width: '100%',

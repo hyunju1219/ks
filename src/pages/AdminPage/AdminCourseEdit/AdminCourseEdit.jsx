@@ -155,9 +155,9 @@ const handleDelete = async () => {
           <select name="category" value={form.category} onChange={handleChange} css={s.select}>
             <option value="">선택하세요</option>
             <option value="전체">전체</option>
-            <option value="국비지원">국비지원</option>
-            <option value="기업위탁">기업위탁</option>
-            <option value="일반과정">일반과정</option>
+            <option value="국기반">국기반</option>
+            <option value="계좌제">계좌제</option>
+            <option value="부산시">부산시</option>
           </select>
         </div>
       </div>

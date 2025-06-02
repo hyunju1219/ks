@@ -78,3 +78,10 @@ export const td = css`
   border: 1px solid #ccc;
   padding: 12px;
 `;
+
+export const button = css`
+  padding: 0.5rem;
+  background-color: rgba(0, 86, 179, 0.1);
+  border-radius: 0.5rem;
+  color: wh;
+`;

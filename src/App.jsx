@@ -6,10 +6,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 
-// Firebase
-import { auth } from './firebase/config';
-import { onAuthStateChanged } from 'firebase/auth';
-
 // Components
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -50,18 +46,11 @@ import NoticePage from "./pages/CommunityPage/NoticePage";
 import ContactPage from "./pages/CommunityPage/ContactPage";
 import LocationPage from "./pages/CommunityPage/LocationPage";
 import AdminLogin from "./pages/AdminPage/AdminLogin/AdminLogin";
-import AdminPage from "./pages/AdminPage/AdminPage";
-import AdminCourse from "./pages/AdminPage/AdminCourseEdit/AdminCourseEdit";
-import AdminNotice from "./pages/AdminPage/AdminNotice/AdminNotice";
-import AdminCourseAdd from "./pages/AdminPage/AdminCourseAdd/AdminCourseAdd";
-import AdminCourseEdit from "./pages/AdminPage/AdminCourseEdit/AdminCourseEdit";
 import AdminRoutes from "./routes/AdminRoutes";
 import useAuthstate from "./hooks/useAuthstate";
 import NoticeDetailPage from "./pages/CommunityPage/NoticeDetailpage/NoticeDetailPage";
 import CourseAllPage from "./pages/CourseAllPage/CourseAllPage";
 function Router() {
-  // 인증 상태 관리
-  const { user, isLoggedIn } = useAuthstate(); 
   const ScrollToTop = () => {
     const [location] = useLocation();
     useEffect(() => {
@@ -103,6 +92,7 @@ function Router() {
         <Route path="/certificate/heating" component={HotWaterPage} />
         <Route path="/certificate/heating/master" component={HotWaterMasterPage} />
         
+        <Route path="/courseJoin" component={CourseAllPage} />
         <Route path="/courseAll" component={CourseAllPage} />
         <Route path="/course" component={CoursePage} />
         <Route path="/course/:id" component={CourseDetailPage} />

@@ -4,9 +4,10 @@ import { Link } from 'wouter';
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import CTASection from '../../components/CTASection/CTASection';
 import * as S from './style';
-import { db } from '@/firebase/config';
+import { db } from '@/firebase/config'; // db is imported but not directly used, getCourse handles it
 import useAuthstate from '@/hooks/useAuthstate';
-import { collection, getDocs } from 'firebase/firestore';
+// collection and getDocs are not directly used here, getCourse likely uses them
+// import { collection, getDocs } from 'firebase/firestore';
 import { getCourse } from '@/firebase/courseService';
 
 const CoursePage = () => {
@@ -17,6 +18,7 @@ const CoursePage = () => {
 
   useEffect(() => {
     const fetchCourses = async () => {
+      setLoading(true); // Good practice to set loading true at the start of fetch
       try {
         const data = await getCourse();
         setCourses(data);
@@ -32,20 +34,28 @@ const CoursePage = () => {
 
   const breadcrumbs = [
     { name: '교육 과정', link: '/course' },
-    { name: '전체과정', link: null }
+    { name: '전체과정', link: null } // This will likely be updated by activeCategory later if needed
   ];
 
+  // Corrected categories: id now matches Firebase values
   const categories = [
     { id: 'all', name: '전체' },
-    { id: 'refrigeration', name: '공조냉동기계' },
-    { id: 'energy', name: '에너지관리' },
-    { id: 'maintenance', name: '설비보전' },
-    { id: 'heating', name: '온수온돌' }
+    { id: '국기반', name: '국기반' }, // Changed id from 'refrigeration'
+    { id: '계좌제', name: '계좌제' }, // Changed id from 'energy'
+    { id: '부산시', name: '부산시' }  // Changed id from 'maintenance'
   ];
 
   const filteredCourses = activeCategory === 'all'
     ? courses
     : courses.filter(course => course.category === activeCategory);
+
+  // Update breadcrumb for current category (optional but good UX)
+  const currentCategoryName = categories.find(cat => cat.id === activeCategory)?.name || '전체과정';
+  const dynamicBreadcrumbs = [
+    { name: '교육 과정', link: '/course' },
+    { name: currentCategoryName, link: null }
+  ];
+
 
   return (
      <S.PageContainer>
@@ -57,7 +67,7 @@ const CoursePage = () => {
       <SubpageHeader
         title="교육 과정"
         subtitle="금성기술직업전문학교에서 제공하는 다양한 교육 과정을 확인하세요"
-        breadcrumbs={breadcrumbs}
+        breadcrumbs={dynamicBreadcrumbs} // Use dynamic breadcrumbs
       />
 
       <S.ContentSection>
@@ -75,7 +85,7 @@ const CoursePage = () => {
           </S.CategoryFilter>
 
           {isLoggedIn && (
-            <S.CategoryFilter>
+            <S.CategoryFilter> {/* This might need different styling or placement */}
               <Link href='/admin/course'><S.ContactButton>과정추가</S.ContactButton></Link>
             </S.CategoryFilter>
           )}
@@ -84,31 +94,40 @@ const CoursePage = () => {
             <p>불러오는 중...</p>
           ) : (
             <S.CourseGrid>
-              {filteredCourses.map(course => (
-                <Link href={`/course/${course.id}`} key={course.id}>
-                  <S.CourseCard>
-                    <S.CourseImage src={course.imageUrl} alt={course.title} />
-                    <S.CourseContent>
-                      <S.CourseTitle>{course.courseName}</S.CourseTitle>
-                      <S.CourseInfo>
-                        <S.CourseDetail>
-                          <S.DetailLabel>접수기간:</S.DetailLabel> {course.schedule}
-                        </S.CourseDetail>
-                        <S.CourseDetail>
-                          <S.DetailLabel>훈련일정:</S.DetailLabel> {course.registrationPeriod}
-                        </S.CourseDetail>
-                      </S.CourseInfo>
-                      <S.MoreButton>자세히 보기</S.MoreButton>
-                    </S.CourseContent>
-                  </S.CourseCard>
-                </Link>
-              ))}
+              {filteredCourses.length > 0 ? (
+                filteredCourses.map(course => (
+                  <Link href={`/course/${course.id}`} key={course.id}>
+                    <S.CourseCard>
+                      <S.CourseImage src={course.imageUrl} alt={course.courseName} /> {/* Use courseName for alt */}
+                      <S.CourseContent>
+                        <S.CourseTitle>{course.courseName}</S.CourseTitle>
+                        <S.CourseInfo>
+                          <S.CourseDetail>
+                            {/* Assuming 'registrationPeriod' is for 접수기간 and 'schedule' is for 훈련일정 */}
+                            {/* Please verify these mappings with your Firebase data structure */}
+                            <S.DetailLabel>접수기간:</S.DetailLabel> {course.registrationPeriod}
+                          </S.CourseDetail>
+                          <S.CourseDetail>
+                            <S.DetailLabel>훈련일정:</S.DetailLabel> {course.schedule}
+                          </S.CourseDetail>
+                        </S.CourseInfo>
+                        <S.MoreButton>자세히 보기</S.MoreButton>
+                      </S.CourseContent>
+                    </S.CourseCard>
+                  </Link>
+                ))
+              ) : (
+                // This empty message will now show if filteredCourses is empty after loading
+                // No separate !loading check needed here as it's inside the !loading block
+                <S.EmptyMessage>해당 카테고리의 과정이 없습니다.</S.EmptyMessage>
+              )}
             </S.CourseGrid>
           )}
-
-          {filteredCourses.length === 0 && !loading && (
+          
+          {/* This specific check is now redundant because it's handled within the loading block */}
+          {/* {filteredCourses.length === 0 && !loading && (
             <S.EmptyMessage>해당 카테고리의 과정이 없습니다.</S.EmptyMessage>
-          )}
+          )} */}
         </S.SectionInner>
       </S.ContentSection>
 

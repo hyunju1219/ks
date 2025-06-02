@@ -29,10 +29,10 @@ const AboutPage = () => {
         <S.SectionInner>
           <S.SectionTitle>기관 소개</S.SectionTitle>
           
-          <S.AboutImage 
+          {/* <S.AboutImage 
             src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=500"
             alt="금성기술직업전문학교 전경"
-          />
+          /> */}
           
           <S.AboutContent>
             <S.ContentParagraph>

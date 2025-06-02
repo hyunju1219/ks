@@ -1,26 +1,28 @@
 /** @jsxImportSource @emotion/react */
 import * as s from './style';
 import { Link } from 'wouter';
-
+import buildingImage from '../../assets/facilities/building.png';
+import refrigerantLabImage from '../../assets/facilities/refrigerant-lab.png';
+import weldingLabImage from '../../assets/facilities/welding-lab.png';
 const FacilitiesSection = () => {
   const facilities = [
     {
       id: 1,
       title: '교육동 전경',
       description: '쾌적한 학습 환경을 제공하는 현대적인 교육 시설',
-      image: 'https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400'
+      image: buildingImage
     },
     {
       id: 2,
       title: '공조냉동 실습실',
       description: '최신 장비를 통한 실무 중심의 실습 교육',
-      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400'
+      image: refrigerantLabImage
     },
     {
       id: 3,
       title: '에너지관리 실습실',
       description: '에너지 설비 운용 및 관리 기술 습득을 위한 실습 공간',
-      image: 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400'
+      image: weldingLabImage
     }
   ];
 

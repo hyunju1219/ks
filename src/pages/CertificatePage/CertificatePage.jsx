@@ -45,7 +45,7 @@ const CertificatePage = () => {
       careers: ['건축설비 시공업체', '난방설비 설계', '온수시스템 유지보수', '주거시설 난방설비']
     }
   ];
-  
+
   // URL에서 자격증 ID를 추출하거나 기본값을 설정
   const certificateId = 'refrigeration'; // 실제로는 URL 파라미터를 사용
   const selectedCertificate = certificates.find(cert => cert.id === certificateId) || certificates[0];
@@ -56,13 +56,13 @@ const CertificatePage = () => {
         <title>자격증 소개 - 금성기술직업전문학교</title>
         <meta name="description" content="공조냉동기계, 에너지관리, 설비보전, 온수온돌 등 다양한 국가기술자격증 취득을 위한 교육과정을 제공합니다." />
       </Helmet>
-      
-      <SubpageHeader 
-        title="자격증 소개" 
+
+      <SubpageHeader
+        title="자격증 소개"
         subtitle="금성기술직업전문학교에서 취득 가능한 국가기술자격증 정보"
         breadcrumbs={breadcrumbs}
       />
-      
+
       <S.ContentSection>
         <S.SectionInner>
           <S.CertificateNav>
@@ -74,14 +74,14 @@ const CertificatePage = () => {
               </Link>
             ))}
           </S.CertificateNav>
-          
+
           <S.CertificateContent>
             <S.CertificateImage src={selectedCertificate.image} alt={selectedCertificate.title} />
-            
+
             <S.CertificateInfo>
               <S.CertificateTitle>{selectedCertificate.title} 자격증</S.CertificateTitle>
               <S.CertificateDescription>{selectedCertificate.description}</S.CertificateDescription>
-              
+
               <S.InfoSection>
                 <S.InfoTitle>취득 가능 등급</S.InfoTitle>
                 <S.LevelList>
@@ -90,7 +90,7 @@ const CertificatePage = () => {
                   ))}
                 </S.LevelList>
               </S.InfoSection>
-              
+
               <S.InfoSection>
                 <S.InfoTitle>취업 분야</S.InfoTitle>
                 <S.CareerList>
@@ -99,7 +99,7 @@ const CertificatePage = () => {
                   ))}
                 </S.CareerList>
               </S.InfoSection>
-              
+
               <S.InfoSection>
                 <S.InfoTitle>자격증 취득 과정</S.InfoTitle>
                 <S.StepList>
@@ -110,7 +110,7 @@ const CertificatePage = () => {
                       <S.StepText>자격증 취득에 필요한 기초 이론 학습</S.StepText>
                     </S.StepContent>
                   </S.StepItem>
-                  
+
                   <S.StepItem>
                     <S.StepNumber>2</S.StepNumber>
                     <S.StepContent>
@@ -118,7 +118,7 @@ const CertificatePage = () => {
                       <S.StepText>최신 장비를 활용한 실무 중심 실습</S.StepText>
                     </S.StepContent>
                   </S.StepItem>
-                  
+
                   <S.StepItem>
                     <S.StepNumber>3</S.StepNumber>
                     <S.StepContent>
@@ -126,7 +126,7 @@ const CertificatePage = () => {
                       <S.StepText>기출문제 분석 및 예상문제 풀이</S.StepText>
                     </S.StepContent>
                   </S.StepItem>
-                  
+
                   <S.StepItem>
                     <S.StepNumber>4</S.StepNumber>
                     <S.StepContent>
@@ -136,7 +136,7 @@ const CertificatePage = () => {
                   </S.StepItem>
                 </S.StepList>
               </S.InfoSection>
-              
+
               <Link href="/course">
                 <S.CourseButton>관련 교육과정 보기</S.CourseButton>
               </Link>
@@ -144,7 +144,7 @@ const CertificatePage = () => {
           </S.CertificateContent>
         </S.SectionInner>
       </S.ContentSection>
-      
+
       <CTASection />
     </S.PageContainer>
   );

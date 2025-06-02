@@ -60,17 +60,7 @@ const RefrigerationIndustrialPage = () => {
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
             border: '1px solid #e5e7eb'
           }}>
-            <img 
-              src="https://images.unsplash.com/photo-1616712608130-f721a2a77b10?q=80&w=1200&h=350&auto=format&fit=crop" 
-              alt="공조냉동기계 산업기사"
-              style={{
-                width: '100%',
-                height: 'auto',
-                maxHeight: '350px',
-                objectFit: 'cover',
-                display: 'block'
-              }} 
-            />
+            
           </div>
           
           {/* 타이틀 및 설명 */}
@@ -150,7 +140,7 @@ const RefrigerationIndustrialPage = () => {
           
           {/* 시험일정 */}
           <S.InfoSection>
-            <S.InfoTitle>2023년 시험일정</S.InfoTitle>
+            <S.InfoTitle>2025년 시험일정</S.InfoTitle>
             <S.ExamScheduleTable>
               <thead>
                 <tr>
@@ -166,30 +156,30 @@ const RefrigerationIndustrialPage = () => {
               <tbody>
                 <tr>
                   <td>1회</td>
-                  <td>01.24 ~ 01.27</td>
-                  <td>02.13 ~ 03.01</td>
-                  <td>03.08</td>
-                  <td>03.13 ~ 03.16</td>
-                  <td>04.15 ~ 04.28</td>
-                  <td>05.12</td>
+                  <td>01.13 ~ 01.16</td>
+                  <td>02.07 ~ 03.04</td>
+                  <td>03.12</td>
+                  <td>03.24 ~ 03.27</td>
+                  <td>04.19 ~ 05.09</td>
+                  <td>06.13</td>
                 </tr>
                 <tr>
                   <td>2회</td>
-                  <td>03.29 ~ 04.01</td>
-                  <td>04.22 ~ 05.07</td>
-                  <td>05.12</td>
-                  <td>05.16 ~ 05.19</td>
-                  <td>06.24 ~ 07.09</td>
-                  <td>07.21</td>
+                  <td>04.14 ~ 04.17</td>
+                  <td>05.10 ~ 05.30</td>
+                  <td>06.11</td>
+                  <td>06.23 ~ 06.26</td>
+                  <td>07.19 ~ 08.06</td>
+                  <td>09.12</td>
                 </tr>
                 <tr>
                   <td>3회</td>
-                  <td>07.10 ~ 07.13</td>
-                  <td>08.05 ~ 08.20</td>
-                  <td>08.25</td>
-                  <td>08.28 ~ 08.31</td>
-                  <td>10.07 ~ 10.20</td>
-                  <td>11.03</td>
+                  <td>07.21 ~ 07.24</td>
+                  <td>08.09 ~ 09.01</td>
+                  <td>09.10</td>
+                  <td>09.22 ~ 09.25</td>
+                  <td>11.01 ~ 11.21</td>
+                  <td>12.24</td>
                 </tr>
               </tbody>
             </S.ExamScheduleTable>

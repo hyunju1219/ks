@@ -78,12 +78,13 @@ const Header = () => {
       ]
     },
     {
-      name: '교육 과정',
+      name: '모집교육',
       path: '/courseAll',
       submenu: [
-        { name: '전체과정', path: '/courseAll' },
-        { name: '과정안내', path: '/course' },
-        { name: '프로세서', path: '/course/process' }
+        { name: '현재모집중인교육', path: '/courseJoin' },
+        { name: '국가기간전략훈련', path: '/courseAll' },
+        { name: '내일배움카드', path: '/course' },
+        { name: '부산광역시 훈련', path: '/course/process' }
       ]
     },
     {

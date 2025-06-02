@@ -4,7 +4,7 @@ import { Link } from 'wouter';
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import CTASection from '../../components/CTASection/CTASection';
 import * as S from './style';
-
+import energy from '../../assets/images/에너지.jpg';
 const EnergyPage = () => {
   const breadcrumbs = [
     { name: '자격증 소개', link: '/certificate' },
@@ -59,7 +59,7 @@ const EnergyPage = () => {
             border: '1px solid #e5e7eb'
           }}>
             <img 
-              src="https://images.unsplash.com/photo-1507213329797-c061b3c0a938?q=80&w=1200&h=350&auto=format&fit=crop" 
+              src={energy}
               alt="에너지관리 자격증"
               style={{
                 width: '100%',

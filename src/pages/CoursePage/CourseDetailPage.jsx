@@ -6,7 +6,6 @@ import CTASection from '../../components/CTASection/CTASection';
 import * as S from './style';
 import useAuthstate from '@/hooks/useAuthstate';
 import { deleteCourse, getCourseById } from '@/firebase/courseService';
-import { color } from 'framer-motion';
 
 const CourseDetailPage = () => {
   const { id } = useParams();

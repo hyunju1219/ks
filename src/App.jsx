@@ -96,8 +96,8 @@ function Router() {
         <Route path="/courseJoin" component={CoureseJoinPage} />
         <Route path="/courseAll" component={CourseAllPage} />
         <Route path="/course" component={CoursePage} />
+        <Route path="/course-detail/:id" component={CourseDetailPage} />
         <Route path="/course/:categorySlug" component={CoursePage} />
-        <Route path="/course/:id" component={CourseDetailPage} />
         <Route path="/job-center" component={JobCenterPage} />
         <Route path="/notice" component={NoticePage} />
         <Route path="/notice/:id" component={NoticeDetailPage} />

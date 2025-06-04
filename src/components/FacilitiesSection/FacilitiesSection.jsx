@@ -4,6 +4,7 @@ import { Link } from 'wouter';
 import buildingImage from '../../assets/facilities/building.png';
 import refrigerantLabImage from '../../assets/facilities/refrigerant-lab.png';
 import weldingLabImage from '../../assets/facilities/welding-lab.png';
+import { FiArrowRight } from 'react-icons/fi';
 const FacilitiesSection = () => {
   const facilities = [
     {
@@ -45,8 +46,9 @@ const FacilitiesSection = () => {
         </div>
         
         <div css={s.ButtonContainer}>
-          <Link href="/about/facilities">
-            <span css={s.ViewMoreButton}>시설 더 보기</span>
+          <Link href="/about/facilities" css={s.ViewMoreButton}>
+            <span >시설 더 보기</span>
+            <FiArrowRight size={20} />
           </Link>
         </div>
       </div>

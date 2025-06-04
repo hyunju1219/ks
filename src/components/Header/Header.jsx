@@ -68,7 +68,7 @@ const Header = () => {
       ]
     },
     {
-      name: '자격증 소개',
+      name: '과정소개',
       path: '/certificate',
       submenu: [
         { name: '공조냉동기계', path: '/certificate/refrigeration' },
@@ -78,7 +78,7 @@ const Header = () => {
       ]
     },
     {
-      name: '모집교육',
+      name: '교육과정',
       path: '/courseAll',
       submenu: [
         { name: '현재모집교육', path: '/courseJoin' },

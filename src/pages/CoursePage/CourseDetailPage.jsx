@@ -63,6 +63,14 @@ console.log(course);
     }
   };
 
+  const displaySelfCost = (cost) => {
+  const numCost = Number(cost);
+  if (isNaN(numCost)) { // 숫자로 변환 불가 시
+    return cost || '0'; // 원래 값 또는 '0'
+  }
+  return numCost.toLocaleString('ko-KR');
+};
+
   return (
     <S.PageContainer>
       {course && (
@@ -138,7 +146,7 @@ console.log(course);
                       <i className="fas fa-won-sign"></i>
                     </S.CourseInfoIcon>
                     <S.CourseInfoTitle>교육비</S.CourseInfoTitle>
-                    <S.CourseInfoValue>{course.price}</S.CourseInfoValue>
+                    <S.CourseInfoValue>{displaySelfCost(course.price)}원</S.CourseInfoValue>
                   </S.CourseInfoCard>
 
                   <S.CourseInfoCard>
@@ -146,7 +154,7 @@ console.log(course);
                       <i className="fas fa-won-sign"></i>
                     </S.CourseInfoIcon>
                     <S.CourseInfoTitle>자비 부담금</S.CourseInfoTitle>
-                    <S.CourseInfoValue>{course.selfCost}</S.CourseInfoValue>
+                    <S.CourseInfoValue>{displaySelfCost(course.selfCost)}원</S.CourseInfoValue>
                   </S.CourseInfoCard>
                   
                   <S.CourseInfoCard>
@@ -154,7 +162,7 @@ console.log(course);
                       <i className="fas fa-won-sign"></i>
                     </S.CourseInfoIcon>
                     <S.CourseInfoTitle>내일배움카드 지원금</S.CourseInfoTitle>
-                    <S.CourseInfoValue>{course.supportFund}</S.CourseInfoValue>
+                    <S.CourseInfoValue>{displaySelfCost(course.supportFund)}원</S.CourseInfoValue>
                   </S.CourseInfoCard>
 
                   <S.CourseInfoCard>

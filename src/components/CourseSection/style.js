@@ -101,16 +101,50 @@ export const ButtonContainer = css`
 `;
 
 export const ViewAllButton = css`
-  display: inline-block;
-  background-color: #0056b3;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #1f2937, #374151);
   color: white;
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.375rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transition: background-color 0.3s;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 16px 32px;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 8px 16px -4px rgba(31, 41, 55, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
   
   &:hover {
-    background-color: #003d81;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 24px -4px rgba(31, 41, 55, 0.5);
+    
+    &::before {
+      left: 100%;
+    }
+    
+    svg {
+      transform: translateX(4px);
+    }
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  svg {
+    transition: transform 0.3s ease;
   }
 `;

@@ -6,7 +6,7 @@ import energy from '../../assets/images/에너지.jpg';
 import certigicate from '../../assets/images/설비보전2.jpg';
 import hotwater from '../../assets/images/온수온돌.jpg';
 import { Link } from 'wouter';
-
+import { FiArrowRight } from 'react-icons/fi';
 
 const CourseSection = () => {
   const courses = [
@@ -65,8 +65,9 @@ const CourseSection = () => {
         </div>
         
         <div css={s.ButtonContainer}>
-          <Link href="/course">
-            <span css={s.ViewAllButton}>전체 과정 보기</span>
+          <Link href="/course" css={s.ViewAllButton}>
+            <span>전체 과정 보기</span>
+            <FiArrowRight size={20} />
           </Link>
         </div>
       </div>

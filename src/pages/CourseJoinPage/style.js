@@ -157,6 +157,7 @@ export const periodText = css`
   font-size: 0.75rem; // text-xs
   font-weight: 500; // font-medium
   color: #1f2937; // text-gray-800
+  text-align: center;
 
   @media (min-width: 640px) { // sm
     font-size: 0.875rem; // sm:text-sm
@@ -192,12 +193,11 @@ export const applyButton = (isRecruiting) => css`
   font-weight: 500; // font-medium
   font-size: 0.75rem; // text-xs
   transition: background-color 0.2s ease-in-out;
-
-  background-color: ${isRecruiting ? '#3b82f6' : '#9ca3af'}; // bg-blue-500 or bg-gray-400
+  background-color: ${isRecruiting ? '#0056b3' : '#9ca3af'}; // bg-blue-500 or bg-gray-400
   cursor: ${isRecruiting ? 'pointer' : 'not-allowed'};
 
   &:hover {
-    background-color: ${isRecruiting ? '#2563eb' : '#9ca3af'}; // hover:bg-blue-600 or no change
+    background-color: ${isRecruiting ? 'rgb(2, 69, 141)' : '#9ca3af'}; // hover:bg-blue-600 or no change
   }
 
   @media (min-width: 640px) { // sm
@@ -225,11 +225,11 @@ export const paginationButton = (isActive) => css`
   font-size: 0.875rem; // text-sm
   transition: background-color 0.2s ease-in-out;
   
-  background-color: ${isActive ? '#3b82f6' : 'transparent'}; // bg-blue-500 or transparent
+  background-color: ${isActive ? '#0056b3' : 'transparent'}; // bg-blue-500 or transparent
   color: ${isActive ? 'white' : '#374151'};
 
   &:hover {
-    background-color: ${isActive ? '#2563eb' : '#f9fafb'}; // hover:bg-gray-50
+    background-color: ${isActive ? 'rgb(2, 69, 141)' : '#f9fafb'}; // hover:bg-gray-50
   }
 `;
 

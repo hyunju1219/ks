@@ -596,3 +596,48 @@ export const StepConnector = styled.div`
     flex-grow: 1;
   }
 `;
+export const RecruitmentStatusBadge = styled.div`
+  position: absolute;
+  width: 4rem;
+  margin: 0.8rem;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+`;
+
+export const CertificationNavBar = styled.div`
+   display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  
+  @media (min-width: 768px) {
+    gap: 1rem;
+  }
+`;
+
+export const CertNavItem = styled.button` // 버튼 또는 div로 스타일링 가능
+    display: inline-block; /* 또는 flex */
+  padding: 0.75rem 1.25rem;
+  background-color: ${props => props.isActive ? '#0056b3' : '#f3f4f6'};
+  color: ${props => props.isActive ? 'white' : '#4b5563'};
+  font-weight: 500;
+  border-radius: 0.375rem;
+  transition: background-color 0.3s, color 0.3s;
+  
+  &:hover {
+    background-color: ${props => props.isActive ? '#003d81' : '#e5e7eb'};
+  }
+`;
+
+// 과정 카드에 자격증 종류 표시 (선택 사항)
+// export const CourseCertificationType = styled.p`
+//   font-size: 0.9rem;
+//   color: #555;
+//   margin-bottom: 8px;
+// `;

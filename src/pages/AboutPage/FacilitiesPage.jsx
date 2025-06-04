@@ -27,6 +27,8 @@ import practice5 from '../../assets/practice/실습5.jpg';
 import practice6 from '../../assets/practice/실습6.jpg';
 import practice7 from '../../assets/practice/실습7.jpg';
 import practice8 from '../../assets/practice/실습8.jpg';
+import practice9 from '../../assets/practice/실습9.jpg';
+import practice10 from '../../assets/practice/실습10.jpg';
 
 const FacilitiesPage = () => {
   const [activeTab, setActiveTab] = useState('facilitie');
@@ -147,6 +149,60 @@ const FacilitiesPage = () => {
       duration: '3개월',
       certification: '전기용접기능사',
       image: practice4
+    },
+    {
+      id: 5,
+      title: '표준냉동기 실습',
+      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
+      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
+      duration: '3개월',
+      certification: '전기용접기능사',
+      image: practice5
+    },
+    {
+      id: 6,
+      title: '표준냉동기 실습',
+      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
+      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
+      duration: '3개월',
+      certification: '전기용접기능사',
+      image: practice6
+    },
+    {
+      id: 7,
+      title: '표준냉동기 실습',
+      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
+      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
+      duration: '3개월',
+      certification: '전기용접기능사',
+      image: practice7
+    },
+    {
+      id: 8,
+      title: '표준냉동기 실습',
+      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
+      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
+      duration: '3개월',
+      certification: '전기용접기능사',
+      image: practice8
+    },
+    {
+      id: 9,
+      title: '표준냉동기 실습',
+      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
+      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
+      duration: '3개월',
+      certification: '전기용접기능사',
+      image: practice9
+    },
+    {
+      id: 10,
+      title: '표준냉동기 실습',
+      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
+      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
+      duration: '3개월',
+      certification: '전기용접기능사',
+      image: practice10
     }
   ];
   
@@ -261,11 +317,11 @@ const FacilitiesPage = () => {
             </S.FacilityImageContainer>
             <S.FacilityContent>
               <S.FacilityTitle>{facility.title}</S.FacilityTitle>
-              <S.PracticeMeta>
+              {/* <S.PracticeMeta>
                 <S.PracticeDuration>{facility.duration}</S.PracticeDuration>
                 <S.PracticeCertification>{facility.certification}</S.PracticeCertification>
               </S.PracticeMeta>
-              <S.FacilityDescription>{facility.description}</S.FacilityDescription>
+              <S.FacilityDescription>{facility.description}</S.FacilityDescription> */}
             </S.FacilityContent>
           </S.FacilityCard>
         ))}

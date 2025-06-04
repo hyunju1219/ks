@@ -129,3 +129,56 @@ export const SliderDotInactive = css`
   ${SliderDotBase}
   background-color: rgba(255, 255, 255, 0.5);
 `;
+
+export const swiperContainerStyle = css`
+  width: 100%;
+  height: 500px; /* 슬라이더 높이를 원하는 대로 조절하세요 */
+  position: relative; /* 네비게이션/페이지네이션 버튼의 절대 위치 기준 */
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    background-size: cover;
+    background-position: center;
+    display: flex; /* 슬라이드 내부 컨텐츠 정렬을 위해 */
+    justify-content: center;
+    align-items: center;
+    /* 예시: 슬라이드 텍스트 스타일
+    color: white;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    */
+  }
+
+  /* 페이지네이션 점 스타일 (선택 사항) */
+  .swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 0.7); /* 비활성 점 색상 */
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: white; /* 활성 점 색상 */
+    transform: scale(1.2); /* 활성 점 약간 크게 */
+  }
+
+  /* 네비게이션 화살표 스타일 (선택 사항, navigation={true} 설정 시) */
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: white; /* 화살표 색상 */
+    &:after {
+      font-size: 24px; /* 화살표 아이콘 크기 */
+    }
+  }
+  .swiper-button-prev {
+    left: 20px; /* 왼쪽 여백 */
+  }
+  .swiper-button-next {
+    right: 20px; /* 오른쪽 여백 */
+  }
+`;

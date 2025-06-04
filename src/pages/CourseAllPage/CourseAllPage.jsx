@@ -67,7 +67,7 @@ const CourseAllPage = () => {
               <td css={s.td}>446,400</td>
               <td css={s.td}>653,600</td>
               <td css={s.td}>1,100,000</td>
-              <td css={s.td}><button css={s.button}>상담하기</button></td>
+              <td css={s.td}><button css={s.button}><Link to='/contact'>상담하기</Link></button></td>
             </tr>
           </tbody>
         </table>
@@ -124,7 +124,7 @@ const CourseAllPage = () => {
               <td css={s.td}>217,620</td>
               <td css={s.td}>552,380</td>
               <td css={s.td}>770,000</td>
-              <td css={s.td}><button css={s.button}>상담하기</button></td>
+              <td css={s.td}><button css={s.button}><Link to='/contact'>상담하기</Link></button></td>
             </tr>
             <tr>
               <td css={s.td}>에너지관리</td>
@@ -132,7 +132,7 @@ const CourseAllPage = () => {
               <td css={s.td}>217,620</td>
               <td css={s.td}>682,380</td>
               <td css={s.td}>900,000</td>
-              <td css={s.td}><button css={s.button}>상담하기</button></td>
+              <td css={s.td}><button css={s.button}><Link to='/contact'>상담하기</Link></button></td>
             </tr>
             <tr>
               <td css={s.td} rowSpan={2}>3회</td>
@@ -144,7 +144,7 @@ const CourseAllPage = () => {
               <td css={s.td}>217,620</td>
               <td css={s.td}>552,380</td>
               <td css={s.td}>770,000</td>
-              <td css={s.td}><button css={s.button}>상담하기</button></td>
+              <td css={s.td}><button css={s.button}><Link to='/contact'>상담하기</Link></button></td>
             </tr>
             <tr>
               <td css={s.td}>에너지관리</td>
@@ -152,7 +152,7 @@ const CourseAllPage = () => {
               <td css={s.td}>217,620</td>
               <td css={s.td}>682,380</td>
               <td css={s.td}>900,000</td>
-              <td css={s.td}><button css={s.button}>상담하기</button></td>
+              <td css={s.td}><button css={s.button}><Link to='/contact'>상담하기</Link></button></td>
             </tr>
           </tbody>
         </table>
@@ -228,7 +228,7 @@ const CourseAllPage = () => {
               <td css={s.td}>217,620</td>
               <td css={s.td}>502,380</td>
               <td css={s.td}>720,000</td>
-              <td css={s.td}><button css={s.button}>상담하기</button></td>
+              <td css={s.td}><button css={s.button}><Link to='/contact'>상담하기</Link></button></td>
             </tr>
             <tr>
               <td css={s.td}>에너지관리</td>
@@ -236,7 +236,7 @@ const CourseAllPage = () => {
               <td css={s.td}>217,620</td>
               <td css={s.td}>482,380</td>
               <td css={s.td}>700,000</td>
-              <td css={s.td}><button css={s.button}>상담하기</button></td>
+              <td css={s.td}><button css={s.button}><Link to='/contact'>상담하기</Link></button></td>
             </tr>
             <tr>
               <td css={s.td} rowSpan={2}>4회</td>
@@ -248,7 +248,7 @@ const CourseAllPage = () => {
               <td css={s.td}>217,620</td>
               <td css={s.td}>502,380</td>
               <td css={s.td}>720,000</td>
-              <td css={s.td}><button css={s.button}>상담하기</button></td>
+              <td css={s.td}><button css={s.button}><Link to='/contact'>상담하기</Link></button></td>
             </tr>
             <tr>
               <td css={s.td}>에너지관리</td>
@@ -256,7 +256,7 @@ const CourseAllPage = () => {
               <td css={s.td}>217,620</td>
               <td css={s.td}>482,380</td>
               <td css={s.td}>700,000</td>
-              <td css={s.td}><button css={s.button}>상담하기</button></td>
+              <td css={s.td}><button css={s.button}><Link to='/contact'>상담하기</Link></button></td>
             </tr>
           </tbody>
         </table>

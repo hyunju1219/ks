@@ -24,6 +24,7 @@ const AdminCourseAdd = () => {
     supportFund: '',
     capacity: '',
     description: '',
+    certificationType:''
   });
 
   const handleImageChange = (e) => {
@@ -151,20 +152,30 @@ const AdminCourseAdd = () => {
           <label htmlFor="selfCost">자비 부담금</label>
           <input id="selfCost" name="selfCost" type="number" value={form.selfCost} onChange={handleChange} css={s.input} />
         </div>
+         <div css={s.gridItem}>
+          <label htmlFor="supportFund">내일배움카드 지원금</label>
+          <input id="supportFund" name="supportFund" type="number" value={form.supportFund} onChange={handleChange} css={s.input} />
+        </div>
       </div>
 
       <div css={s.gridRow}>
         <div css={s.gridItem}>
-          <label htmlFor="location">교육 장소</label>
-          <input id="location" name="location" value={form.location} onChange={handleChange} css={s.input} />
-        </div>
-        <div css={s.gridItem}>
-          <label htmlFor="supportFund">내일배움카드 지원금</label>
-          <input id="supportFund" name="supportFund" type="number" value={form.supportFund} onChange={handleChange} css={s.input} />
+         <label htmlFor="certificationType">자격증 종류</label>
+          <select id="certificationType" name="certificationType" value={form?.certificationType} onChange={handleChange} css={s.select}>
+            <option value="">선택하세요</option>
+            <option value="공조냉동기계">공조냉동기계</option>
+            <option value="에너지관리">에너지관리</option>
+            <option value="설비보전">설비보전</option>
+            <option value="온수온돌">온수온돌</option>
+          </select>
         </div>
         <div css={s.gridItem}>
           <label htmlFor="capacity">정원</label>
           <input id="capacity" name="capacity" type="number" value={form.capacity} onChange={handleChange} css={s.input} />
+        </div>
+        <div css={s.gridItem}>
+          <label htmlFor="location">관련링크</label>
+          <input id="location" name="location" value={form.location} onChange={handleChange} css={s.input} />
         </div>
       </div>
 

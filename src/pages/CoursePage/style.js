@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const PageContainer = styled.div`
@@ -641,3 +642,13 @@ export const CertNavItem = styled.button` // 버튼 또는 div로 스타일링 �
 //   color: #555;
 //   margin-bottom: 8px;
 // `;
+
+
+export const ImgLayout = styled.div`
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;

@@ -8,6 +8,9 @@ import Pagination from '@/components/Pagination/Pagination'; // Pagination 컴�
 import * as S from './style';
 import useAuthstate from '@/hooks/useAuthstate';
 import { getCourse } from '@/firebase/courseService';
+import explanation1 from '../../assets/notice/과정평가1.png';
+import explanation2 from '../../assets/notice/과정평가2.png';
+import explanation3 from '../../assets/notice/과정평가3.png';
 
 const categoryMappingsBySlug = {
   'all': { firestoreValue: 'all', displayName: '전체 과정' },
@@ -172,17 +175,21 @@ const CoursePage = () => {
             </div>
           )}
 
-          <S.CertificationNavBar>
-            {certificationTypeNavItems.map(item => (
-              <S.CertNavItem
-                key={item.filterValue}
-                onClick={() => setActiveCertificationType(item.filterValue)}
-                isActive={activeCertificationType === item.filterValue}
-              >
-                {item.displayName}
-              </S.CertNavItem>
-            ))}
-          </S.CertificationNavBar>
+{
+    !activeCategoryToFilter === '과정평가형' &&
+    <S.CertificationNavBar>
+      {certificationTypeNavItems.map(item => (
+        <S.CertNavItem
+          key={item.filterValue}
+          onClick={() => setActiveCertificationType(item.filterValue)}
+          isActive={activeCertificationType === item.filterValue}
+        >
+          {item.displayName}
+        </S.CertNavItem>
+      ))}
+    </S.CertificationNavBar>
+}
+          
 
           {loading && allCourses.length === 0 ? (
             <S.LoadingContainer>
@@ -191,6 +198,14 @@ const CoursePage = () => {
             </S.LoadingContainer>
           ) : (
             <>
+            {
+              activeCategoryToFilter === '과정평가형' ?
+              <S.ImgLayout>
+                <img src={explanation1} />
+                <img src={explanation2} />
+                <img src={explanation3} />
+              </S.ImgLayout>
+              :<>
               <S.CourseGrid>
                 {paginatedCourses.length > 0 ? (
                   paginatedCourses.map(course => (
@@ -231,6 +246,8 @@ const CoursePage = () => {
                   onPageChange={handlePageChange}
                 />
               )}
+            </>
+            }
             </>
           )}
         </S.SectionInner>

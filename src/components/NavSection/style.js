@@ -365,6 +365,10 @@ export const courseTitle = css`
   color: #1f2937;
   margin-bottom: 20px;
   line-height: 1.3;
+   display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 `;
 
 export const courseDetails = css`

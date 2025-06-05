@@ -1,11 +1,17 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from 'react';
-import * as s from './style'; // s.previewImg, s.imageBox 등의 스타일이 여기에 정의되어 있어야 함
+import { useState, useRef } from 'react'; // useRef 추가
+import * as s from './style';
 import { uploadImage } from '@/firebase/uploadImage';
 import { saveCourse } from '@/firebase/courseService';
 import { useLocation } from 'wouter';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'; // ReactQuill CSS
+import ReactQuill, { Quill } from 'react-quill'; // Quill 임포트
+import 'react-quill/dist/quill.snow.css';
+
+// ImageResize 모듈 임포트 및 등록 (컴포넌트 외부 또는 최상단에서 한 번만)
+import ImageResize from 'quill-image-resize-module-react';
+if (typeof window !== 'undefined') { // 브라우저 환경에서만 Quill 모듈 등록
+  Quill.register('modules/imageResize', ImageResize);
+}
 
 const AdminCourseAdd = () => {
   const [imageFile, setImageFile] = useState(null);
@@ -23,9 +29,10 @@ const AdminCourseAdd = () => {
     selfCost: '',
     supportFund: '',
     capacity: '',
-    description: '',
-    certificationType:''
+    description: '', // 교육과정 설명 필드
+    certificationType: ''
   });
+  const quillRef = useRef(null); // Quill 인스턴스 접근용 (선택 사항)
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -47,6 +54,7 @@ const AdminCourseAdd = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  // ReactQuill의 onChange 핸들러
   const handleDescriptionChange = (value) => {
     setForm((prev) => ({ ...prev, description: value }));
   };
@@ -56,41 +64,73 @@ const AdminCourseAdd = () => {
       alert('과정 이름과 카테고리는 필수입니다.');
       return;
     }
+    // 추가: 교육과정 설명도 필수 항목으로 간주할 수 있습니다.
+    if (!form.description || form.description.replace(/<(.|\n)*?>/g, '').trim().length === 0) {
+        alert('교육과정 설명은 필수입니다.');
+        return;
+    }
+
     try {
-      let finalImageUrl = form.imageUrl || '';
+      let finalImageUrl = ''; // 초기값은 빈 문자열
       if (imageFile) {
         finalImageUrl = await uploadImage(imageFile);
       }
+      // courseDataToSave 객체를 생성할 때, form.imageUrl이 아닌 finalImageUrl을 사용합니다.
       const courseDataToSave = { ...form, imageUrl: finalImageUrl };
       await saveCourse(courseDataToSave);
       alert('저장 완료');
-      setLocation('/course');
+      setLocation('/course'); // 저장 후 이동할 경로 (예시)
     } catch (err) {
       console.error('저장 오류', err);
       alert('저장 실패: ' + (err.message || '알 수 없는 오류'));
     }
   };
 
+  // React Quill 모듈 설정
+  const quillModules = {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      [{ font: [] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
+      ["link", "image"], // 이미지 버튼
+      [{ align: [] }],
+      [{ color: [] }, { background: [] }],
+      ["clean"],
+    ],
+    imageResize: {
+      parchment: typeof window !== 'undefined' ? Quill.import('parchment') : null,
+      modules: ['Resize', 'DisplaySize'],
+    },
+    // 커스텀 이미지 핸들러 (Firebase Storage 연동 시)
+    // handlers: {
+    //   image: () => { /* ... 이전 답변의 imageHandler 로직 ... */ }
+    // }
+  };
+
+  const quillFormats = [
+    "header", "font", "bold", "italic", "underline", "strike", "blockquote",
+    "list", "bullet", "indent", "link", "image", "align", "color", "background",
+  ];
+
   return (
     <div css={s.container}>
       <div css={s.formRow}>
         <div css={s.formGroup}>
-          <label>과정 대표 이미지</label> {/* 이 레이블은 이제 시각적으로만 역할 */}
+          <label>과정 대표 이미지</label>
           <div css={s.imageUploadGroup}>
-            {/* 파일 입력을 숨깁니다. */}
             <input
               type="file"
-              id="courseImageInput" // ID 추가
+              id="courseImageInput"
               accept="image/*"
               onChange={handleImageChange}
-              style={{ display: 'none' }} // 시각적으로 숨김
+              style={{ display: 'none' }}
             />
-            {/* 이미지 미리보기 영역을 레이블로 만들어 파일 입력을 트리거합니다. */}
-            <label htmlFor="courseImageInput" css={s.imageBoxLabel} /* s.imageBoxLabel 스타일 필요 */>
+            <label htmlFor="courseImageInput" css={s.imageBoxLabel}>
               {imageUrl ? (
                 <img src={imageUrl} alt="미리보기" css={s.previewImg} />
               ) : (
-                <span>이미지 미리보기<br/>(클릭하여 파일 선택)</span> // 사용자 안내 텍스트 추가
+                <span>이미지 미리보기<br/>(클릭하여 파일 선택)</span>
               )}
             </label>
           </div>
@@ -127,7 +167,6 @@ const AdminCourseAdd = () => {
         </div>
       </div>
 
-      {/* ... 나머지 폼 필드들 ... */}
       <div css={s.gridRow}>
         <div css={s.gridItem}>
           <label htmlFor="registrationPeriod">접수 기간</label>
@@ -161,7 +200,7 @@ const AdminCourseAdd = () => {
       <div css={s.gridRow}>
         <div css={s.gridItem}>
          <label htmlFor="certificationType">자격증 종류</label>
-          <select id="certificationType" name="certificationType" value={form?.certificationType} onChange={handleChange} css={s.select}>
+          <select id="certificationType" name="certificationType" value={form.certificationType} onChange={handleChange} css={s.select}>
             <option value="">선택하세요</option>
             <option value="공조냉동기계">공조냉동기계</option>
             <option value="에너지관리">에너지관리</option>
@@ -182,11 +221,15 @@ const AdminCourseAdd = () => {
       <div css={s.formGroupFullWidth} >
         <label htmlFor="description">교육과정 설명</label>
         <ReactQuill
+          ref={quillRef} // ref 추가
           id="description"
           theme="snow"
           value={form.description}
-          onChange={handleDescriptionChange}
-          style={{ height: "200px", marginBottom: "50px" }}
+          onChange={handleDescriptionChange} // 전용 핸들러 사용
+          modules={quillModules} // modules prop 전달
+          formats={quillFormats} // formats prop 전달
+          style={{ height: "200px", marginBottom: "50px" }} // 기존 스타일 유지
+          placeholder="교육과정 상세 내용을 입력해주세요..."
         />
       </div>
       <div css={s.buttonGroup}>

@@ -604,7 +604,7 @@ export const RecruitmentStatusBadge = styled.div`
   background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   color: white;
   padding: 6px 12px;
-  border-radius: 20px;
+  border-radius: 0.25rem;
   font-size: 14px;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
@@ -628,7 +628,7 @@ export const CertNavItem = styled.button` // 버튼 또는 div로 스타일링 �
   background-color: ${props => props.isActive ? '#0056b3' : '#f3f4f6'};
   color: ${props => props.isActive ? 'white' : '#4b5563'};
   font-weight: 500;
-  border-radius: 0.375rem;
+  border-radius: 0.25rem;
   transition: background-color 0.3s, color 0.3s;
   
   &:hover {

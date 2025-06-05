@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 export const SectionContainer = css`
   padding: 4rem 0;
-  background-color: white;
+  background-color: #f9fafb;
 `;
 
 export const SectionInner = css`
@@ -12,7 +12,7 @@ export const SectionInner = css`
 `;
 
 export const SectionTitle = css`
-  font-size: 1.875rem;
+  font-size: 35px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
@@ -22,6 +22,7 @@ export const SectionSubtitle = css`
   color: #6b7280;
   text-align: center;
   margin-bottom: 3rem;
+  font-size: 18px;
 `;
 
 export const FacilityGrid = css`
@@ -61,7 +62,7 @@ export const FacilityContent = css`
 `;
 
 export const FacilityTitle = css`
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 `;

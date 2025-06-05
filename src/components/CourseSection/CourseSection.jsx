@@ -21,7 +21,7 @@ const CourseSection = () => {
       id: 2,
       title: '에너지관리 과정',
       description: '에너지 설비의 효율적 운용 및 관리 기술을 습득하는 과정',
-      image: "https://media.canva.com/v2/image-resize/format:JPG/height:452/quality:92/uri:ifs%3A%2F%2FM%2Fc2c87855-baa9-47fa-a77f-9945674aec25/watermark:F/width:800?csig=AAAAAAAAAAAAAAAAAAAAAFt8ZWnn1q_-H2pDHMr8CztPzjYu7gxMgLSXXKIg6sN_&exp=1748857488&osig=AAAAAAAAAAAAAAAAAAAAAMGHQYS7bobtreXHXY0pEu0U9KfN_Lc29jjQih1FOiqa&signer=media-rpc&x-canva-quality=screen",
+      image: energy,
       link: '/certificate/energy'
     },
     {

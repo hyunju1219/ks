@@ -19,9 +19,9 @@ const MainPage = () => {
       </Helmet>
       <MainSlider />
       <NavSection />
-      <FeatureSection />
       <CourseSection />
       <FacilitiesSection />
+      <FeatureSection />
       <div css={s.container}>
       <div css={s.layout}>
         <div css={s.newsSection}>

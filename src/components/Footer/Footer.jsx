@@ -16,10 +16,10 @@ const Footer = () => {
           <div css={s.FooterColumn}>
             <h4 css={s.FooterHeading}>바로가기</h4>
             <ul css={s.FooterLinkList}>
-              <li><Link href="/about"><span css={s.FooterLink}>학교 소개</span></Link></li>
-              <li><Link href="/course"><span css={s.FooterLink}>교육 과정</span></Link></li>
-              <li><Link href="/certificate"><span css={s.FooterLink}>자격증 정보</span></Link></li>
-              <li><Link href="/job-center"><span css={s.FooterLink}>취업 센터</span></Link></li>
+              <li><Link href="/about"><span css={s.FooterLink}>학교소개</span></Link></li>
+              <li><Link href="/courseJoin"><span css={s.FooterLink}>교육과정</span></Link></li>
+              <li><Link href="/certificate/refrigeration"><span css={s.FooterLink}>과정소개</span></Link></li>
+              <li><Link href="/job-center"><span css={s.FooterLink}>취업센터</span></Link></li>
             </ul>
           </div>
           

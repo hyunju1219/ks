@@ -2,7 +2,6 @@ import { css } from '@emotion/react';
 
 export const SectionContainer = css`
   padding: 4rem 0;
-  background-color: #f9fafb;
 `;
 
 export const SectionInner = css`
@@ -12,7 +11,7 @@ export const SectionInner = css`
 `;
 
 export const SectionTitle = css`
-  font-size: 1.875rem;
+  font-size: 35px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
@@ -22,6 +21,7 @@ export const SectionSubtitle = css`
   color: #6b7280;
   text-align: center;
   margin-bottom: 3rem;
+  font-size: 18px;
 `;
 
 export const CourseGrid = css`
@@ -78,11 +78,14 @@ export const CourseFooter = css`
 `;
 
 export const CourseBadge = css`
-  background-color: #0056b3;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   color: white;
-  font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
   border-radius: 0.25rem;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+
 `;
 
 export const CourseLink = css`

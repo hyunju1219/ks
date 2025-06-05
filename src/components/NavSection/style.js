@@ -70,7 +70,7 @@ export const navGrid = css`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 20px;
-  margin-bottom: 80px;
+  margin: 0 100px 80px;
   animation: ${fadeInUp} 0.8s ease-out;
   
   @media (max-width: 1200px) {
@@ -97,7 +97,7 @@ export const navCard = css`
   align-items: center;
   justify-content: center;
   gap: 12px;
-  padding: 24px 16px;
+  /* padding: 16px; */
   background: white;
   border-radius: 16px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -186,22 +186,29 @@ export const arrowIcon = css`
 // 연락처 카드
 export const contactCard = css`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  width: 300px;
   gap: 12px;
-  padding: 24px 16px;
-  background: #0056b3;
+  padding: 20px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   border-radius: 16px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   color: white;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  min-height: 140px;
+  min-height: 110px;
   
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
   }
+`;
+
+export const iconLayout = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const contactInfo = css`
@@ -212,10 +219,10 @@ export const contactInfo = css`
 `;
 
 export const contactLabel = css`
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   display: block;
-  margin-bottom: 8px;
+  margin-top: 7px;
   opacity: 0.9;
   
   @media (max-width: 768px) {
@@ -233,7 +240,7 @@ export const phoneNumbers = css`
 export const phoneLink = css`
   color: white;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   transition: all 0.2s ease;
   
@@ -258,7 +265,7 @@ export const sectionHeader = css`
 `;
 
 export const sectionTitle = css`
-  font-size: 30px;
+  font-size: 35px;
   font-weight: 600;
   margin-bottom: 16px;
   
@@ -315,7 +322,7 @@ export const courseGrid = css`
 // 코스 카드
 export const courseCard = css`
   background: white;
-  border-radius: 20px;
+  border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -349,7 +356,7 @@ export const categoryBadge = css`
   background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   color: white;
   padding: 6px 12px;
-  border-radius: 20px;
+  border-radius: 0.25rem;
   font-size: 14px;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
@@ -360,7 +367,7 @@ export const cardContent = css`
 `;
 
 export const courseTitle = css`
-  font-size: 22px;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #1f2937;
   margin-bottom: 20px;
@@ -390,14 +397,12 @@ export const detailItem = css`
 `;
 
 export const detailLabel = css`
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
   color: #6b7280;
 `;
 
 export const detailValue = css`
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
   color: #1f2937;
 `;
 

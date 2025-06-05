@@ -12,7 +12,7 @@ export const SectionInner = css`
 `;
 
 export const SectionTitle = css`
-  font-size: 1.875rem;
+  font-size: 35px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 3rem;

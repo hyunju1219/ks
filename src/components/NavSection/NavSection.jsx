@@ -49,9 +49,11 @@ function NavSection(props) {
 
           {/* 연락처 카드 */}
           <div css={s.contactCard}>
-            <IoCall size={28} color={'#ffffff'} /> {/* 아이콘에 색상 직접 전달 */}
-            <div css={s.contactInfo}>
+            <div css={s.iconLayout}>
+              <IoCall size={28} color={'#ffffff'} /> {/* 아이콘에 색상 직접 전달 */}
               <span css={s.contactLabel}>문의전화</span>
+            </div>
+            <div css={s.contactInfo}>
               <div css={s.phoneNumbers}>
                 <a href="tel:051-806-2200" css={s.phoneLink}>051-806-2200</a>
                 <a href="tel:051-864-0535" css={s.phoneLink}>051-864-0535</a>

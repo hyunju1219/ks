@@ -60,6 +60,7 @@ export const NavButton = css`
   height: 5rem;
   color: #4b5563;
   font-weight: 500;
+  font-size: 18px;
   transition: color 0.3s;
   
   &:hover {
@@ -70,16 +71,22 @@ export const NavButton = css`
     margin-left: 0.25rem;
   }
 `;
-
 export const AuthSection = css`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 12px; // 간격 조절
+  @media (max-width: 1023px) { // 모바일에서는 숨김 (모바일 전용 섹션 사용 시)
+    // display: none; 
+  }
 `;
 
 export const UserEmail = css`
   font-size: 0.9rem;
   color: #444;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px; /* 이메일이 너무 길 경우 잘리도록 (선택 사항) */
 `;
 
 export const LogoutButton = css`
@@ -90,6 +97,7 @@ export const LogoutButton = css`
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.85rem;
+  white-space: nowrap;
   &:hover {
     background: #d62828;
   }
@@ -259,5 +267,55 @@ export const MobileContactInfo = css`
     color: #6b7280;
     font-size: 0.875rem;
     margin-bottom: 0.25rem;
+  }
+`;
+
+
+export const RemainingTime = css`
+  font-size: 0.8rem;
+  color: #666;
+  margin-right: 8px; // 이메일과의 간격
+  white-space: nowrap; // 줄바꿈 방지
+`;
+
+
+
+
+// 모바일용 인증 섹션 스타일 (선택 사항)
+export const MobileAuthSection = css`
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+`;
+
+export const UserEmailMobile = css`
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+`;
+
+export const RemainingTimeMobile = css`
+  font-size: 0.9rem;
+  color: #555;
+`;
+
+export const LogoutButtonMobile = css`
+  background: #0056b3; /* 모바일에서는 다른 색상 사용 가능 */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 80%;
+  max-width: 200px;
+  text-align: center;
+
+  &:hover {
+    background: #004494;
   }
 `;

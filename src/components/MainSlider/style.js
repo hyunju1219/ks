@@ -181,4 +181,10 @@ export const swiperContainerStyle = css`
   .swiper-button-next {
     right: 20px; /* 오른쪽 여백 */
   }
+
+    
+  @media (max-width: 768px) {
+   display: none;
+  }
+ 
 `;

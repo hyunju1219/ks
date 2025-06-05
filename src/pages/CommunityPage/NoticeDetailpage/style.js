@@ -1,8 +1,10 @@
 import { css } from '@emotion/react';
 
 export const pageContainer = css`
-  padding: 50px 20px; /* 상하좌우 패딩 증가 */
-  width: 1200px; /* 최대 너비를 1200px로 확장 */
+  box-sizing: border-box;
+  padding: 50px 20px;
+   width: 100%; /* 기본적으로 부모 요소의 전체 너비를 사용 */
+  max-width: 1200px; /* 상하좌우 패딩 증가 */
   margin: 0 auto;
 
   @media (max-width: 1280px) { /* 더 넓은 화면에도 대응 */

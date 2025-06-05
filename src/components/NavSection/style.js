@@ -70,7 +70,9 @@ export const navGrid = css`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 20px;
-  margin: 0 100px 80px;
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  /* padding: 0 100px 80px; */
   animation: ${fadeInUp} 0.8s ease-out;
   
   @media (max-width: 1200px) {
@@ -79,13 +81,13 @@ export const navGrid = css`
   }
   
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     margin-bottom: 60px;
   }
   
   @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
     gap: 16px;
   }
 `;
@@ -202,6 +204,12 @@ export const contactCard = css`
     transform: translateY(-4px);
      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
   }
+
+  @media (max-width: 768px) {
+      width: auto;
+      font-size: 14px;
+    }
+
 `;
 
 export const iconLayout = css`
@@ -235,6 +243,7 @@ export const phoneNumbers = css`
   flex-direction: column;
   gap: 4px;
   align-items: center;
+
 `;
 
 export const phoneLink = css`
@@ -250,7 +259,7 @@ export const phoneLink = css`
   }
   
   @media (max-width: 768px) {
-    font-size: 13px;
+    font-size: 16px;
   }
 `;
 

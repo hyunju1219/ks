@@ -33,6 +33,10 @@ export const totalCountIcon = css`
 export const tableHeader = css`
   background-color: #f9fafb; // bg-gray-50
   border-top: 2px solid #d1d5db; // border-t-2 border-gray-300
+    
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const tableGrid = css`

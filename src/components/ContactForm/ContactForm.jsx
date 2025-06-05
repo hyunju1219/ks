@@ -204,7 +204,7 @@ const ContactForm = () => {
         <div css={s.FormRow}>
           <div css={s.FormGroup}>
             <label css={s.Label}>이름 *</label>
-            <input css={s.Input} type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="홍길동" />
+            <input css={s.Input} type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="이름을 입력하세요" />
           </div>
           <div css={s.FormGroup}>
             <label css={s.Label}>이메일 *</label>

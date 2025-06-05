@@ -645,10 +645,26 @@ export const CertNavItem = styled.button` // 버튼 또는 div로 스타일링 �
 
 
 export const ImgLayout = styled.div`
-  width: 1200px;
-  margin: 0 auto;
+  width: 100%; /* 부모 요소의 전체 너비를 사용하도록 변경 */
+  max-width: 1200px; /* 최대 너비는 1200px로 유지 (데스크톱용) */
+  margin: 0 auto; /* 중앙 정렬 */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 16px; /* 모바일에서 좌우 여백을 위해 추가 (선택 사항) */
+  box-sizing: border-box; /* 패딩을 너비 계산에 포함 */
+
+  /* ImgLayout 내부의 모든 img 태그에 적용 */
+  img {
+    max-width: 100%; /* 이미지의 최대 너비를 부모 요소의 100%로 제한 */
+    height: auto;    /* 이미지의 가로세로 비율 유지 */
+    display: block;  /* 이미지 하단 여백 제거 (필요시) */
+    margin-bottom: 1rem; /* 이미지들 사이의 간격 (선택 사항) */
+    
+    /* 마지막 이미지는 하단 마진 제거 (선택 사항) */
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 `;

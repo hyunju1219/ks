@@ -35,7 +35,8 @@ const ContactPage = () => {
                   </S.ContactIcon>
                   <S.ContactLabel>전화</S.ContactLabel>
                   <S.ContactText>
-                    <S.ContactLink href="tel:051-806-2200">051-806-2200</S.ContactLink>
+                    <S.ContactLink href="tel:051-806-2200">051-806-2200<br/></S.ContactLink>
+                    <S.ContactLink href="tel:051-864-0535">051-864-0535</S.ContactLink>
                   </S.ContactText>
                   <S.ContactText>평일 09:00 - 18:00 (주말/공휴일 제외)</S.ContactText>
                 </S.ContactItem>

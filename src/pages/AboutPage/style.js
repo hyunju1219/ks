@@ -122,13 +122,10 @@ export const GreetingTitle = styled.h3`
   color: #1f2937;
   margin-bottom: 1.5rem;
   text-align: center;
-  max-width: 100%;
-  white-space: nowrap;
   
   @media (min-width: 768px) {
-    text-align: left;
     margin-bottom: 0;
-    flex-grow: 1;
+
   }
 `;
 

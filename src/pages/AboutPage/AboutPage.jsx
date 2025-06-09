@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet';
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import FacilitiesSection from '../../components/FacilitiesSection/FacilitiesSection';

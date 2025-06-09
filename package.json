@@ -61,6 +61,7 @@
     "react-kakao-maps-sdk": "^1.1.27",
     "react-quill": "^2.0.0",
     "react-resizable-panels": "^2.0.12",
+    "react-router-dom": "^7.6.2",
     "recharts": "^2.12.2",
     "swiper": "^11.2.8",
     "tailwind-merge": "^2.2.1",

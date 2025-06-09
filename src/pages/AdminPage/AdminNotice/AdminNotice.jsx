@@ -3,11 +3,11 @@ import { useState, useRef } from "react"; // useRef 추가
 import ReactQuill, { Quill } from "react-quill"; // Quill 임포트
 import "react-quill/dist/quill.snow.css";
 import * as s from "./style";
-import { useLocation } from "wouter";
 import { saveNotice } from "@/firebase/noticeService";
 
 // ImageResize 모듈 임포트 및 등록 (컴포넌트 외부 또는 최상단에서 한 번만)
 import ImageResize from 'quill-image-resize-module-react';
+import { useNavigate } from "react-router-dom";
 if (typeof window !== 'undefined') { // 브라우저 환경에서만 Quill 모듈 등록
   Quill.register('modules/imageResize', ImageResize);
 }
@@ -21,7 +21,7 @@ const AdminNotice = () => {
     isImportant: false,
   });
   const [error, setError] = useState({});
-  const [, setLocation] = useLocation();
+  const navigate = useNavigate();
   const quillRef = useRef(null); // Quill 인스턴스에 접근하기 위한 ref (커스텀 핸들러 시 필요)
 
   const handleChange = (field, value) => {
@@ -59,7 +59,7 @@ const AdminNotice = () => {
         isImportant: false,
       });
       setError({});
-      setLocation("/notice"); // 공지사항 목록 페이지로 이동
+      navigate("/notice"); // 공지사항 목록 페이지로 이동
     } catch (err) {
       console.error("공지사항 저장 실패:", err);
       alert("등록에 실패했습니다.");

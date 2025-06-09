@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import * as s from './style';
-import { Link } from 'wouter';
+import { Link } from 'react-router-dom';
 
 const CTASection = () => {
   return (

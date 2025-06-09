@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'wouter';
+import { Link } from "react-router-dom";
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import CTASection from '../../components/CTASection/CTASection';
 import * as S from './style';
@@ -28,23 +28,23 @@ const EnergyPage = () => {
         <S.SectionInner>
           {/* 상단 네비게이션 */}
           <S.CertificateNav>
-              <Link href="/certificate/energy">
+              <Link to="/certificate/energy">
                 <S.CertificateNavItem isActive={true}>개요</S.CertificateNavItem>
               </Link>
 
-              <Link href="/certificate/energy/master">
+              <Link to="/certificate/energy/master">
                 <S.CertificateNavItem>기능사</S.CertificateNavItem>
               </Link>
    
-              <Link href="/certificate/energy/industrial">
+              <Link to="/certificate/energy/industrial">
                 <S.CertificateNavItem>산업기사</S.CertificateNavItem>
               </Link>
  
-              <Link href="/certificate/energy/engineer">
+              <Link to="/certificate/energy/engineer">
                 <S.CertificateNavItem>기사</S.CertificateNavItem>
               </Link>
      
-              <Link href="/certificate/energy/craftsman">
+              <Link to="/certificate/energy/craftsman">
                 <S.CertificateNavItem>기능장</S.CertificateNavItem>
               </Link>
           </S.CertificateNav>
@@ -222,7 +222,7 @@ const EnergyPage = () => {
           
           {/* 교육과정 링크 */}
           <div style={{ marginTop: '2rem', marginBottom: '2rem', textAlign: 'center' }}>
-            <Link href="/course">
+            <Link to="/course">
               <S.CourseButton>관련 교육과정 보기</S.CourseButton>
             </Link>
           </div>

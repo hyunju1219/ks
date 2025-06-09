@@ -1,12 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'wouter';
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import * as S from './style'; // NoticePage의 스타일
 import useAuthstate from '@/hooks/useAuthstate';
 import { getNotices } from '@/firebase/noticeService';
 import Pagination from '@/components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
+import SearchBox from '@/components/SearchBox/SearchBox';
+import { Link } from 'react-router-dom';
 
 // 날짜 포맷팅 헬퍼 함수
 const formatDate = (timestamp) => {
@@ -108,23 +109,24 @@ const NoticePage = () => {
 
       <S.ContentSection>
         <S.SectionInner>
-          <S.SearchContainer onSubmit={handleSearch}>
-            <S.SearchInput
-              type="text"
-              placeholder="검색어를 입력하세요"
+          <S.SearchSection>
+            <SearchBox
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <S.SearchButton type="submit">검색</S.SearchButton>
-            {isLoggedIn && (
-              <Link href="/admin/notice">
-                <S.SearchButton type="button" style={{ marginLeft: "10px", padding: "15px", borderRadius: "0.375rem" }}>
-                  공지등록
-                </S.SearchButton>
-              </Link>
-            )}
-          </S.SearchContainer>
-
+              onSubmit={handleSearch}
+            >
+              {isLoggedIn && (
+                <Link to="/admin/notice">
+                  <S.SearchButton
+                    type="button"
+                    style={{ marginLeft: "10px", padding: "15px", borderRadius: "0.375rem" }}
+                  >
+                    공지등록
+                  </S.SearchButton>
+                </Link>
+              )}
+            </SearchBox>
+          </S.SearchSection>
           <S.NoticeTable>
             <thead>
               <tr>
@@ -144,7 +146,7 @@ const NoticePage = () => {
                     {notice.category && <S.CategoryBadge>{notice.category}</S.CategoryBadge>}
                   </S.TableCell>
                   <S.TableCell>
-                    <Link href={`/notice/${notice.id}`} css={S.NoticeLinkWrapper}>
+                    <Link to={`/notice/${notice.id}`} css={S.NoticeLinkWrapper}>
                       <span css={S.NoticeTitleText}>
                         {notice.title}
                       </span>
@@ -161,7 +163,7 @@ const NoticePage = () => {
           <S.MobileNoticeList>
             {currentItems.map(notice => (
               <S.MobileNoticeItem key={notice.id}>
-                <Link href={`/notice/${notice.id}`}>
+                <Link to={`/notice/${notice.id}`}>
                   <S.MobileNoticeContent>
                     <S.MobileNoticeHeader>
                       {notice.category && <S.MobileNoticeCategory>{notice.category}</S.MobileNoticeCategory>}

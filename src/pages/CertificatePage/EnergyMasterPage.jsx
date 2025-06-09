@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'wouter';
+import { Link } from "react-router-dom";
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import CTASection from '../../components/CTASection/CTASection';
 import * as S from './style';
@@ -30,27 +30,27 @@ const EnergyMasterPage = () => {
           {/* 상단 네비게이션 */}
           <S.CertificateNav>
             <div>
-              <Link href="/certificate/energy">
+              <Link to="/certificate/energy">
                 <S.CertificateNavItem>개요</S.CertificateNavItem>
               </Link>
             </div>
             <div>
-              <Link href="/certificate/energy/master">
+              <Link to="/certificate/energy/master">
                 <S.CertificateNavItem isActive={true}>기능사</S.CertificateNavItem>
               </Link>
             </div>
             <div>
-              <Link href="/certificate/energy/industrial">
+              <Link to="/certificate/energy/industrial">
                 <S.CertificateNavItem>산업기사</S.CertificateNavItem>
               </Link>
             </div>
             <div>
-              <Link href="/certificate/energy/engineer">
+              <Link to="/certificate/energy/engineer">
                 <S.CertificateNavItem>기사</S.CertificateNavItem>
               </Link>
             </div>
             <div>
-              <Link href="/certificate/energy/craftsman">
+              <Link to="/certificate/energy/craftsman">
                 <S.CertificateNavItem>기능장</S.CertificateNavItem>
               </Link>
             </div>
@@ -228,7 +228,7 @@ const EnergyMasterPage = () => {
               </tbody>
             </S.ExamScheduleTable>
             <S.ExamInfoNote>
-              * 상기 일정은 해당 연도의 공식 일정이며, 시행기관의 사정에 따라 변경될 수 있습니다. 정확한 일정은 <a href="https://www.q-net.or.kr" target="_blank" rel="noopener noreferrer">Q-Net</a> 홈페이지에서 확인하시기 바랍니다.
+              * 상기 일정은 해당 연도의 공식 일정이며, 시행기관의 사정에 따라 변경될 수 있습니다. 정확한 일정은 <a to="https://www.q-net.or.kr" target="_blank" rel="noopener noreferrer">Q-Net</a> 홈페이지에서 확인하시기 바랍니다.
             </S.ExamInfoNote>
           </S.InfoSection>
           
@@ -271,7 +271,7 @@ const EnergyMasterPage = () => {
           
           {/* 교육과정 링크 */}
           <div style={{ marginTop: '2rem', marginBottom: '2rem', textAlign: 'center' }}>
-            <Link href="/course">
+            <Link to="/course">
               <S.CourseButton>관련 교육과정 보기</S.CourseButton>
             </Link>
           </div>

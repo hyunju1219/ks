@@ -3,16 +3,16 @@ import { useEffect, useState, useRef } from "react"; // useRef 추가
 import ReactQuill, { Quill } from "react-quill"; // Quill 임포트
 import "react-quill/dist/quill.snow.css";
 import * as s from "./style";
-import { useLocation, useParams } from "wouter";
 import { getNoticeById, saveNotice } from "@/firebase/noticeService";
 
 // ImageResize 모듈 임포트
 import ImageResize from 'quill-image-resize-module-react';
+import { useNavigate, useParams } from "react-router-dom";
 Quill.register('modules/imageResize', ImageResize); // Quill에 모듈 등록
 
 const AdminNoticeEdit = () => {
   const { id } = useParams();
-  const [, setLocation] = useLocation();
+  const navigate = useNavigate();
   const [notice, setNotice] = useState({
     category: "",
     title: "",
@@ -80,7 +80,7 @@ const AdminNoticeEdit = () => {
     try {
       await saveNotice(noticeDataToSave);
       alert(id ? "공지사항이 수정되었습니다." : "공지사항이 등록되었습니다.");
-      setLocation("/notice");
+      navigate("/notice");
     } catch (err) {
       console.error("공지사항 저장 실패:", err);
       alert("저장에 실패했습니다.");

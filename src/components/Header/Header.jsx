@@ -1,10 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import * as s from './style';
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'wouter'; // useNavigate 추가 (wouter)
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-// onAuthStateChanged는 authService를 통해 사용하거나, 여기서 직접 사용.
-// 여기서는 authService의 subscribeToAuthChanges를 사용하도록 변경.
 import { subscribeToAuthChanges, logout as serviceLogout } from '@/firebase/auth'; // 공통 logout 사용
 import logo from '../../assets/images/kstg_logo.png';
 import { useAutoLogout } from '@/hooks/useAutoLogout';
@@ -12,7 +10,7 @@ import { useAutoLogout } from '@/hooks/useAutoLogout';
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
-  const [currentLocation] = useLocation(); // location 변수명 변경하여 혼동 방지
+  const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
   const { remainingTime } = useAutoLogout(); // 자동 로그아웃 훅
@@ -61,7 +59,7 @@ const Header = () => {
 
   useEffect(() => {
     setMobileMenuOpen(false);
-  }, [currentLocation]); // location 대신 currentLocation 사용
+  }, [navigate]); // location 대신 currentLocation 사용
 
   const navItems = [ /* ... 네비게이션 아이템 배열 ... */
     {
@@ -84,25 +82,28 @@ const Header = () => {
         { name: '온수온돌', path: '/certificate/heating' }
       ]
     },
-    {
+   {
       name: '교육과정',
-      path: '/courseAll',
+      path: '/courses',
       submenu: [
-        { name: '현재모집교육', path: '/courseJoin' },
-        { name: '전체교육보기', path: '/courseAll' },
-        { name: '국가기간전략훈련', path: '/course/national-strategy' },
-        { name: '내일배움카드', path: '/course/naeil-card' },
-        { name: '과정평가형', path: '/course/assessment-type' },
-        { name: '부산시과정', path: '/course/busan' },
+        { name: '현재모집교육', path: '/courses/open' },              
+        { name: '전체교육보기', path: '/courses/all' },               
+        { name: '국가기간전략훈련', path: '/courses/type/national' }, 
+        { name: '내일배움카드', path: '/courses/type/naeil-card' },  
+        { name: '과정평가형', path: '/courses/type/assessment' },    
+        { name: '부산시과정', path: '/courses/type/busan' },
       ]
-    },
+    }
+    ,
     {
       name: '취업센터',
       path: '/job-center',
       submenu: [
         { name: '지원시스템', path: '/job-center' },
+        { name: '구인게시판', path: '/job-center/info' },
+        { name: '취업현황', path: '/job-center/emp' },
       ]
-    },
+    },  
     {
       name: '고객지원',
       path: '/notice',
@@ -118,7 +119,7 @@ const Header = () => {
     <header css={s.HeaderContainer}>
       <div css={s.HeaderInner}>
         <div css={s.LogoContainer}>
-          <Link href="/">
+          <Link to="/">
             <img css={s.logo} src={logo} alt="금성기술직업전문학교 로고" />
           </Link>
         </div>
@@ -133,7 +134,7 @@ const Header = () => {
               <div css={s.DropdownContent}>
                 {item.submenu.map((subItem) => (
                   <div key={subItem.name}>
-                    <Link href={subItem.path}>
+                    <Link to={subItem.path}>
                       <span css={s.DropdownItem}>{subItem.name}</span>
                     </Link>
                   </div>
@@ -183,7 +184,7 @@ const Header = () => {
               <div css={activeSubMenu === item.name ? s.MobileSubMenuOpen : s.MobileSubMenuClosed}>
                 {item.submenu.map((subItem) => (
                   <div key={subItem.name}>
-                    <Link href={subItem.path}>
+                    <Link to={subItem.path}>
                       <span css={s.MobileSubMenuItem}>{subItem.name}</span>
                     </Link>
                   </div>

@@ -1,9 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import * as s from './style';
 import { Helmet } from 'react-helmet';
-import { Link } from 'wouter';
+
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import CTASection from '../../components/CTASection/CTASection';
+import { Link } from 'react-router-dom';
 
 const CourseAllPage = () => {
   return (

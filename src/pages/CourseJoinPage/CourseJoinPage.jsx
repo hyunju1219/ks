@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 import { getRecruitingCourses } from '@/firebase/courseService';
 import { css } from '@emotion/react';
 import Pagination from '@/components/Pagination/Pagination';
-import { Link, Link as WouterLink } from 'wouter'; // wouter의 Link 이름을 변경하여 충돌 방지
+import { Link } from 'react-router-dom';
 
 const ITEMS_PER_PAGE = 10;
 
@@ -185,8 +185,8 @@ const CoureseJoinPage = () => {
                       </button>
                     </a>
                   ) : (
-                    <WouterLink
-                      to={actualLink}
+                    <a
+                      href={actualLink}
                       style={{ textDecoration: 'none' }}
                       onClick={(e) => {
                         if (isDisabled) e.preventDefault();
@@ -198,7 +198,7 @@ const CoureseJoinPage = () => {
                       >
                         {course.status === '모집중' ? '수강신청' : course.status}
                       </button>
-                    </WouterLink>
+                    </a>
                   )}
                 </div>
               </div>

@@ -4,7 +4,7 @@ import { getRecruitingCourses } from '@/firebase/courseService';
 import React, { useEffect, useState } from 'react';
 import { IoCall } from "react-icons/io5";
 import { FiMapPin, FiBell, FiMessageSquare, FiBookOpen, FiList, FiPhone, FiArrowRight } from 'react-icons/fi';
-import { Link } from 'wouter'; // Link 컴포넌트 사용
+import { Link } from 'react-router-dom';
 
 function NavSection(props) {
   const [courses, setCourses] = useState([]);

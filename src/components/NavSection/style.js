@@ -101,7 +101,7 @@ export const navCard = css`
   gap: 12px;
   /* padding: 16px; */
   background: white;
-  border-radius: 16px;
+  border-radius: 0.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   text-decoration: none;
   color: inherit;
@@ -123,10 +123,8 @@ export const navCard = css`
   }
   
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    border-color: #e2e8f0;
-    
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+ 
     &::before {
       left: 100%;
     }
@@ -194,15 +192,14 @@ export const contactCard = css`
   gap: 12px;
   padding: 20px;
   background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  border-radius: 16px;
+  border-radius: 0.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   color: white;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   min-height: 110px;
   
   &:hover {
-    transform: translateY(-4px);
-     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   @media (max-width: 768px) {
@@ -338,9 +335,7 @@ export const courseCard = css`
   border: 2px solid transparent;
   
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-    border-color: #e5e7eb;
+   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 `;
 

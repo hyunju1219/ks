@@ -181,7 +181,7 @@ const LocationPage = () => {
                       <S.TransportationText>(1호선) 6번 출구 도보 2분</S.TransportationText>
                     </S.TransportationItem>
                     <S.TransportationItem>
-                      <S.TransportationIcon color="#AA9872">가재맛이역</S.TransportationIcon>
+                      <S.TransportationIcon color="#AA9872">거제해맞이역</S.TransportationIcon>
                       <S.TransportationText>(동해선) 3번 출구 도보 20분</S.TransportationText>
                     </S.TransportationItem>
                   </S.TransportationGrid>

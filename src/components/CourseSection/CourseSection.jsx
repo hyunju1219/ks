@@ -5,7 +5,7 @@ import maintenance from '../../assets/images/공조냉동.jpg';
 import energy from '../../assets/images/에너지.jpg';
 import certigicate from '../../assets/images/설비보전2.jpg';
 import hotwater from '../../assets/images/온수온돌.jpg';
-import { Link } from 'wouter';
+import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
 
 const CourseSection = () => {

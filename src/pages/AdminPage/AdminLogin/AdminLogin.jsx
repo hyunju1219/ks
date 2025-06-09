@@ -1,15 +1,15 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect, useState } from 'react';
 import * as s from './style';
-import { useLocation } from 'wouter';
 import { loginWithEmail, subscribeToAuthChanges, isAdminUser, logout } from '@/firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true); // 초기 로딩 true
-  const [_, navigate] = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = subscribeToAuthChanges((user) => {

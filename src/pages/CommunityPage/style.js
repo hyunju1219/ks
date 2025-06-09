@@ -15,6 +15,13 @@ export const SectionInner = styled.div`
   padding: 0 1rem;
 `;
 
+export const SearchSection = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+`;
+
 export const SectionTitle = styled.h2`
   font-size: 1.875rem;
   font-weight: 700;

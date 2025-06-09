@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'wouter';
+import { Link } from "react-router-dom";
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import CTASection from '../../components/CTASection/CTASection';
 import * as S from './style';
@@ -67,7 +67,7 @@ const CertificatePage = () => {
         <S.SectionInner>
           <S.CertificateNav>
             {certificates.map(cert => (
-              <Link key={cert.id} href={`/certificate/${cert.id}`}>
+              <Link key={cert.id} to={`/certificate/${cert.id}`}>
                 <S.CertificateNavItem isActive={cert.id === certificateId}>
                   {cert.title}
                 </S.CertificateNavItem>
@@ -137,7 +137,7 @@ const CertificatePage = () => {
                 </S.StepList>
               </S.InfoSection>
 
-              <Link href="/course">
+              <Link to="/course">
                 <S.CourseButton>관련 교육과정 보기</S.CourseButton>
               </Link>
             </S.CertificateInfo>

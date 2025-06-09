@@ -22,13 +22,17 @@ import buildingImage from '../../assets/facilities/building.png';
 import practice1 from '../../assets/practice/실습1.jpg';
 import practice2 from '../../assets/practice/실습2.jpg';
 import practice3 from '../../assets/practice/실습3.jpg';
-import practice4 from '../../assets/practice/실습4.jpg';
+import practice4 from '../../assets/practice/공조.jpg';
 import practice5 from '../../assets/practice/실습5.jpg';
 import practice6 from '../../assets/practice/실습6.jpg';
 import practice7 from '../../assets/practice/실습7.jpg';
 import practice8 from '../../assets/practice/실습8.jpg';
 import practice9 from '../../assets/practice/실습9.jpg';
 import practice10 from '../../assets/practice/실습10.jpg';
+import practice11 from '../../assets/facilities/남윤수.jpg';
+import practice12 from '../../assets/facilities/설주한.jpg';
+import practice13 from '../../assets/facilities/박효진.jpg';
+import practice14 from '../../assets/facilities/박재환.jpg';
 
 const FacilitiesPage = () => {
   const [activeTab, setActiveTab] = useState('facilitie');
@@ -143,67 +147,49 @@ const FacilitiesPage = () => {
     },
     {
       id: 4,
-      title: '표준냉동기 실습',
-      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
-      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
-      duration: '3개월',
-      certification: '전기용접기능사',
+      title: '공조기 실습',
+      description: '에너지 효율 향상 및 관리에 관한 전문 기술을 습득합니다.',
+      subjects: ['에너지 진단', '효율개선 방안', '신재생에너지', '에너지정책'],
+      duration: '5개월',
+      certification: '에너지관리기능사',
       image: practice4
     },
     {
-      id: 5,
-      title: '표준냉동기 실습',
+      id: 4,
+      title: '원밴딩 실습',
       description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
       subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
       duration: '3개월',
       certification: '전기용접기능사',
-      image: practice5
+      image: practice13
+    },
+    {
+      id: 5,
+      title: '투밴딩(동관작업) 실습',
+      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
+      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
+      duration: '3개월',
+      certification: '전기용접기능사',
+      image: practice12
     },
     {
       id: 6,
-      title: '표준냉동기 실습',
+      title: '보일러 배관설치 (1차시험)',
       description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
       subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
       duration: '3개월',
       certification: '전기용접기능사',
-      image: practice6
+      image: practice11
     },
     {
       id: 7,
-      title: '표준냉동기 실습',
+      title: '배관실무작업 (2차시험)',
       description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
       subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
       duration: '3개월',
       certification: '전기용접기능사',
-      image: practice7
+      image: practice14
     },
-    {
-      id: 8,
-      title: '표준냉동기 실습',
-      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
-      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
-      duration: '3개월',
-      certification: '전기용접기능사',
-      image: practice8
-    },
-    {
-      id: 9,
-      title: '표준냉동기 실습',
-      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
-      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
-      duration: '3개월',
-      certification: '전기용접기능사',
-      image: practice9
-    },
-    {
-      id: 10,
-      title: '표준냉동기 실습',
-      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
-      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
-      duration: '3개월',
-      certification: '전기용접기능사',
-      image: practice10
-    }
   ];
   
   const detailCategory = [

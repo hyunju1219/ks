@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
+import { Link } from 'react-router-dom';
 import * as s from './style';
-import { Link } from 'wouter';
+
 import { Facebook, Globe, MessageCircle, Mail } from 'lucide-react';
 
 const Footer = () => {
@@ -16,19 +17,19 @@ const Footer = () => {
           <div css={s.FooterColumn}>
             <h4 css={s.FooterHeading}>바로가기</h4>
             <ul css={s.FooterLinkList}>
-              <li><Link href="/about"><span css={s.FooterLink}>학교소개</span></Link></li>
-              <li><Link href="/courseJoin"><span css={s.FooterLink}>교육과정</span></Link></li>
-              <li><Link href="/certificate/refrigeration"><span css={s.FooterLink}>과정소개</span></Link></li>
-              <li><Link href="/job-center"><span css={s.FooterLink}>취업센터</span></Link></li>
+              <li><Link to="/about"><span css={s.FooterLink}>학교소개</span></Link></li>
+              <li><Link to="/courses/open"><span css={s.FooterLink}>모집교육</span></Link></li>
+              <li><Link to="/certificate/refrigeration"><span css={s.FooterLink}>과정소개</span></Link></li>
+              <li><Link to="/job-center"><span css={s.FooterLink}>취업센터</span></Link></li>
             </ul>
           </div>
           
           <div css={s.FooterColumn}>
             <h4 css={s.FooterHeading}>고객 지원</h4>
             <ul css={s.FooterLinkList}>
-              <li><Link href="/notice"><span css={s.FooterLink}>공지사항</span></Link></li>
-              <li><Link href="/contact"><span css={s.FooterLink}>문의하기</span></Link></li>
-              <li><Link href="/location"><span css={s.FooterLink}>오시는 길</span></Link></li>
+              <li><Link to="/notice"><span css={s.FooterLink}>공지사항</span></Link></li>
+              <li><Link to="/contact"><span css={s.FooterLink}>문의하기</span></Link></li>
+              <li><Link to="/about/location"><span css={s.FooterLink}>오시는 길</span></Link></li>
             </ul>
           </div>
           

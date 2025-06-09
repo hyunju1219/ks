@@ -2,7 +2,7 @@
 import * as s from './style';
 
 import React from 'react';
-import { Link } from 'wouter';
+import { Link } from 'react-router-dom';
 import { Home, ChevronRight } from 'lucide-react';
 
 const SubpageHeader = ({ title, subtitle, breadcrumbs }) => {
@@ -15,7 +15,7 @@ const SubpageHeader = ({ title, subtitle, breadcrumbs }) => {
         {breadcrumbs && (
           <div css={s.Breadcrumbs}>
             <div>
-              <Link href="/">
+              <Link to="/">
                 <span css={s.BreadcrumbLink}>
                   <Home size={16} />
                   <span>홈</span>
@@ -28,7 +28,7 @@ const SubpageHeader = ({ title, subtitle, breadcrumbs }) => {
                 <ChevronRight size={16} css="text-gray-400" />
                 {item.link ? (
                   <div>
-                    <Link href={item.link}>
+                    <Link to={item.link}>
                       <span css={s.BreadcrumbLink}>{item.name}</span>
                     </Link>
                   </div>

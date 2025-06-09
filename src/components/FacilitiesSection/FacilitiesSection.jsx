@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import * as s from './style';
-import { Link } from 'wouter';
+import { Link } from 'react-router-dom';
 import buildingImage from '../../assets/facilities/building.png';
 import refrigerantLabImage from '../../assets/facilities/refrigerant-lab.png';
 import weldingLabImage from '../../assets/facilities/welding-lab.png';

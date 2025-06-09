@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'wouter';
+import { Link } from "react-router-dom";
 import SubpageHeader from '../../components/SubpageHeader/SubpageHeader';
 import CTASection from '../../components/CTASection/CTASection';
 import * as S from './style';
@@ -29,17 +29,17 @@ const MaintenancePage = () => {
           {/* 상단 네비게이션 */}
           <S.CertificateNav>
             <div>
-              <Link href="/certificate/maintenance">
+              <Link to="/certificate/maintenance">
                 <S.CertificateNavItem isActive={true}>개요</S.CertificateNavItem>
               </Link>
             </div>
             <div>
-              <Link href="/certificate/maintenance/industrial">
+              <Link to="/certificate/maintenance/industrial">
                 <S.CertificateNavItem>산업기사</S.CertificateNavItem>
               </Link>
             </div>
             <div>
-              <Link href="/certificate/maintenance/engineer">
+              <Link to="/certificate/maintenance/engineer">
                 <S.CertificateNavItem>기사</S.CertificateNavItem>
               </Link>
             </div>
@@ -198,7 +198,7 @@ const MaintenancePage = () => {
           
           {/* 교육과정 링크 */}
           <div style={{ marginTop: '2rem', marginBottom: '2rem', textAlign: 'center' }}>
-            <Link href="/course">
+            <Link to="/course">
               <S.CourseButton>관련 교육과정 보기</S.CourseButton>
             </Link>
           </div>

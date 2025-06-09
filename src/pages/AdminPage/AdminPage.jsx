@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 import s from "./style";
 
 const AdminPage = () => {

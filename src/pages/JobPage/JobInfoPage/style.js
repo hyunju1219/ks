@@ -17,6 +17,12 @@ export const searchSection = css`
   margin-bottom: 1rem;
 `;
 
+export const btnLayout = css`
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+`;
+
 export const jobTable = css`
   min-width: 100%;
   background-color: white;
@@ -54,6 +60,7 @@ export const tableRow = css`
 `;
 
 export const tableCell = css`
+  width: 12%;
   padding: 0.75rem 1rem;
   text-align: center;
   border-bottom: 1px solid #e5e7eb;
@@ -61,4 +68,9 @@ export const tableCell = css`
     display: flex;
     align-items: center;
   } */
+`;
+
+export const tableCellTitle = css`
+  flex: 1;
+  border-bottom: 1px solid #e5e7eb;
 `;

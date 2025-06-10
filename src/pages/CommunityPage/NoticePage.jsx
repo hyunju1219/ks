@@ -8,6 +8,7 @@ import { getNotices } from '@/firebase/noticeService';
 import Pagination from '@/components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
 import SearchBox from '@/components/SearchBox/SearchBox';
 import { Link } from 'react-router-dom';
+import AdminContentAddButton from '@/components/AdminContentAddButton/AdminContentAddButton';
 
 // 날짜 포맷팅 헬퍼 함수
 const formatDate = (timestamp) => {
@@ -110,22 +111,17 @@ const NoticePage = () => {
       <S.ContentSection>
         <S.SectionInner>
           <S.SearchSection>
+            {isLoggedIn && (
+                <S.BtnLayout>
+                   <AdminContentAddButton link={"/admin/notice"}/>
+                </S.BtnLayout>
+              )}
             <SearchBox
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               onSubmit={handleSearch}
-            >
-              {isLoggedIn && (
-                <Link to="/admin/notice">
-                  <S.SearchButton
-                    type="button"
-                    style={{ marginLeft: "10px", padding: "15px", borderRadius: "0.375rem" }}
-                  >
-                    공지등록
-                  </S.SearchButton>
-                </Link>
-              )}
-            </SearchBox>
+            />
+          
           </S.SearchSection>
           <S.NoticeTable>
             <thead>

@@ -6,6 +6,10 @@ import * as s from './style'; // style.js 파일에서 모든 스타일을 가�
 import SubpageHeader from '@/components/SubpageHeader/SubpageHeader';
 import useAuthstate from '@/hooks/useAuthstate';
 import { deleteCourse, getNoticeById } from '@/firebase/noticeService';
+import BackButton from '@/components/Button/BackButton';
+import EditButton from '@/components/Button/EditButton';
+import DeleteButton from '@/components/Button/DeleteButton';
+import BoardComponent from '@/components/BoardComponent/BoardComponent';
 
 const NoticeDetailPage = () => {
   const { id } = useParams();
@@ -69,31 +73,13 @@ const NoticeDetailPage = () => {
         subtitle="금성기술직업전문학교의 새로운 소식과 중요 안내사항을 확인하세요"
         breadcrumbs={breadcrumbs}
       />
-      <div css={s.pageContainer}>
-        <div css={s.detailBox}>
-          <div css={s.header}>
-            <h1 css={s.title}>{notice.title}</h1>
-            <div css={s.meta}>
-              <span css={s.categoryTag}>{notice.category}</span>
-              <span css={s.dateText}>{notice.createdAt?.toDate().toLocaleDateString('ko-KR')}</span>
-            </div>
-          </div>
-
-          <div css={s.content} dangerouslySetInnerHTML={{ __html: notice.content }} />
-
-          {isLoggedIn && (
-            <div css={s.adminButtons}>
-              <Link href={`/admin/notice/${id}`}>
-                <button css={s.editBtn}>수정</button>
-              </Link>
-              <button css={s.deleteBtn} onClick={handleDelete}>삭제</button>
-            </div>
-          )}
-          <Link href="/notice">
-            <button css={s.listBtn}>목록으로</button>
-          </Link>
-        </div>
-      </div>
+      <BoardComponent 
+        handleEdit={() => navigate(`/admin/notice/${id}`)}
+        handleDelete={handleDelete}
+        title={notice.title}
+        content={notice.content}
+        date={notice.createdAt?.toDate().toLocaleDateString('ko-KR')}
+        />
     </>
   );
 };

@@ -6,8 +6,9 @@ import AdminCourseEdit from "@/pages/AdminPage/AdminCourseEdit/AdminCourseEdit";
 import AdminNotice from "@/pages/AdminPage/AdminNotice/AdminNotice";
 import useAuthstate from "@/hooks/useAuthstate";
 import AdminNoticeEdit from "@/pages/AdminPage/AdminNoticeEdit/AdminNoticeEdit";
-import { Route, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import AdminJobEmp from "@/pages/AdminPage/AdminJobEmp/AdminJobEmp";
+import AdminJobInfo from "@/pages/AdminPage/AdminJobInfo/AdminJobInfo";
 
 function AdminRoutes() {
   const { user, isLoggedIn, authLoading } = useAuthstate();
@@ -18,7 +19,7 @@ function AdminRoutes() {
     if (!authLoading && !user) {
       navigate("/admin/login");
     }
-  }, [authLoading, user, setLocation]);
+  }, [authLoading, user, navigate]);
 
   // 인증 확인 중일 땐 아무 것도 렌더링하지 않음
   if (authLoading) return null;
@@ -28,19 +29,22 @@ function AdminRoutes() {
 
   // 인증된 경우 관리자 라우트 렌더링
   return (
-    <>
-      <Route path="" element={AdminPage} />
+    <Routes>
+      <Route path="" element={<AdminPage />} />
 
       {/* 교육과정 등록 */}
       <Route path="/course" element={<AdminCourseAdd />} />
       <Route path="/course/:id" element={<AdminCourseEdit />} />
 
       {/* 취업지원 */}
-      <Route path="/emp" element={<AdminJobEmp />} />
+      <Route path="job/emp/add" element={<AdminJobEmp />} />
+      <Route path="job/emp/:id/edit" element={<AdminJobEmp />} />
+      <Route path="job/add" element={<AdminJobInfo />} />
+      <Route path="job/:id/edit" element={<AdminJobInfo />} /> 
       {/* 공지사항 등록 */}
       <Route path="/notice" element={<AdminNotice />} />
       <Route path="/notice/:id" element={<AdminNoticeEdit />} />
-    </>
+    </Routes>
   );
 }
 

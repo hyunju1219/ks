@@ -16,6 +16,12 @@ export const searchSection = css`
   margin-bottom: 1rem;
 `;
 
+export const btnLayout = css`
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+`;
+
 export const jobInfoSection = css`
     /* jobInfoSection 스타일이 필요하면 여기에 추가합니다. */
 `;
@@ -78,6 +84,10 @@ export const tableCell = css`
   &:nth-of-type(3) { /* 날짜 셀 */
     width: 20%;
   }
+`;
+
+export const tableCellTitle = css`
+   border-bottom: 1px solid #e5e7eb;
 `;
 
 export const emptyMessage = css`

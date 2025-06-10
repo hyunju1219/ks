@@ -7,6 +7,9 @@ import CTASection from '../../components/CTASection/CTASection';
 import * as S from './style';
 import useAuthstate from '@/hooks/useAuthstate';
 import { deleteCourse, getCourseById } from '@/firebase/courseService';
+import BackButton from '@/components/Button/BackButton';
+import EditButton from '@/components/Button/EditButton';
+import DeleteButton from '@/components/Button/DeleteButton';
 
 const CourseDetailPage = () => {
   const { id } = useParams();
@@ -93,10 +96,8 @@ const CourseDetailPage = () => {
             {
               isLoggedIn ?
                 <S.SectionInner>
-                  <Link to={`/admin/course/${id}`}>
-                    <S.ContactButton>수정</S.ContactButton>
-                  </Link>
-                  <S.ContactButton style={{ marginLeft: "10px", backgroundColor: "red" }} onClick={handleDelete}>삭제</S.ContactButton>
+                  <EditButton onClick={`/admin/course/${id}`} />
+                  <DeleteButton onClick={handleDelete} />
                 </S.SectionInner>
                 : null
             }
@@ -214,9 +215,7 @@ const CourseDetailPage = () => {
               </S.CourseDetailContent>
 
               <S.CourseDetailFooter>
-                <Link to="/course">
-                  <S.BackToListButton>목록으로 돌아가기</S.BackToListButton>
-                </Link>
+                <BackButton onClick={() => navigate(-1)} />
               </S.CourseDetailFooter>
             </S.SectionInner>
           </S.CourseDetailSection>

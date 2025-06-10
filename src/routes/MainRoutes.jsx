@@ -1,6 +1,7 @@
 import AboutPage from '@/pages/AboutPage/AboutPage';
 import FacilitiesPage from '@/pages/AboutPage/FacilitiesPage';
 import HistoryPage from '@/pages/AboutPage/HistoryPage';
+import PracticeDetailPage from '@/pages/AboutPage/PracticePage/PracticeDetailPage';
 import CertificatePage from '@/pages/CertificatePage/CertificatePage';
 import EnergyCraftsmanPage from '@/pages/CertificatePage/EnergyCraftsmanPage';
 import EnergyEngineerPage from '@/pages/CertificatePage/EnergyEngineerPage';
@@ -41,8 +42,8 @@ function MainRoutes() {
             <Route path="about" element={<AboutPage/>} exact />
             <Route path="about/history" element={<HistoryPage/>} />
             <Route path="about/facilities" element={<FacilitiesPage/>} />
+            <Route path="about/practice/:id" element={<PracticeDetailPage/>} />
             <Route path="about/location" element={<LocationPage/>} />
-            <Route path="certificate" element={<CertificatePage/>} />
 
             {/* 과정소개 */}
             {/* 공조냉동기계 자격증 라우팅 */}

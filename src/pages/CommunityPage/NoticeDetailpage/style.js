@@ -28,11 +28,6 @@ export const loading = css`
 `;
 
 export const detailBox = css`
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 50px; /* 전체 패딩 증가 */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
 
   @media (max-width: 768px) {
     padding: 30px; /* 태블릿 크기에서 패딩 조정 */
@@ -191,26 +186,6 @@ const baseButton = css`
   @media (max-width: 480px) {
     width: 100%;
     padding: 14px 15px;
-  }
-`;
-
-export const editBtn = css`
-  ${baseButton};
-  background: #3498db;
-  color: white;
-
-  &:hover {
-    background: #2980b9;
-  }
-`;
-
-export const deleteBtn = css`
-  ${baseButton};
-  background: #e74c3c;
-  color: white;
-
-  &:hover {
-    background: #c0392b;
   }
 `;
 

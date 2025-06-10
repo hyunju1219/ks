@@ -2,9 +2,9 @@
 import * as s from './style';
 import { Link } from 'react-router-dom';
 
-function AdminContentAddButton(props) {
+function AdminContentAddButton({link}) {
     return (
-        <Link to={"/admin/emp"} css={s.button}>
+        <Link to={link} css={s.button}>
             <button>게시글 등록</button>
         </Link>
     );

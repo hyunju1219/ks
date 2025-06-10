@@ -135,7 +135,7 @@ const CoureseJoinPage = () => {
             return (
               <div key={course.id} css={s.courseRow(index % 2 === 0)}>
                 {/* ... courseInfoCell, periodTimeCell ... */}
-                <Link css={s.courseInfoCell} to={`/course-detail/${course.id}`}>
+                <Link css={s.courseInfoCell} to={`/courses/${course.id}`}>
                     <div css={s.courseImageContainer}>
                     <img
                         src={course.image}

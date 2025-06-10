@@ -22,6 +22,12 @@ export const SearchSection = styled.div`
   margin-bottom: 1rem;
 `;
 
+export const BtnLayout = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+`;
+
 export const SectionTitle = styled.h2`
   font-size: 1.875rem;
   font-weight: 700;

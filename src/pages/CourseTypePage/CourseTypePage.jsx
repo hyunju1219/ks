@@ -206,7 +206,7 @@ const CourseTypePage = () => {
           <S.CourseGrid>
             {paginatedCourses.length > 0 ? (
               paginatedCourses.map(course => (
-                <Link href={`/course-detail/${course.id}`} key={course.id} style={{ textDecoration: 'none' }}>
+                <Link to={`/courses/${course.id}`} key={course.id} style={{ textDecoration: 'none' }}>
                   <S.CourseCard>
                     {course.recruitmentStatus === '모집중' && (
                       <S.RecruitmentStatusBadge>모집중</S.RecruitmentStatusBadge>
@@ -265,7 +265,7 @@ const CourseTypePage = () => {
         <S.SectionInner>
           {isLoggedIn && (
             <div style={{ marginBottom: '2rem', textAlign: 'right' }}>
-              <Link href='/admin/course'>
+              <Link to='/admin/course'>
                 <S.ContactButton>과정추가</S.ContactButton>
               </Link>
             </div>

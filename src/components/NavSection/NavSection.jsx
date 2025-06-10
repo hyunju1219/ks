@@ -84,7 +84,7 @@ function NavSection(props) {
                 {/* courses가 배열이고 각 course 객체에 id가 있다고 가정 */}
                 {Array.isArray(courses) && courses.map((course) => (
                   // 각 courseCard를 Link로 감싸고, to prop에 동적 경로 설정
-                  <Link key={course.id} to={`/course-detail/${course.id}`} css={s.courseCardLink}> {/* 링크 스타일 적용 */}
+                  <Link key={course.id} to={`/courses/${course.id}`} css={s.courseCardLink}> {/* 링크 스타일 적용 */}
                     <div css={s.courseCard}> {/* 기존 courseCard 스타일 유지 */}
                       <div css={s.imageContainer}>
                         <img src={course.imageUrl || 'https://via.placeholder.com/300x180?text=No+Image'} alt={course.courseName} css={s.courseImage} />
@@ -113,7 +113,7 @@ function NavSection(props) {
               </div>
 
               <div css={s.viewAllContainer}>
-                <Link to="/courseJoin" css={s.viewAllButton}>
+                <Link to="/courses/open" css={s.viewAllButton}>
                   <span>전체 교육과정 보기</span>
                   <FiArrowRight size={20} />
                 </Link>

@@ -7,19 +7,19 @@ import { deleteCourse, getCourseById, saveCourse } from '@/firebase/courseServic
 import { storage } from '@/firebase/config';
 import { ref, deleteObject } from "firebase/storage";
 
-import { useLocation, useParams } from 'wouter';
 import ReactQuill, { Quill } from 'react-quill'; // Quill 임포트
 import 'react-quill/dist/quill.snow.css';
 
 // ImageResize 모듈 임포트 및 등록
 import ImageResize from 'quill-image-resize-module-react';
+import { useNavigate, useParams } from 'react-router-dom';
 if (typeof window !== 'undefined') {
   Quill.register('modules/imageResize', ImageResize);
 }
 
 const AdminCourseEdit = () => {
   const { id } = useParams();
-  const [, setLocation] = useLocation();
+  const navigate = useNavigate();
   const [imageFile, setImageFile] = useState(null);
   const [imageUrl, setImageUrl] = useState(''); // 대표 이미지 URL
   const [form, setForm] = useState({
@@ -44,7 +44,7 @@ const AdminCourseEdit = () => {
   useEffect(() => {
     if (!id) {
       alert('잘못된 접근입니다. 과정 ID가 없습니다.');
-      setLocation('/admin/course'); // 관리자 과정 목록 페이지로 이동 (예시)
+      navigate('/admin/course'); // 관리자 과정 목록 페이지로 이동 (예시)
       return;
     }
     const fetchCourse = async () => {
@@ -52,7 +52,7 @@ const AdminCourseEdit = () => {
         const data = await getCourseById(id);
         if (!data) {
           alert('존재하지 않는 교육 과정입니다.');
-          setLocation('/admin/course');
+          navigate('/admin/course');
           return;
         }
         setForm(data);
@@ -60,11 +60,11 @@ const AdminCourseEdit = () => {
       } catch (error) {
         console.error('데이터 불러오기 실패:', error);
         alert('데이터를 불러오는데 실패했습니다.');
-        setLocation('/admin/course');
+        navigate('/admin/course');
       }
     };
     fetchCourse();
-  }, [id, setLocation]);
+  }, [id, navigate]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -144,7 +144,7 @@ const AdminCourseEdit = () => {
       const courseDataToSave = { ...form, imageUrl: finalImageUrl };
       await saveCourse(courseDataToSave); // saveCourse는 id 유무에 따라 생성/수정 분기
       alert('수정 완료');
-      setLocation(`/course/${id}`); // 수정된 과정 상세 페이지로 이동 (예시)
+      navigate(`/courses/${id}`); // 수정된 과정 상세 페이지로 이동 (예시)
     } catch (err) {
       console.error('저장 오류', err);
       alert('저장 실패: ' + (err.message || '알 수 없는 오류'));
@@ -175,7 +175,7 @@ const AdminCourseEdit = () => {
       }
       await deleteCourse(form.id);
       alert('삭제 완료');
-      setLocation('/admin/course'); // 관리자 과정 목록 페이지로 이동
+      navigate('/admin/course'); // 관리자 과정 목록 페이지로 이동
     } catch (err) {
       console.error('삭제 오류', err);
       alert('삭제 실패: ' + (err.message || '알 수 없는 오류'));

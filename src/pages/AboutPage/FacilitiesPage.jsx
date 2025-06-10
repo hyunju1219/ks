@@ -18,21 +18,7 @@ import refrigerantTanksImage from '../../assets/facilities/gas-tanks.png';
 import indoorImage from '../../assets/facilities/indoor-hallway.png';
 import buildingImage from '../../assets/facilities/building.png';
 
-//실습 사진
-import practice1 from '../../assets/practice/실습1.jpg';
-import practice2 from '../../assets/practice/실습2.jpg';
-import practice3 from '../../assets/practice/실습3.jpg';
-import practice4 from '../../assets/practice/공조.jpg';
-import practice5 from '../../assets/practice/실습5.jpg';
-import practice6 from '../../assets/practice/실습6.jpg';
-import practice7 from '../../assets/practice/실습7.jpg';
-import practice8 from '../../assets/practice/실습8.jpg';
-import practice9 from '../../assets/practice/실습9.jpg';
-import practice10 from '../../assets/practice/실습10.jpg';
-import practice11 from '../../assets/facilities/남윤수.jpg';
-import practice12 from '../../assets/facilities/설주한.jpg';
-import practice13 from '../../assets/facilities/박효진.jpg';
-import practice14 from '../../assets/facilities/박재환.jpg';
+import PracticePage from './PracticePage/PracticePage';
 
 const FacilitiesPage = () => {
   const [activeTab, setActiveTab] = useState('facilitie');
@@ -99,7 +85,7 @@ const FacilitiesPage = () => {
     },
     {
       id: 10,
-      title: '하늘공간',
+      title: '하늘휴게실',
       description: '학생들이 휴식을 취하고 교류할 수 있는 야외 휴게 공간입니다. 식사 및 휴식을 위한 편의시설이 마련되어 있습니다.',
       image: outdoorSpaceImage
     },
@@ -115,81 +101,6 @@ const FacilitiesPage = () => {
       description: '금성기술직업전문학교의 현대적인 외관입니다. 접근성이 좋은 위치에 자리하고 있어 교통이 편리합니다.',
       image: buildingImage
     }
-  ];
-
-  const practicePrograms = [
-    {
-      id: 1,
-      title: '공조기 실습',
-      description: '냉동기, 공조기의 설치, 운전, 정비에 관한 실무 기술을 습득합니다.',
-      subjects: ['냉동기 구조 및 원리', '공조시스템 설계', '냉매 충전 및 회수', '고장진단 및 수리'],
-      duration: '6개월',
-      certification: '공조냉동기계기능사',
-      image: practice1
-    },
-    {
-      id: 2,
-      title: '히트펌프 실습',
-      description: '산업설비의 유지보수 및 관리에 필요한 실무 기술을 배웁니다.',
-      subjects: ['설비진단 기술', '예방보전 계획', '설비개선 기법', '안전관리'],
-      duration: '4개월',
-      certification: '설비보전기능사',
-      image: practice2
-    },
-    {
-      id: 3,
-      title: '표준냉동기 실습',
-      description: '에너지 효율 향상 및 관리에 관한 전문 기술을 습득합니다.',
-      subjects: ['에너지 진단', '효율개선 방안', '신재생에너지', '에너지정책'],
-      duration: '5개월',
-      certification: '에너지관리기능사',
-      image: practice3
-    },
-    {
-      id: 4,
-      title: '공조기 실습',
-      description: '에너지 효율 향상 및 관리에 관한 전문 기술을 습득합니다.',
-      subjects: ['에너지 진단', '효율개선 방안', '신재생에너지', '에너지정책'],
-      duration: '5개월',
-      certification: '에너지관리기능사',
-      image: practice4
-    },
-    {
-      id: 4,
-      title: '원밴딩 실습',
-      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
-      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
-      duration: '3개월',
-      certification: '전기용접기능사',
-      image: practice13
-    },
-    {
-      id: 5,
-      title: '투밴딩(동관작업) 실습',
-      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
-      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
-      duration: '3개월',
-      certification: '전기용접기능사',
-      image: practice12
-    },
-    {
-      id: 6,
-      title: '보일러 배관설치 (1차시험)',
-      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
-      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
-      duration: '3개월',
-      certification: '전기용접기능사',
-      image: practice11
-    },
-    {
-      id: 7,
-      title: '배관실무작업 (2차시험)',
-      description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
-      subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
-      duration: '3개월',
-      certification: '전기용접기능사',
-      image: practice14
-    },
   ];
   
   const detailCategory = [
@@ -285,36 +196,8 @@ const FacilitiesPage = () => {
 
   const renderPracticeContent = () => (
     <>
-      <S.SectionTitle>실습 과정</S.SectionTitle>
-      <S.FacilitiesIntro>
-        실무 중심의 체계적인 실습 프로그램을 통해 현장에서 바로 활용할 수 있는 
-        전문 기술을 습득할 수 있습니다. 각 분야별 전문 강사진과 함께 
-        단계별 맞춤형 교육을 진행합니다.
-      </S.FacilitiesIntro>
-      
-       <S.FacilitiesGrid>
-        {practicePrograms.map(facility => (
-          <S.FacilityCard key={facility.id}>
-            <S.FacilityImageContainer>
-              <S.FacilityImage 
-                src={facility.image} 
-                alt={facility.title} 
-              />
-            </S.FacilityImageContainer>
-            <S.FacilityContent>
-              <S.FacilityTitle>{facility.title}</S.FacilityTitle>
-              {/* <S.PracticeMeta>
-                <S.PracticeDuration>{facility.duration}</S.PracticeDuration>
-                <S.PracticeCertification>{facility.certification}</S.PracticeCertification>
-              </S.PracticeMeta>
-              <S.FacilityDescription>{facility.description}</S.FacilityDescription> */}
-            </S.FacilityContent>
-          </S.FacilityCard>
-        ))}
-      </S.FacilitiesGrid>
-
+      <PracticePage />
       <S.SectionTitle>실습 특징</S.SectionTitle>
-      
       <S.FacilityFeaturesList>
         <S.FacilityFeatureItem>
           <S.FacilityFeatureIcon>✓</S.FacilityFeatureIcon>

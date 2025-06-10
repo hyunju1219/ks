@@ -3,12 +3,12 @@ import { useState, useRef } from 'react'; // useRef 추가
 import * as s from './style';
 import { uploadImage } from '@/firebase/uploadImage';
 import { saveCourse } from '@/firebase/courseService';
-import { useLocation } from 'wouter';
 import ReactQuill, { Quill } from 'react-quill'; // Quill 임포트
 import 'react-quill/dist/quill.snow.css';
 
 // ImageResize 모듈 임포트 및 등록 (컴포넌트 외부 또는 최상단에서 한 번만)
 import ImageResize from 'quill-image-resize-module-react';
+import { useNavigate } from 'react-router-dom';
 if (typeof window !== 'undefined') { // 브라우저 환경에서만 Quill 모듈 등록
   Quill.register('modules/imageResize', ImageResize);
 }
@@ -16,7 +16,7 @@ if (typeof window !== 'undefined') { // 브라우저 환경에서만 Quill 모�
 const AdminCourseAdd = () => {
   const [imageFile, setImageFile] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
-  const [, setLocation] = useLocation();
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     courseName: '',
     category: '',
@@ -77,9 +77,9 @@ const AdminCourseAdd = () => {
       }
       // courseDataToSave 객체를 생성할 때, form.imageUrl이 아닌 finalImageUrl을 사용합니다.
       const courseDataToSave = { ...form, imageUrl: finalImageUrl };
-      await saveCourse(courseDataToSave);
+      const id = await saveCourse(courseDataToSave);
       alert('저장 완료');
-      setLocation('/course'); // 저장 후 이동할 경로 (예시)
+      navigate(`/courses/${id}`); // 저장 후 이동할 경로 (예시)
     } catch (err) {
       console.error('저장 오류', err);
       alert('저장 실패: ' + (err.message || '알 수 없는 오류'));

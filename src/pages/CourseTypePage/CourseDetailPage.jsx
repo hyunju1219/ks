@@ -57,14 +57,16 @@ const CourseDetailPage = () => {
   const handleDelete = async () => {
     if (!id) return alert('id 없음');
 
-    try {
-      await deleteCourse(id);
-      alert('삭제 완료');
-      navigate('/course');
-    } catch (err) {
-      console.error('삭제 오류', err);
-      alert('삭제 실패');
-    }
+     if (window.confirm('삭제하시겠습니까?')) {
+          try {
+            await deleteCourse(id);
+            alert('삭제되었습니다.');
+            navigate('/courses/open');
+          } catch (err) {
+            alert('삭제에 실패했습니다.');
+            console.error(err);
+          }
+        }
   };
 
   const displaySelfCost = (cost) => {
@@ -96,7 +98,7 @@ const CourseDetailPage = () => {
             {
               isLoggedIn ?
                 <S.SectionInner>
-                  <EditButton onClick={`/admin/course/${id}`} />
+                  <EditButton onClick={() => navigate(`/admin/course/${id}`)} />
                   <DeleteButton onClick={handleDelete} />
                 </S.SectionInner>
                 : null

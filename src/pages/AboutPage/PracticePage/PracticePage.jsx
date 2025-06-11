@@ -5,20 +5,24 @@ import * as s from './style';
 // 컴포넌트 및 이미지 import
 import PracticeDetailPage from './PracticeDetailPage';
 
-import practice1 from '../../../assets/practice/실습1.jpg';
-import practice2 from '../../../assets/practice/공조.jpg';
+import practice1 from '../../../assets/practice/실습1.png';
+import practice2 from '../../../assets/practice/공조.png';
 
 
 import hit1 from '../../../assets/practice/hit/실습8.jpg';
 import hit2 from '../../../assets/practice/hit/실습9.jpg';
 import hit3 from '../../../assets/practice/hit/실습10.jpg';
 
+//공조장치 시스템 실습
 import refrigerant1 from '../../../assets/practice/refrigerant/실습2.jpg';
+import refrigerant6 from '../../../assets/practice/refrigerant/실습7.jpg';
+
+//히트펌프
 import refrigerant2 from '../../../assets/practice/refrigerant/실습3.jpg';
 import refrigerant3 from '../../../assets/practice/refrigerant/실습4.jpg';
 import refrigerant4 from '../../../assets/practice/refrigerant/실습5.jpg';
 import refrigerant5 from '../../../assets/practice/refrigerant/실습6.jpg';
-import refrigerant6 from '../../../assets/practice/refrigerant/실습7.jpg';
+
 
 import onebanding1 from '../../../assets/practice/onebanding/박효진.jpg';
 import onebanding2 from '../../../assets/practice/onebanding/설주한.jpg';
@@ -65,7 +69,7 @@ function PracticePage() {
     const practicePrograms = [
         {
           id: 1,
-          title: '공조기 실습',
+          title: '공조기 실습 작품',
           description: '냉동기, 공조기의 설치, 운전, 정비에 관한 실무 기술을 습득합니다.',
           subjects: ['냉동기 구조 및 원리', '공조시스템 설계', '냉매 충전 및 회수', '고장진단 및 수리'],
           duration: '6개월',
@@ -74,25 +78,25 @@ function PracticePage() {
         },
         {
           id: 2,
-          title: '히트펌프 실습',
+          title: '히트펌프 시스템 실습',
           description: '산업설비의 유지보수 및 관리에 필요한 실무 기술을 배웁니다.',
           subjects: ['설비진단 기술', '예방보전 계획', '설비개선 기법', '안전관리'],
           duration: '4개월',
           certification: '설비보전기능사',
-          images: [hit1, hit2, hit3]
+          images: [refrigerant2, refrigerant3, refrigerant4]
         },
         {
           id: 3,
-          title: '표준냉동기 실습',
+          title: '공조장치 시스템 실습',
           description: '에너지 효율 향상 및 관리에 관한 전문 기술을 습득합니다.',
           subjects: ['에너지 진단', '효율개선 방안', '신재생에너지', '에너지정책'],
           duration: '5개월',
           certification: '에너지관리기능사',
-          images: [refrigerant1, refrigerant2, refrigerant3, refrigerant4,refrigerant5,refrigerant6]
+          images: [refrigerant1, refrigerant6]
         },
         {
           id: 4,
-          title: '공조기 실습2', // 제목 중복 피하기 위해 수정
+          title: '설비보전 용접 실습 작품', 
           description: '에너지 효율 향상 및 관리에 관한 전문 기술을 습득합니다.',
           subjects: ['에너지 진단', '효율개선 방안', '신재생에너지', '에너지정책'],
           duration: '5개월',
@@ -101,7 +105,7 @@ function PracticePage() {
         },
         {
           id: 5, // ID 중복 수정
-          title: '원밴딩 실습',
+          title: '원밴딩 실습 작품',
           description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
           subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
           duration: '3개월',
@@ -110,7 +114,7 @@ function PracticePage() {
         },
         {
           id: 6, // ID 중복 수정
-          title: '투밴딩(동관작업) 실습',
+          title: '투밴딩(동관작업) 실습 작품',
           description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
           subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
           duration: '3개월',
@@ -119,7 +123,7 @@ function PracticePage() {
         },
         {
           id: 7, // ID 중복 수정
-          title: '보일러 배관설치 (1차시험)',
+          title: '에너지 배관 실습 작품 #1',
           description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
           subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
           duration: '3개월',
@@ -128,7 +132,7 @@ function PracticePage() {
         },
         {
           id: 8, // ID 중복 수정
-          title: '배관실무작업 (2차시험)',
+          title: '에너지 배관 실습 작품 #1',
           description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
           subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
           duration: '3개월',

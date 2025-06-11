@@ -16,8 +16,8 @@ import 'swiper/css/effect-fade';
 // 슬라이드 이미지 임포트 (경로는 실제 프로젝트 구조에 맞게 조정해주세요)
 import slide1 from '../../assets/slide/slide-001.jpg';
 import slide2 from '../../assets/slide/slide-002.jpg';
-import slide3 from '../../assets/slide/slide-003.jpg';
-import slide4 from '../../assets/slide/slide-004.jpg';
+import slide3 from '../../assets/slide/slide-007.png';
+import slide4 from '../../assets/slide/slide-006.png';
 import slide5 from '../../assets/slide/slide-005.jpg';
 
 // Swiper 컨테이너 및 기본 슬라이드 스타일 (Emotion 사용)

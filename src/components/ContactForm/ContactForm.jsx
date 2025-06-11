@@ -102,7 +102,7 @@ const ContactForm = () => {
       applicationPath: formData.applicationPath,
       subject: formData.subject,
       message: formData.message,
-      to_email: "kstg355@naver.com"
+      to_email: "kstg35@naver.com"
     };
 
     emailjs.send(serviceId, templateId, templateParams, publicKey)

@@ -312,17 +312,27 @@ export const loadingText = css`
   font-size: 16px;
 `;
 
-// 코스 그리드
 export const courseGrid = css`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* 기본 4열 레이아웃 */
   gap: 32px;
   margin-bottom: 60px;
   
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) { /* 태블릿 사이즈 */
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 768px) { /* 모바일 사이즈 */
     grid-template-columns: 1fr;
     gap: 24px;
   }
+`;
+
+// [추가] 코스 카드 전체를 감싸는 링크 스타일
+export const courseCardLink = css`
+  text-decoration: none;
+  color: inherit;
+  display: block; // Link 태그가 div처럼 동작하도록
 `;
 
 // 코스 카드
@@ -331,8 +341,10 @@ export const courseCard = css`
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  height: 100%; // flex 컨테이너 내부에서 높이를 채우도록
+  display: flex;
+  flex-direction: column;
   
   &:hover {
    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -342,7 +354,8 @@ export const courseCard = css`
 export const imageContainer = css`
   position: relative;
   overflow: hidden;
-  height: 220px;
+  height: 200px; // 높이 살짝 조정
+  flex-shrink: 0;
 `;
 
 export const courseImage = css`
@@ -350,66 +363,70 @@ export const courseImage = css`
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
-
 `;
 
+// [수정] CourseSection과 통일된 스타일 이름 사용
 export const categoryBadge = css`
   position: absolute;
   top: 16px;
-  left: 16px;
+  left: 10px;
   background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   color: white;
-  padding: 6px 12px;
-  border-radius: 0.25rem;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-`;
+  padding: 5px 10px;
+  border-radius: 0.25rem;
+ `;
 
+
+// [수정] 카드 콘텐츠 레이아웃
 export const cardContent = css`
-  padding: 28px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; // 남은 공간을 모두 차지
 `;
 
 export const courseTitle = css`
   font-size: 1.25rem;
   font-weight: 700;
   color: #1f2937;
-  margin-bottom: 20px;
-  line-height: 1.3;
-   display: -webkit-box;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  // 두 줄까지 보이도록 설정
+  display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 44px; // 2줄 높이 확보
 `;
 
-export const courseDetails = css`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-`;
-
-export const detailItem = css`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid #f3f4f6;
-  
-  &:last-child {
-    border-bottom: none;
-  }
-`;
-
-export const detailLabel = css`
-  font-size: 16px;
+// [추가] CourseSection과 통일된 설명 스타일
+export const courseDescription = css`
+  font-size: 15px;
   color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1; // 제목과 푸터 사이의 공간을 채움
 `;
 
-export const detailValue = css`
-  font-size: 16px;
-  color: #1f2937;
+// 빈 과정 메시지 (스타일 추가)
+export const emptyCourseMessageContainer = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 24px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  border: 1px dashed #e5e7eb;
 `;
 
+export const emptyCourseMessageText = css`
+  font-size: 18px;
+  color: #6b7280;
+  font-weight: 500;
+`;
 // 전체보기 버튼
 export const viewAllContainer = css`
   text-align: center;

@@ -73,9 +73,9 @@ const AdminJobEmp = () => {
 
     const newError = {};
     if (!empPost.title.trim()) newError.title = "제목은 필수입니다.";
-    if (!empPost.content || empPost.content === "<p><br></p>" || empPost.content.replace(/<(.|\n)*?>/g, '').trim().length === 0) {
-      newError.content = "내용은 필수입니다.";
-    }
+    // if (empPost.content.replace(/<(.|\n)*?>/g, '').trim().length === 0) {
+    //   newError.content = "내용은 필수입니다.";
+    // }
     setError(newError);
     if (Object.keys(newError).length > 0) {
       setIsSubmitting(false);

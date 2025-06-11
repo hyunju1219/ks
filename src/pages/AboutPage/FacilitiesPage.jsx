@@ -14,7 +14,7 @@ import facilityLabImage from '../../assets/facilities/facility-lab.png';
 import materialsLabImage from '../../assets/facilities/materials-lab.png';
 import refrigerantLabImage from '../../assets/facilities/refrigerant-lab.png';
 import refrigerantLab2Image from '../../assets/facilities/refrigerant-lab2.png';
-import refrigerantTanksImage from '../../assets/facilities/gas-tanks.png';
+import refrigerantTanksImage from '../../assets/facilities/에너지기계.jpg';
 import indoorImage from '../../assets/facilities/indoor-hallway.png';
 import buildingImage from '../../assets/facilities/building.png';
 
@@ -61,9 +61,9 @@ const FacilitiesPage = () => {
     },
     {
       id: 6,
-      title: '재료실',
-      description: '실습에 필요한 다양한 도구와 재료를 보관하고 관리하는 공간입니다. 학생들이 실습에 필요한 모든 재료를 제공받을 수 있습니다.',
-      image: materialsLabImage
+      title: '에너지관리 작업실 - 배관작업 기계',
+      description: '에너지관리 작업실의 배관작업 기계입니다.',
+      image: refrigerantTanksImage
     },
     {
       id: 7,

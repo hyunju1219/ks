@@ -19,6 +19,7 @@ import slide2 from '../../assets/slide/slide-002.jpg';
 import slide3 from '../../assets/slide/slide-007.png';
 import slide4 from '../../assets/slide/slide-006.png';
 import slide5 from '../../assets/slide/slide-005.jpg';
+import slide6 from '../../assets/slide/slide-008.png';
 
 // Swiper 컨테이너 및 기본 슬라이드 스타일 (Emotion 사용)
 
@@ -28,9 +29,10 @@ const MainSlider = () => {
   const slides = [
     { id: 1, bgImage: slide3, title: "국가기간전략산업직종훈련" }, // 예시 텍스트 추가
     { id: 2, bgImage: slide4, title: "국민내일배움카드 과정" },
-    { id: 3, bgImage: slide1, title: "부산시 맞춤훈련" },
+    { id: 3, bgImage: slide6, title: "부산시 맞춤훈련" },
     { id: 4, bgImage: slide2, title: "최고의 시설과 장비" },
     { id: 5, bgImage: slide5, title: "우수훈련기관 선정" },
+    { id: 6, bgImage: slide1, title: "우수훈련기관 선정" },
   ];
 
   return (

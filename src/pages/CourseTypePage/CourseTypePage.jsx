@@ -11,7 +11,7 @@ import { getCourse } from '@/firebase/courseService';
 
 // 과정평가형 이미지
 import explanation1 from '../../assets/notice/과정평가1.png';
-import explanation2 from '../../assets/notice/과정평가2.png';
+import explanation2 from '../../assets/notice/과정평가안내문.png';
 import explanation3 from '../../assets/notice/과정평가3.png';
 import explanation4 from '../../assets/notice/국가기간.png';
 import SearchBox from '@/components/SearchBox/SearchBox';
@@ -172,6 +172,7 @@ const CourseTypePage = () => {
     if (activeCategoryToFilter === '과정평가형') {
       return (
         <S.ImgLayout>
+          <img src={explanation2} alt="과정평가형 설명 1" />
           <img src={explanation1} alt="과정평가형 설명 1" />
           <img src={explanation3} alt="과정평가형 설명 3" />
         </S.ImgLayout>

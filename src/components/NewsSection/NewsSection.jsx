@@ -1,9 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import * as s from './style';
-import { Link } from 'wouter';
+
 import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { getNotices } from '@/firebase/noticeService'; // 경로 확인
+import { Link } from 'react-router-dom';
 
 // 날짜 포맷팅 헬퍼 함수
 const formatDate = (timestamp) => {
@@ -55,7 +56,7 @@ const NewsSection = () => {
       <div css={s.SectionInner}>
         <div css={s.SectionHeader}>
           <h2 css={s.SectionTitle}>공지사항</h2>
-          <Link href="/notice">
+          <Link to="/notice">
             <span css={s.ViewAllLink}>
               전체보기 <ArrowRight size={16} />
             </span>
@@ -77,7 +78,7 @@ const NewsSection = () => {
               {Array.isArray(notices) && notices.map((notice) => (
                 <tr key={notice.id}>
                   <td css={[s.TableCell, s.TitleCell]}> {/* 제목 셀 스타일 */}
-                    <Link href={`/notice/${notice.id}`} css={s.NewsLinkWrapper}> {/* 링크에 스타일 적용 */}
+                    <Link to={`/notice/${notice.id}`} css={s.NewsLinkWrapper}> {/* 링크에 스타일 적용 */}
                       <span css={s.NewsTitleText}>{notice.title}</span> {/* 제목 텍스트 스타일 */}
                     </Link>
                   </td>

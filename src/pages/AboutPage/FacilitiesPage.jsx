@@ -77,11 +77,11 @@ const FacilitiesPage = () => {
       description: '쾌적한 환경에서 이론 수업을 진행할 수 있는 강의실입니다. 모든 강의실에는 냉난방 설비가 완비되어 있습니다.',
       image: practiceLabImage
     },
-    {
+     {
       id: 9,
-      title: '냉매 보관실',
-      description: '냉동기 실습에 필요한 다양한 냉매를 안전하게 보관하는 공간입니다. 철저한 안전 관리를 통해 실습 환경을 조성합니다.',
-      image: refrigerantTanksImage
+      title: '재료실',
+      description: '실습에 필요한 다양한 도구와 재료를 보관하고 관리하는 공간입니다. 학생들이 실습에 필요한 모든 재료를 제공받을 수 있습니다.',
+      image: materialsLabImage
     },
     {
       id: 10,

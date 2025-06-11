@@ -75,7 +75,7 @@ function JobInfoPage() {
     }
     return jobPostList.filter(job =>
       // job.company, job.location 등 필드가 없으므로 'title'로 검색
-      job.title.toLowerCase().includes(lowercasedTerm)
+      job.companyName.toLowerCase().includes(lowercasedTerm)
     );
   }, [searchTerm, jobPostList]);
 

@@ -150,11 +150,14 @@ export const JobTable = styled.table`
 `;
 
 export const TableHeader = styled.th`
-  text-align: left;
+  text-align: center;
   padding: 0.75rem 1rem;
   font-weight: 600;
   background-color: #f3f4f6;
   border-bottom: 1px solid #e5e7eb;
+  &:nth-of-type(2) {
+    width: 75%;
+  }
 `;
 
 export const TableRow = styled.tr`
@@ -169,9 +172,8 @@ export const TableRow = styled.tr`
 
 export const TableCell = styled.td`
   padding: 0.75rem 1rem;
-  
+  text-align: center;
   &:first-of-type {
-    display: flex;
     align-items: center;
   }
 `;

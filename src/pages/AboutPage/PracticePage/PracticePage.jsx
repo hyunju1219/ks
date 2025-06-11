@@ -55,6 +55,12 @@ import exam2_6 from '../../../assets/practice/exam2/이종기.jpg';
 import exam2_7 from '../../../assets/practice/exam2/전준호.jpg';
 import exam2_8 from '../../../assets/practice/exam2/정석진.jpg';
 
+import exam3_1 from '../../../assets/practice/exam3/김기태.png';
+import exam3_2 from '../../../assets/practice/exam3/김동광.png';
+import exam3_3 from '../../../assets/practice/exam3/김민제.png';
+import exam3_4 from '../../../assets/practice/exam3/김승하.png';
+import exam3_5 from '../../../assets/practice/exam3/김이곤.png';
+
 function PracticePage() {
     // <<< 변경 1: 클릭된 항목의 정보를 저장할 상태. null이면 목록, 객체이면 상세 페이지.
     const [selectedPractice, setSelectedPractice] = useState(null);
@@ -132,12 +138,21 @@ function PracticePage() {
         },
         {
           id: 8, // ID 중복 수정
-          title: '에너지 배관 실습 작품 #1',
+          title: '에너지 배관 실습 작품 #2',
           description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
           subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
           duration: '3개월',
           certification: '전기용접기능사',
           images: [exam2_1, exam2_2, exam2_4, exam2_5, exam2_6, exam2_7, exam2_8]
+        },
+         {
+          id: 9, // ID 중복 수정
+          title: '공조 배관 실습 작품 #1',
+          description: '다양한 용접 기법과 기술을 실습을 통해 체계적으로 학습합니다.',
+          subjects: ['아크용접', '가스용접', '특수용접', '용접구조물 제작'],
+          duration: '3개월',
+          certification: '전기용접기능사',
+          images: [exam3_1, exam3_2, exam3_3, exam3_4, exam3_5]
         },
     ];
 

@@ -45,6 +45,8 @@ export const postContent = css`
   line-height: 1.8;
   font-size: 1.1rem;
   color: #374151;
+  display: flex;
+  justify-content: center;
 
   /* ReactQuill에서 생성된 HTML 태그 스타일링 */
   p {

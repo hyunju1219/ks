@@ -81,10 +81,15 @@ export const td = css`
 
 export const button = css`
   padding: 0.5rem;
-  background-color: rgba(0, 86, 179, 0.1);
+  background-color: #0056b3;
   border-radius: 0.5rem;
-  color: wh;
+  color: white;
+  &:hover {
+      background-color:rgb(0, 73, 151);
+
+  }
   &:disabled {
     background-color: #dbdbdb;
+    color: black ;
   }
 `;

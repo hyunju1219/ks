@@ -188,3 +188,8 @@ export const swiperContainerStyle = css`
   }
  
 `;
+
+export const slideLayout = css`
+  width: 100%;
+  height: 100%;
+`;

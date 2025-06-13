@@ -1,5 +1,3 @@
-// src/pages/JobEmpPage/JobEmpPage.jsx
-
 /** @jsxImportSource @emotion/react */
 import * as s from './style';
 import { Helmet } from 'react-helmet';
@@ -11,11 +9,11 @@ import SearchBox from '@/components/SearchBox/SearchBox';
 import Pagination from '@/components/Pagination/Pagination';
 import useAuthstate from '@/hooks/useAuthstate';
 import AdminContentAddButton from '@/components/AdminContentAddButton/AdminContentAddButton';
-import { getEmpPosts } from '@/firebase/jobEmpService'; 
 import TableList from '@/components/TableList/TableList';
 import EditButton from '@/components/Button/EditButton'; // 수정 버튼을 여기서 임포트
+import { getLicensePosts } from '@/firebase/JobLicenseService';
 
-function JobEmpPage() {
+function JobLicensePage() {
   const ITEMS_PER_PAGE = 10;
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -28,24 +26,24 @@ function JobEmpPage() {
 
   const breadcrumbs = [
     { name: '취업센터', link: '/job-center' },
-    { name: '취업현황', link: null }
+    { name: '자격증취득현황', link: null }
   ];
   
   // TableList에 전달할 헤더 정보 (key: 데이터 필드명, label: 화면 표시명)
   const headers = [
     { key: 'index', label: '번호' },
-    { key: 'date', label: '취업일자' },
-    { key: 'company', label: '업체명' },
-    { key: 'type', label: '직종' },
+    { key: 'name', label: '학생명' },
+    { key: 'type', label: '자격증종목' },
+    { key: 'company', label: '발급기관' },
     { key: 'course', label: '과정명' },
-    { key: 'name', label: '학생명' }
+    { key: 'date', label: '취득일자' },
   ];
 
   useEffect(() => {
     const fetchEmpPostsData = async () => {
       setLoading(true);
       try {
-        const data = await getEmpPosts();
+        const data = await getLicensePosts();
         const sortedData = data.sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis());
         setEmpPostList(sortedData);
       } catch (error) {
@@ -92,7 +90,7 @@ function JobEmpPage() {
   const renderTableActions = (item) => {
     if (isLoggedIn) {
       return (
-        <EditButton onClick={() => navigate(`/admin/job/emp/${item.id}/edit`)} />
+        <EditButton onClick={() => navigate(`/admin/job/license/${item.id}/edit`)} />
       );
     }
     return null;
@@ -116,20 +114,20 @@ function JobEmpPage() {
   return (
     <div css={s.layout}>
       <Helmet>
-        <title>취업현황 - 금성기술직업전문학교</title>
-        <meta name="description" content="금성기술직업전문학교 졸업생들의 성공적인 취업 사례를 소개합니다." />
+        <title>자격증취득현황 - 금성기술직업전문학교</title>
+        <meta name="description" content="" />
       </Helmet>
 
       <SubpageHeader
-        title="취업현황"
-        subtitle="금성기술직업전문학교 졸업생들의 성공적인 취업 사례를 소개합니다"
+        title="자격증취득현황"
+        subtitle="금성기술직업전문학교 졸업생들의 자격증 취득 현황 소개합니다"
         breadcrumbs={breadcrumbs}
       />
       <div css={s.container}>
         <div css={s.searchSection}>
           {isLoggedIn && (
             <div css={s.btnLayout}>
-              <AdminContentAddButton link={"/admin/job/emp/add"} />
+              <AdminContentAddButton link={"/admin/job/license/add"} />
             </div>
           )}
           <SearchBox
@@ -155,4 +153,4 @@ function JobEmpPage() {
   );
 }
 
-export default JobEmpPage;
+export default JobLicensePage;

@@ -9,6 +9,7 @@ import AdminNoticeEdit from "@/pages/AdminPage/AdminNoticeEdit/AdminNoticeEdit";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import AdminJobEmp from "@/pages/AdminPage/AdminJobEmp/AdminJobEmp";
 import AdminJobInfo from "@/pages/AdminPage/AdminJobInfo/AdminJobInfo";
+import AdminJobLicense from "@/pages/AdminPage/AdminJobLicense/AdminJobLicense";
 
 function AdminRoutes() {
   const { user, isLoggedIn, authLoading } = useAuthstate();
@@ -38,9 +39,12 @@ function AdminRoutes() {
 
       {/* 취업지원 */}
       <Route path="job/emp/add" element={<AdminJobEmp />} />
+      <Route path="job/license/add" element={<AdminJobLicense />} />
+      <Route path="job/license/:id/edit" element={<AdminJobLicense />} />
       <Route path="job/emp/:id/edit" element={<AdminJobEmp />} />
       <Route path="job/add" element={<AdminJobInfo />} />
       <Route path="job/:id/edit" element={<AdminJobInfo />} /> 
+
       {/* 공지사항 등록 */}
       <Route path="/notice" element={<AdminNotice />} />
       <Route path="/notice/:id" element={<AdminNoticeEdit />} />

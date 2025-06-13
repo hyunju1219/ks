@@ -9,6 +9,7 @@ const AdminPage = () => {
       <div css={s.menuGrid}>
         <Link css={s.menuButton} to="/courses/type/naeil-card" >교육과정 관리</Link>
         <Link css={s.menuButton} to="/notice" >공지사항 관리</Link>
+        <Link css={s.menuButton} to="/job-center/license" >자격증취득현황 관리</Link>
         <Link css={s.menuButton} to="/job-center/info" >구인게시판 관리</Link>
         <Link css={s.menuButton} to="/job-center/emp" >취업현황 관리</Link>
       </div>

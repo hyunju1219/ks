@@ -73,7 +73,7 @@ function JobInfoDetailPage() {
 
   const handleEdit = () => {
     if (id) {
-      navigate(`/admin/job-posting/${id}/edit`);
+      navigate(`/admin/job/${id}/edit`);
     }
   };
 

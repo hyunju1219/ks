@@ -100,6 +100,7 @@ const Header = () => {
       path: '/job-center',
       submenu: [
         { name: '지원시스템', path: '/job-center' },
+        { name: '자격증취득현황', path: '/job-center/license' },
         { name: '구인게시판', path: '/job-center/info' },
         { name: '취업현황', path: '/job-center/emp' },
       ]

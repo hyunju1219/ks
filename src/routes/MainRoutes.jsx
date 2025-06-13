@@ -2,7 +2,6 @@ import AboutPage from '@/pages/AboutPage/AboutPage';
 import FacilitiesPage from '@/pages/AboutPage/FacilitiesPage';
 import HistoryPage from '@/pages/AboutPage/HistoryPage';
 import PracticeDetailPage from '@/pages/AboutPage/PracticePage/PracticeDetailPage';
-import CertificatePage from '@/pages/CertificatePage/CertificatePage';
 import EnergyCraftsmanPage from '@/pages/CertificatePage/EnergyCraftsmanPage';
 import EnergyEngineerPage from '@/pages/CertificatePage/EnergyEngineerPage';
 import EnergyIndustrialPage from '@/pages/CertificatePage/EnergyIndustrialPage';
@@ -26,10 +25,10 @@ import CoureseJoinPage from '@/pages/CourseJoinPage/CourseJoinPage';
 import CourseDetailPage from '@/pages/CourseTypePage/CourseDetailPage';
 import CourseTypePage from '@/pages/CourseTypePage/CourseTypePage';
 import JobCenterPage from '@/pages/JobPage/JobCenterPage/JobCenterPage';
-import JobEmpDetailPage from '@/pages/JobPage/JobEmpDetailPage/JobEmpDetailPage';
 import JobEmpPage from '@/pages/JobPage/JobEmpPage/JobEmpPage';
 import JobInfoDetailPage from '@/pages/JobPage/JobInfoDetailPage/JobInfoDetailPage';
 import JobInfoPage from '@/pages/JobPage/JobInfoPage/JobInfoPage';
+import JobLicensePage from '@/pages/JobPage/JobLicensePage/JobLicensePage';
 import MainPage from '@/pages/MainPage/MainPage';
 import { Route, Routes } from 'react-router-dom';
 
@@ -76,10 +75,10 @@ function MainRoutes() {
 
             {/* 취업센터 */}
             <Route path="job-center" element={<JobCenterPage/>} />
+            <Route path="job-center/license" element={<JobLicensePage/>} />
             <Route path="job-center/info" element={<JobInfoPage/>} />               
             <Route path="job-center/info/:id" element={<JobInfoDetailPage/>} />     
             <Route path="job-center/emp" element={<JobEmpPage/>} />                 
-            <Route path="job-center/emp/:id" element={<JobEmpDetailPage/>} />
 
             {/* 고객지원 */}
             <Route path="notice" element={<NoticePage/>} />

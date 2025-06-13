@@ -1,5 +1,3 @@
-// src/pages/JobInfoPage/JobInfoPage.jsx
-
 /** @jsxImportSource @emotion/react */
 import { Helmet } from 'react-helmet';
 import { useState, useMemo, useEffect } from 'react';

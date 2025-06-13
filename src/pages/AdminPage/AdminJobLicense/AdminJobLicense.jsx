@@ -1,17 +1,17 @@
 /** @jsxImportSource @emotion/react */
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom"; // useParams 추가
+import { useNavigate, useParams } from "react-router-dom"
 import * as s from "./style";
 
-import { saveEmpPost, getEmpPostById, deleteEmpPost } from "@/firebase/jobEmpService"; 
 import DeleteButton from "@/components/Button/DeleteButton";
+import { deleteLicensePost, getLicensePostById, saveLicensePost } from "@/firebase/JobLicenseService";
 
-const AdminJobEmp = () => {
+const AdminJobLicense = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const isEditMode = Boolean(id);
   
-  const [empPost, setEmpPost] = useState({
+  const [licensePost, setLicensePost] = useState({
     date: "",
     company: "",
     type: "",
@@ -28,9 +28,9 @@ const AdminJobEmp = () => {
       const fetchPostData = async () => {
         setIsLoading(true);
         try {
-          const postData = await getEmpPostById(id);
+          const postData = await getLicensePostById(id);
           if (postData) {
-            setEmpPost({
+            setLicensePost({
               date: postData.date,
               name: postData.name,
               company: postData.company,
@@ -53,7 +53,7 @@ const AdminJobEmp = () => {
   }, [id, isEditMode, navigate]);
 
   const handleChange = (field, value) => {
-    setEmpPost((prev) => ({
+    setLicensePost((prev) => ({
       ...prev,
       [field]: value,
     }));
@@ -66,8 +66,8 @@ const AdminJobEmp = () => {
 
     setIsSubmitting(true);
     try {
-      await deleteEmpPost(id); // 서비스 함수에 id를 전달하여 삭제 요청
-      navigate("/job-center/emp"); // 삭제 후 목록 페이지로 이동
+      await deleteLicensePost(id); // 서비스 함수에 id를 전달하여 삭제 요청
+      navigate("/job-center/license"); // 삭제 후 목록 페이지로 이동
     } catch (err) {
       console.error("삭제 실패:", err);
       setIsSubmitting(false);
@@ -79,11 +79,11 @@ const AdminJobEmp = () => {
     setIsSubmitting(true);
 
     const newError = {};
-    if (!empPost.name.trim()) newError.name = "이름은 필수입니다.";
-    if (!empPost.date.trim()) newError.date = "날짜은 필수입니다.";
-    if (!empPost.company.trim()) newError.company = "회사는 필수입니다.";
-    if (!empPost.type.trim()) newError.type = "직종은 필수입니다.";
-    if (!empPost.course.trim()) newError.course = "과정명은 필수입니다.";
+    if (!licensePost.name.trim()) newError.name = "이름은 필수입니다.";
+    if (!licensePost.date.trim()) newError.date = "취득날짜은 필수입니다.";
+    if (!licensePost.company.trim()) newError.company = "발급기관은 필수입니다.";
+    if (!licensePost.type.trim()) newError.type = "자격증종목은 필수입니다.";
+    if (!licensePost.course.trim()) newError.course = "과정명은 필수입니다.";
 
     setError(newError);
     if (Object.keys(newError).length > 0) {
@@ -92,18 +92,18 @@ const AdminJobEmp = () => {
     }
 
     try {
-      const dataToSave = { ...empPost };
+      const dataToSave = { ...licensePost };
       if (isEditMode) {
         dataToSave.id = id;
       }
       
-      await saveEmpPost(dataToSave);
+      await saveLicensePost(dataToSave);
 
-      alert(`취업 현황이 성공적으로 ${isEditMode ? '수정' : '등록'}되었습니다.`);
+      alert(`자격증 취득 현황이 성공적으로 ${isEditMode ? '수정' : '등록'}되었습니다.`);
       
-      setEmpPost({ title: "", content: "" });
+      setLicensePost({ title: "", content: "" });
       setError({});
-      navigate(`/job-center/emp`);
+      navigate(`/job-center/license`);
       
     } catch (err) {
       console.error("저장 실패:", err);
@@ -118,14 +118,14 @@ const AdminJobEmp = () => {
 
   return (
     <div css={s.pageContainer}>
-      <h2 css={s.pageTitle}>취업현황 {isEditMode ? '수정' : '등록'}</h2>
+      <h2 css={s.pageTitle}>자격증 취득 현황 {isEditMode ? '수정' : '등록'}</h2>
       <form onSubmit={handleSubmit} css={s.form}>
         <label css={s.label}>
           이름
           <input
             type="text"
             placeholder="이름을 입력하세요"
-            value={empPost.name}
+            value={licensePost.name}
             onChange={(e) => handleChange("name", e.target.value)}
             css={s.input}
             disabled={isSubmitting}
@@ -137,8 +137,8 @@ const AdminJobEmp = () => {
             업체명
             <input
               type="text"
-              placeholder="업체명을 입력하세요"
-              value={empPost.company}
+              placeholder="발급기관을 입력하세요"
+              value={licensePost.company}
               onChange={(e) => handleChange("company", e.target.value)}
               css={s.input}
               disabled={isSubmitting}
@@ -149,8 +149,8 @@ const AdminJobEmp = () => {
           직종
           <input
             type="text"
-            placeholder="직종을 입력하세요"
-            value={empPost.type}
+            placeholder="자격증 종목을 입력하세요"
+            value={licensePost.type}
             onChange={(e) => handleChange("type", e.target.value)}
             css={s.input}
             disabled={isSubmitting}
@@ -162,7 +162,7 @@ const AdminJobEmp = () => {
           <input
             type="text"
             placeholder="과정명을 입력하세요"
-            value={empPost.course}
+            value={licensePost.course}
             onChange={(e) => handleChange("course", e.target.value)}
             css={s.input}
             disabled={isSubmitting}
@@ -173,8 +173,8 @@ const AdminJobEmp = () => {
           취업일자
           <input
             type="date"
-            placeholder="취업일자를 입력하세요"
-            value={empPost.date}
+            placeholder="취득일자를 입력하세요"
+            value={licensePost.date}
             onChange={(e) => handleChange("date", e.target.value)}
             css={s.input}
             disabled={isSubmitting}
@@ -187,7 +187,7 @@ const AdminJobEmp = () => {
           <button type="submit" css={s.button} disabled={isSubmitting}>
             {isSubmitting ? '저장 중...' : (isEditMode ? '수정' : '등록')}
           </button>
-          {isEditMode && (
+           {isEditMode && (
             <DeleteButton 
               onClick={handleDelete} 
               disabled={isSubmitting} 
@@ -199,4 +199,4 @@ const AdminJobEmp = () => {
   );
 };
 
-export default AdminJobEmp;
+export default AdminJobLicense;

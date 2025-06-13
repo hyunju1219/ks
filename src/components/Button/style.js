@@ -24,7 +24,6 @@ export const listButton = css`
 `;
 
 const baseButton = css`
-  margin-top: 1.5rem;
   background-color: #0056b3;
   color: white;
   font-weight: 500;
